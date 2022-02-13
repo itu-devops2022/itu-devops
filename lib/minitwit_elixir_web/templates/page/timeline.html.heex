@@ -1,0 +1,61 @@
+<h2><%= assigns[:page_title] %></h2>
+<%= if get_session(@conn, :user_id) do%>
+    <%= if @timeline_type == :user_timeline do%>
+        <div class="followstatus">
+            <%= if @currently_viewing_id == get_session(@conn, :user_id) do %>
+            This is you!
+            <% else %>
+                <%= if is_following(@conn, @currently_viewing_id) do%>
+                    <%= link "Unfollow user", to: Routes.page_path(@conn, :unfollow_user, Repo.get(User, @currently_viewing_id).username)%>
+                <% else %>
+                    <%= link "Follow user", to: Routes.page_path(@conn, :follow_user, Repo.get(User, @currently_viewing_id).username)%>
+                <% end%>
+            <% end %>
+        </div>
+        <!--<div class=followstatus>
+            {% if g.user.user_id == profile_user.user_id %}
+            This is you!
+            {% elif followed %}
+            You are currently following this user.
+            <a class=unfollow href="{{ url_for('unfollow_user', username=profile_user.username)
+                  }}">Unfollow user</a>.
+            {% else %}
+            You are not yet following this user.
+            <a class=follow href="{{ url_for('follow_user', username=profile_user.username)
+                  }}">Follow user</a>.
+            {% endif %}
+        </div>-->
+    <% end %>
+
+    <%= if @timeline_type == :timeline do %>
+        <div class="twitbox">
+            <h3>What's on your mind <%= Repo.get(User, get_session(@conn, :user_id)).username %>?</h3>
+            <%= form_for @conn, Routes.page_path(@conn, :add_message), fn f ->  %>
+                <%= text_input f, :text, size: 60 %>
+                <%= submit "Share" %>
+            <% end %>
+        </div>
+    <% end %>
+<% end%>
+<ul class="messages">
+    <%= if length(@messages) > 0 do %>
+        <%= for i <- @messages do %>
+            <li>
+                <%= img_tag(get_gravatar i.author.email, 48) %>
+                <p>
+                    <strong>
+                        <%= link i.author.username, to: Routes.page_path(@conn, :user_timeline, i.author.username) %>
+                    </strong>
+                    <small>
+                        &mdash; <%= "#{i.inserted_at.year}-#{i.inserted_at.month |> Integer.to_string |> String.pad_leading(2, "0")}-#{i.inserted_at.day |> Integer.to_string |> String.pad_leading(2, "0")} @ #{i.inserted_at.hour |> Integer.to_string |> String.pad_leading(2, "0")}:#{i.inserted_at.minute |> Integer.to_string |> String.pad_leading(2, "0")}:#{i.inserted_at.second |> Integer.to_string |> String.pad_leading(2, "0")}"  %>
+                    </small>
+                    <br>
+                    <%= i.text %>
+
+                </p>
+            </li>
+        <% end %>
+    <% else %>
+        <li><em>There's no message so far.</em></li>
+    <% end %>
+</ul>

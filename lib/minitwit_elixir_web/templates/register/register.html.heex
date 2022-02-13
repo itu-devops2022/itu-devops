@@ -1,0 +1,28 @@
+<h2>Sign Up</h2>
+
+<%= if get_flash(@conn, :error) do %>
+<div class="error"> <strong>Error:</strong> <%= get_flash(@conn, :error) %> </div>
+<% end %>
+
+<%= form_for @changeset, Routes.register_path(@conn, :index), fn f ->  %>
+    <%= label(f, :username, "Username:") %>
+    <%= text_input f, :username, size: 30 %>
+    <br>
+    <br>
+    <%= label(f, :email, "Email:") %>
+    <%= email_input f, :email, size: 30 %>
+    <br>
+    <br>
+    <%= label(f, :pw_hash, "Password:") %>
+    <%= password_input f, :pw_1, size: 30 %>
+    <br>
+    <br>
+    <label>
+        Password <small>(repeat)</small>: <%= password_input f, :pw_2, size: 30 %>
+    </label>
+    <br>
+    <br>
+    <div class="actions">
+        <%= submit "Sign up" %>
+    </div>
+<% end %>
