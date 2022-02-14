@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  web:
+    image: app
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    networks:
+      - default
+    env_file:
+      - database.config.env
+
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - default
