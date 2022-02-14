@@ -2,10 +2,11 @@ import Config
 
 # Configure your database
 config :minitwit_elixir, MinitwitElixir.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "minitwit_elixir_dev",
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: System.get_env("PGDATABASE"),
+  hostname: System.get_env("PGHOST"),
+  port:     System.get_env("PGPORT"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
