@@ -12,6 +12,6 @@ After our team discussion, we all agree to the following:
 8. There is an email list of current contributions to the project that can review and integrate pull requests:
 
 - hoch@itu.dk
-- ende@itu.dk
+- enbe@itu.dk
 - muki@itu.dk
 - dawo@itu.dk
