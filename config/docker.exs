@@ -1,14 +1,14 @@
 import Config
 
 # Configure your database
-config :minitwit_elixir,
-       MinitwitElixir.Repo,
-       username: "postgres",
-       password: "postgres",
-       hostname: "localhost",
-       database: "minitwit_elixir_dev",
-       show_sensitive_data_on_connection_error: true,
-       pool_size: 10
+config :minitwit_elixir, MinitwitElixir.Repo,
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: System.get_env("PGDATABASE"),
+  hostname: System.get_env("PGHOST"),
+  port:     System.get_env("PGPORT"),
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -16,22 +16,18 @@ config :minitwit_elixir,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :minitwit_elixir,
-       MinitwitElixirWeb.Endpoint,
-       # Binding to loopback ipv4 address prevents access from other machines.
-       # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-       http: [
-         ip: {127, 0, 0, 1},
-         port: 4000
-       ],
-       check_origin: false,
-       code_reloader: true,
-       debug_errors: true,
-       secret_key_base: "R1S+rOBxZNZP68iAgZcd2pJjTAM1q6E2j9MKEqn01EuvT4ulWf10f9PKT+HkN4QA",
-       watchers: [
-         # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-         esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-       ]
+config :minitwit_elixir, MinitwitElixirWeb.Endpoint,
+  # Binding to loopback ipv4 address prevents access from other machines.
+  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
+  http: [ip: {127, 0, 0, 1}, port: 4000],
+  check_origin: false,
+  code_reloader: true,
+  debug_errors: true,
+  secret_key_base: "R1S+rOBxZNZP68iAgZcd2pJjTAM1q6E2j9MKEqn01EuvT4ulWf10f9PKT+HkN4QA",
+  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+  ]
 
 # ## SSL Support
 #
@@ -58,16 +54,15 @@ config :minitwit_elixir,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :minitwit_elixir,
-       MinitwitElixirWeb.Endpoint,
-       live_reload: [
-         patterns: [
-           ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-           ~r"priv/gettext/.*(po)$",
-           ~r"lib/minitwit_elixir_web/(live|views)/.*(ex)$",
-           ~r"lib/minitwit_elixir_web/templates/.*(eex)$"
-         ]
-       ]
+config :minitwit_elixir, MinitwitElixirWeb.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
+      ~r"lib/minitwit_elixir_web/(live|views)/.*(ex)$",
+      ~r"lib/minitwit_elixir_web/templates/.*(eex)$"
+    ]
+  ]
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
