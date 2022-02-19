@@ -47,36 +47,36 @@ defmodule MinitwitElixirWeb.PageControllerTest do
   #tests
   test "register", %{conn: conn} do
     conn = register(conn, "user1", "default")
-    assert html_response(conn, 200) =~ "You were successfully registered and can login now"
+    assert get_flash(conn, :info) =~ "You were successfully registered and can login now"
 
     conn = register(conn, "user1", "default")
-    assert html_response(conn, 200) =~ "The username is already taken"
+    assert get_flash(conn, :info) =~ "The username is already taken"
 
     conn = register(conn, "", "default")
-    assert html_response(conn, 200) =~ "You have to enter a username"
+    assert get_flash(conn, :info) =~ "You have to enter a username"
 
     conn = register(conn, "meh", "")
-    assert html_response(conn, 200) =~ "You have to enter a password"
+    assert get_flash(conn, :info) =~ "You have to enter a password"
 
     conn = register(conn, "meh", "x", "y")
-    assert html_response(conn, 200) =~ "The two passwords do not match"
+    assert get_flash(conn, :info) =~ "The two passwords do not match"
 
     conn = register(conn, "meh", "foo", "foo", "broken")
-    assert html_response(conn, 200) =~ "You have to enter a valid email address"
+    assert get_flash(conn, :info) =~ "You have to enter a valid email address"
   end
 
   test "login_logout", %{conn: conn} do
     conn = register_and_login(conn, "user1", "default")
-    assert html_response(conn, 200) =~ "You were logged in"
+    assert get_flash(conn, :info) =~ "You were logged in"
 
     conn = logout(conn)
-    assert html_response(conn, 200) =~ "You were logged out"
+    assert get_flash(conn, :info) =~ "You were logged out"
 
     conn = login(conn, "user1", "wrongpassword")
-    assert html_response(conn, 200) =~ "Invalid password"
+    assert get_flash(conn, :info) =~ "Invalid password"
 
     conn = login(conn, "user2", "wrongpassword")
-    assert html_response(conn, 200) =~ "Invalid username"
+    assert get_flash(conn, :info) =~ "Invalid username"
   end
 
   test "message_recording", %{conn: conn} do
@@ -108,7 +108,7 @@ defmodule MinitwitElixirWeb.PageControllerTest do
 
     # now let's follow foo
     conn = get(conn, "/foo/follow")
-    assert html_response(conn, 200) =~ "You are now following &#34;foo&#34;"
+    assert get_flash(conn, :info) =~ "You are now following &#34;foo&#34;"
 
     # we should now see foo's message
     conn = get(conn, "/")
@@ -125,7 +125,7 @@ defmodule MinitwitElixirWeb.PageControllerTest do
 
     # now unfollow and check if that worked
     conn = get(conn, "/foo/unfollow")
-    assert html_response(conn, 200) =~ "You are no longer following &#34;foo&#34;"
+    assert get_flash(conn, :info) =~ "You are no longer following &#34;foo&#34;"
     conn = get(conn, "/")
     refute html_response(conn, 200) =~ "the message by foo"
     assert html_response(conn, 200) =~ "the message by bar"
