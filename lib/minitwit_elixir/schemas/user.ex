@@ -1,6 +1,9 @@
 defmodule MinitwitElixir.Schemas.User do
   use Ecto.Schema
+  alias MinitwitElixir.Repo
+  alias MinitwitElixir.Schemas.User
   import Ecto.Changeset
+  import Ecto.Query
 
   schema "users" do
     field :username, :string
@@ -22,4 +25,19 @@ defmodule MinitwitElixir.Schemas.User do
     Pbkdf2.hash_pwd_salt(pw)
   end
 
+  def new_user(user) do
+    pw_hash = put_password_hash(user["pw_1"])
+    changeset(%User{}, %{username: user["username"], email: user["email"], pw_hash: pw_hash}) |> Repo.insert()
+  end
+
+  # Returns user_id if username exists, returns -1 otherwise
+  def get_userid_from_username(username) do
+    username_query = from(u in User, where: u.username == ^username, select: u.id)
+    Enum.at(Repo.all(username_query), 0, -1)
+  end
+
+  def get_followings_from_username(user_id, followings_count) do
+    user = Repo.get(User, user_id) |> Repo.preload([:followings])
+    user.followings
+  end
 end

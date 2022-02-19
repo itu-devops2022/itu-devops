@@ -1,4 +1,4 @@
-defmodule MinitwitElixirWeb.PageController do
+defmodule MinitwitElixirWeb.TimelineController do
   use MinitwitElixirWeb, :controller
   import Phoenix.Controller
   import Ecto.Query
@@ -10,7 +10,7 @@ defmodule MinitwitElixirWeb.PageController do
   def index(conn, _params) do
     # If no users are logged in redirect to the public timeline
     if !get_session(conn, :user_id) do
-      redirect(conn, to: Routes.page_path(conn, :public_timeline))
+      redirect(conn, to: Routes.timeline_path(conn, :public_timeline))
     end
 
     user_id = get_session(conn, :user_id)
@@ -45,7 +45,7 @@ defmodule MinitwitElixirWeb.PageController do
     message = params["text"]
     user_id = get_session(conn, :user_id)
     Message.changeset(%Message{}, %{text: message, author_id: user_id}) |> Repo.insert()
-    redirect(conn, to: Routes.page_path(conn, :index))
+    redirect(conn, to: Routes.timeline_path(conn, :index))
   end
 
   def follow_user(conn, %{"username" => username}) do
@@ -60,8 +60,7 @@ defmodule MinitwitElixirWeb.PageController do
 
     other_name = username
 
-    query = from(u in User, where: u.username == ^other_name, select: u.id)
-    other_id = Repo.all(query)
+    other_id = User.get_userid_from_username(other_name)
 
     if length(other_id) == 0 do
       conn
@@ -70,8 +69,9 @@ defmodule MinitwitElixirWeb.PageController do
       |> render(:"404")
     end
 
-    Follower.changeset(%Follower{}, %{who_id: user_id, whom_id: Enum.at(other_id, 0)}) |> Repo.insert()
-    redirect(conn, to: Routes.page_path(conn, :user_timeline, username))
+    # Follower.changeset(%Follower{}, %{who_id: user_id, whom_id: Enum.at(other_id, 0)}) |> Repo.insert()
+    Follower.follow(user_id, other_id)
+    redirect(conn, to: Routes.timeline_path(conn, :user_timeline, username))
   end
 
   def unfollow_user(conn, %{"username" => username}) do
@@ -86,8 +86,7 @@ defmodule MinitwitElixirWeb.PageController do
 
     other_name = username
 
-    query = from(u in User, where: u.username == ^other_name, select: u.id)
-    other_id = Repo.all(query)
+    other_id = User.get_userid_from_username(other_name)
 
     if length(other_id) == 0 do
       conn
@@ -96,8 +95,10 @@ defmodule MinitwitElixirWeb.PageController do
       |> render(:"404")
     end
 
-    Repo.delete_all(from(f in Follower, where: f.who_id == ^user_id and f.whom_id == ^Enum.at(other_id, 0)))
+    # Repo.delete_all(from(f in Follower, where: f.who_id == ^user_id and f.whom_id == ^Enum.at(other_id, 0)))
+    Follower.unfollow(user_id, other_id)
 
-    redirect(conn, to: Routes.page_path(conn, :user_timeline, username))
+    redirect(conn, to: Routes.timeline_path(conn, :user_timeline, username))
   end
 end
+
