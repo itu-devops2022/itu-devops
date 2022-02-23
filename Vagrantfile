@@ -20,19 +20,16 @@ Vagrant.configure("2") do |config|
     aws.access_key_id = "XXX"
     aws.secret_access_key = "XXX"
     aws.keypair_name = "Uni key"
-    aws.ami ="ami-0bf2e73dbd8f4b4ff"
+    aws.ami ="ami-080badb0bf6503aee"
     aws.region = "eu-central-1"
     aws.instance_type = "t2.micro"
-    aws.security_groups = ["default"]
+    aws.security_groups = ["uni-1-all-welcome"]
 
-    override.ssh.username = "vagrant"
+    override.ssh.username = "ubuntu"
     override.ssh.private_key_path = "./Unikey.pem"
    
-  config.vm.synced_folder ".", "/home/vagrant", type: "rsync" 
-  config.vm.define "webserver", primary: true do |server|
-    server.vm.hostname = "webserver"
-    config.vm.box = "aws"
-    server.vm.provision "shell", privileged: false, inline: <<-SHELL
+  config.vm.synced_folder ".", "/home/ubuntu", type: "rsync" 
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
          sudo apt-get --assume-yes update
          sudo apt-get --assume-yes install \
              ca-certificates \
@@ -49,9 +46,9 @@ Vagrant.configure("2") do |config|
          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
          sudo chmod +x /usr/local/bin/docker-compose
          pwd
+         chmod 777 -R .
          sudo docker build -f docker/app/Dockerfile -t app .
          sudo docker-compose up
     SHELL
-    end
   end
 end
