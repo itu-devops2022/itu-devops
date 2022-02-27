@@ -2,7 +2,7 @@ version: "3"
 
 services:
   minitwit-elixir:
-    image: ${DOCKER_USERNAME}/minitwit-elixir
+    image: endritmegusta/minitwit-elixir
     ports:
       - "4000:4000"
     volumes:
@@ -15,7 +15,7 @@ services:
       - database.config.env
 
   db:
-    image: postgres:latest
+    image: endritmegusta/minitwit-elixir-db:latest
     container_name: db
     environment:
       - POSTGRES_PASSWORD=postgres
