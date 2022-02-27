@@ -19,5 +19,5 @@ EXPOSE 4000
 
 RUN chmod +x /app/entrypoint.sh
 RUN ls -la /app
-CMD ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
