@@ -20,8 +20,7 @@ before_install:
   # Add the key to the authentication agent
   - DISPLAY=":0.0" 
   - SSH_ASKPASS="/tmp/askpass" 
-  - cat /tmp/git_deploy_key
-  - setsid ssh-add /tmp/git_deploy_key </dev/null
+  - setsid ssh-add /tmp/git_deploy_key
 
 install:
   - docker --version  # document the version travis is using
