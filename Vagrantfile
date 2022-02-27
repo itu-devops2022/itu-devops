@@ -1,57 +1,45 @@
-require "vagrant-aws"
-
-# Check https://github.com/mitchellh/vagrant-aws/issues/566#issuecomment-580812210
-class Hash
-  def slice(*keep_keys)
-    h = {}
-    keep_keys.each { |key| h[key] = fetch(key) if has_key?(key) }
-    h
-  end unless Hash.method_defined?(:slice)
-  def except(*less_keys)
-    slice(*keys - less_keys)
-  end unless Hash.method_defined?(:except)
-end
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  # config.vm.box = "ubuntu/impish64"
-  config.vm.box = "dummy"
-  config.vm.provider "aws" do |aws, override|
-    # Keys distributed privately
-    aws.access_key_id = "XXX"
-    aws.secret_access_key = "XXX"
-    aws.keypair_name = "Uni key"
-    aws.ami ="ami-0bf2e73dbd8f4b4ff"
-    aws.region = "eu-central-1"
-    aws.instance_type = "t2.micro"
-    aws.security_groups = ["default"]
+  config.vm.box = 'digital_ocean'
+  config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+  config.ssh.private_key_path = '~/ssh_keys/do_ssh_key'
 
-    override.ssh.username = "vagrant"
-    override.ssh.private_key_path = "./Unikey.pem"
-   
-  config.vm.synced_folder ".", "/home/vagrant", type: "rsync" 
-  config.vm.define "webserver", primary: true do |server|
-    server.vm.hostname = "webserver"
-    config.vm.box = "aws"
-    server.vm.provision "shell", privileged: false, inline: <<-SHELL
-         sudo apt-get --assume-yes update
-         sudo apt-get --assume-yes install \
-             ca-certificates \
-             curl \
-             gnupg \
-             lsb-release \
-             nodejs
-         sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-         echo \
-             "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-             $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-         sudo apt-get --assume-yes update
-         sudo apt-get --assume-yes install docker-ce docker-ce-cli containerd.io
-         sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-         sudo chmod +x /usr/local/bin/docker-compose
-         pwd
-         sudo docker build -f docker/app/Dockerfile -t app .
-         sudo docker-compose up
-    SHELL
+  config.vm.synced_folder "remote_files", "/vagrant", type: "rsync", disabled: true
+  
+  config.vm.define "minitwit-elixir", primary: true do |server|
+
+    server.vm.provider :digital_ocean do |provider|
+      provider.ssh_key_name = "do_ssh_key"
+      provider.token = ENV["DIGITAL_OCEAN_TOKEN"]
+      provider.image = 'docker-18-04'
+      provider.region = 'fra1'
+      provider.size = 's-1vcpu-1gb'
+      provider.privatenetworking = true
     end
+
+    server.vm.hostname = "minitwit-elixir"
+    server.vm.provision "shell", inline: <<-SHELL
+
+    echo -e "\nVerifying that docker works ...\n"
+    docker run --rm hello-world
+    docker rmi hello-world
+
+    echo -e "\nOpening port for minitwit ...\n"
+    ufw allow 4000
+
+    echo -e "\nOpening port for minitwit ...\n"
+    echo ". $HOME/.bashrc" >> $HOME/.bash_profile
+
+    echo -e "\nConfiguring credentials as environment variables...\n"
+    echo "export DOCKER_USERNAME='endritmegusta'" >> $HOME/.bash_profile
+    echo "export DOCKER_PASSWORD='devops2022'" >> $HOME/.bash_profile
+    source $HOME/.bash_profile
+
+    echo -e "\nVagrant setup done ..."
+    echo -e "minitwit will later be accessible at http://$(hostname -I | awk '{print $1}'):4000"
+    echo -e "The mysql database needs a minute to initialize, if the landing page is stack-trace ..."
+    SHELL
   end
 end
