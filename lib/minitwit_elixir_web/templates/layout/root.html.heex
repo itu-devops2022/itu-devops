@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!--    <%= csrf_meta_tag() %>-->
     <%= live_title_tag assigns[:page_title] || "Unknown", suffix: " · MiniTwit" %>
-<!--    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>-->
-    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/style.css")}/>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
 <!--    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>-->
 
   </head>
@@ -16,11 +15,11 @@
     <h1>MiniTwit</h1>
     <div class="navigation">
       <%= if get_session(@conn, :user_id) do %>
-        <%= link "My Timeline", to: Routes.page_path(@conn, :index) %> |
-        <%= link "Public Timeline", to: Routes.page_path(@conn, :public_timeline) %> |
+        <%= link "My Timeline", to: Routes.timeline_path(@conn, :index) %> |
+        <%= link "Public Timeline", to: Routes.timeline_path(@conn, :public_timeline) %> |
         <%= link "Sign out [ #{get_username(get_session(@conn, :user_id))} ]", to: Routes.login_path(@conn, :logout) %>
       <% else %>
-        <%= link "Public Timeline", to: Routes.page_path(@conn, :public_timeline) %> |
+        <%= link "Public Timeline", to: Routes.timeline_path(@conn, :public_timeline) %> |
         <%= link "Sign up", to: Routes.register_path(@conn, :index) %> |
         <%= link "Sign in", to: Routes.login_path(@conn, :index) %>
       <% end %>

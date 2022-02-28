@@ -1,4 +1,4 @@
-defmodule MinitwitElixirWeb.PageView do
+defmodule MinitwitElixirWeb.TimelineView do
   use MinitwitElixirWeb, :view
   import Plug.Conn
   alias MinitwitElixir.Repo

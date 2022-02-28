@@ -6,9 +6,9 @@
             This is you!
             <% else %>
                 <%= if is_following(@conn, @currently_viewing_id) do%>
-                    <%= link "Unfollow user", to: Routes.page_path(@conn, :unfollow_user, Repo.get(User, @currently_viewing_id).username)%>
+                    <%= link "Unfollow user", to: Routes.timeline_path(@conn, :unfollow_user, Repo.get(User, @currently_viewing_id).username)%>
                 <% else %>
-                    <%= link "Follow user", to: Routes.page_path(@conn, :follow_user, Repo.get(User, @currently_viewing_id).username)%>
+                    <%= link "Follow user", to: Routes.timeline_path(@conn, :follow_user, Repo.get(User, @currently_viewing_id).username)%>
                 <% end%>
             <% end %>
         </div>
@@ -30,7 +30,7 @@
     <%= if @timeline_type == :timeline do %>
         <div class="twitbox">
             <h3>What's on your mind <%= Repo.get(User, get_session(@conn, :user_id)).username %>?</h3>
-            <%= form_for @conn, Routes.page_path(@conn, :add_message), fn f ->  %>
+            <%= form_for @conn, Routes.timeline_path(@conn, :add_message), fn f ->  %>
                 <%= text_input f, :text, size: 60 %>
                 <%= submit "Share" %>
             <% end %>
@@ -44,7 +44,7 @@
                 <%= img_tag(get_gravatar i.author.email, 48) %>
                 <p>
                     <strong>
-                        <%= link i.author.username, to: Routes.page_path(@conn, :user_timeline, i.author.username) %>
+                        <%= link i.author.username, to: Routes.timeline_path(@conn, :user_timeline, i.author.username) %>
                     </strong>
                     <small>
                         &mdash; <%= "#{i.inserted_at.year}-#{i.inserted_at.month |> Integer.to_string |> String.pad_leading(2, "0")}-#{i.inserted_at.day |> Integer.to_string |> String.pad_leading(2, "0")} @ #{i.inserted_at.hour |> Integer.to_string |> String.pad_leading(2, "0")}:#{i.inserted_at.minute |> Integer.to_string |> String.pad_leading(2, "0")}:#{i.inserted_at.second |> Integer.to_string |> String.pad_leading(2, "0")}"  %>

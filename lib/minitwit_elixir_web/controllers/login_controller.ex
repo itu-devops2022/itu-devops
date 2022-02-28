@@ -10,7 +10,7 @@ defmodule MinitwitElixirWeb.LoginController do
     # If the user was already logged in
     if get_session(conn, :user_id) do
       IO.puts("The user was already logged in")
-      redirect(conn, to: Routes.page_path(conn, :index))
+      redirect(conn, to: Routes.timeline_path(conn, :index))
     end
 
     if params["user"] do
@@ -22,7 +22,7 @@ defmodule MinitwitElixirWeb.LoginController do
 
         put_session(conn, :user_id, db_user.id) |>
           put_flash(:info, "You were logged in") |>
-          redirect(to: Routes.page_path(conn, :index))
+          redirect(to: Routes.timeline_path(conn, :index))
       else
         put_flash(conn, :error, "Invalid username or password") |>
           render("login.html", page_title: "Sign in")
@@ -35,7 +35,7 @@ defmodule MinitwitElixirWeb.LoginController do
   def logout(conn, _params) do
     delete_session(conn, :user_id) |>
       put_flash(:info, "You were logged out") |>
-      redirect(to: Routes.page_path(conn, :public_timeline))
+      redirect(to: Routes.timeline_path(conn, :public_timeline))
   end
 
 end
