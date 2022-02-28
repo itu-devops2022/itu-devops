@@ -62,7 +62,7 @@ defmodule MinitwitElixirWeb.TimelineController do
 
     other_id = User.get_userid_from_username(other_name)
 
-    if length(other_id) == 0 do
+    if other_id == -1 do
       conn
       |> put_status(404)
       |> put_view(MinitwitElixirWeb.ErrorView)
@@ -90,7 +90,7 @@ defmodule MinitwitElixirWeb.TimelineController do
 
     other_id = User.get_userid_from_username(other_name)
 
-    if length(other_id) == 0 do
+    if other_id == -1 do
       conn
       |> put_status(404)
       |> put_view(MinitwitElixirWeb.ErrorView)

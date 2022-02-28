@@ -62,8 +62,17 @@ defmodule MinitwitElixirWeb.Endpoint do
     req_agent = get_req_header(conn, "user-agent")
 
     # Check if the request accepts JSON as a response
-    accepts_json = Enum.at(req_header, 0) =~ "application/json"
-    python_agent = Enum.at(req_agent, 0) =~ "python-requests"
+    accepts_json = if length(req_header) > 0 do
+      Enum.at(req_header, 0) =~ "application/json"
+      else
+      false
+    end
+
+    python_agent = if length(req_agent) > 0 do
+      Enum.at(req_agent, 0) =~ "python-requests"
+      else
+      false
+    end
 
     # If it accepts JSON then treat it as an API call
     if ((accepts_json || python_agent) && Enum.at(conn.path_info, 0) != "api") do
