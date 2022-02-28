@@ -71,7 +71,10 @@ defmodule MinitwitElixirWeb.PageController do
     end
 
     Follower.changeset(%Follower{}, %{who_id: user_id, whom_id: Enum.at(other_id, 0)}) |> Repo.insert()
-    redirect(conn, to: Routes.page_path(conn, :user_timeline, username))
+
+    conn |>
+      put_flash(:info, "You are now following #{other_name}") |>
+      redirect(to: Routes.page_path(conn, :user_timeline, username))
   end
 
   def unfollow_user(conn, %{"username" => username}) do
@@ -98,6 +101,8 @@ defmodule MinitwitElixirWeb.PageController do
 
     Repo.delete_all(from(f in Follower, where: f.who_id == ^user_id and f.whom_id == ^Enum.at(other_id, 0)))
 
-    redirect(conn, to: Routes.page_path(conn, :user_timeline, username))
+    conn |>
+      put_flash(:info, "You are no longer following #{other_name}") |>
+      redirect(to: Routes.page_path(conn, :user_timeline, username))
   end
 end
