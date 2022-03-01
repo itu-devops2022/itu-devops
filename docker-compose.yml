@@ -13,6 +13,8 @@ services:
       - default
     env_file:
       - database.config.env
+    entrypoint:
+      - /docker/entrypoint.sh
 
   db:
     image: endritmegusta/minitwit-elixir-db:latest

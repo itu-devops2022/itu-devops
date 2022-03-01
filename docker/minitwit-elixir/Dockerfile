@@ -17,6 +17,6 @@ RUN mix deps.get
 
 EXPOSE 4000
 
-RUN chmod +x /docker/entrypoint.sh
-ENTRYPOINT ["/docker/entrypoint.sh"]
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
 
