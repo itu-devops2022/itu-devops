@@ -22,7 +22,7 @@ defmodule MinitwitElixir.Schemas.User do
   end
 
   def put_password_hash(pw) do
-    hash = Pbkdf2.hash_pwd_salt("Hello", rounds: 50000)
+    hash = Pbkdf2.hash_pwd_salt(pw, rounds: 50000)
     hash
   end
 
