@@ -38,6 +38,7 @@ Vagrant.configure("2") do |config|
     source $HOME/.bash_profile
     cd /docker
     ls -la
+    docker-compose pull
     docker-compose up
 
     echo -e "\nVagrant setup done ..."
