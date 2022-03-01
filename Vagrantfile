@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
   config.ssh.private_key_path = '~/ssh_keys/do_ssh_key'
 
-  config.vm.synced_folder "remote_files", "/vagrant", type: "rsync", disabled: true
+  config.vm.synced_folder ".", "/docker", type: "rsync", rsync__args: ["-r", "--include=docker-compose.yml", "--include=database.config.env" "--include=entrypoint.sh" "--exclude=*"]
   
   config.vm.define "minitwit-elixir", primary: true do |server|
 
@@ -36,6 +36,9 @@ Vagrant.configure("2") do |config|
     echo "export DOCKER_USERNAME='endritmegusta'" >> $HOME/.bash_profile
     echo "export DOCKER_PASSWORD='devops2022'" >> $HOME/.bash_profile
     source $HOME/.bash_profile
+    cd /docker
+    ls -la
+    docker-compose up
 
     echo -e "\nVagrant setup done ..."
     echo -e "minitwit will later be accessible at http://$(hostname -I | awk '{print $1}'):4000"
