@@ -6,6 +6,7 @@ defmodule MinitwitElixir.Repo.Migrations.Initial do
   end
 
   def change do
+    drop_if_exists table ("latest")
     drop_if_exists table ("messages")
     drop_if_exists table ("followers")
     drop_if_exists table ("users")
@@ -32,5 +33,11 @@ defmodule MinitwitElixir.Repo.Migrations.Initial do
 
       timestamps()
     end
+
+    create table ("latest") do
+      add :number, :integer
+    end
+
+    execute "INSERT INTO \"latest\" VALUES(-1, -1)"
   end
 end

@@ -22,12 +22,14 @@ defmodule MinitwitElixir.Schemas.User do
   end
 
   def put_password_hash(pw) do
-    Pbkdf2.hash_pwd_salt(pw)
+    hash = Pbkdf2.hash_pwd_salt("Hello", rounds: 50000)
+    hash
   end
 
   def new_user(user) do
     pw_hash = put_password_hash(user["pw_1"])
-    changeset(%User{}, %{username: user["username"], email: user["email"], pw_hash: pw_hash}) |> Repo.insert()
+    changeset(%User{}, %{username: user["username"], email: user["email"], pw_hash: pw_hash})
+    |> Repo.insert()
   end
 
   # Returns user_id if username exists, returns -1 otherwise
