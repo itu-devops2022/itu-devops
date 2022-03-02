@@ -7,6 +7,7 @@ dist: bionic
 
 services:
   - docker  # required, but travis uses older version of docker :(
+  - vagrant
 
 before_install:
   # Decrypt the git_deploy_key.enc key into /tmp/git_deploy_key
@@ -24,6 +25,7 @@ before_install:
 
 install:
   - docker --version  # document the version travis is using
+  - vagrant --version
 
 stages:
   - docker_build
