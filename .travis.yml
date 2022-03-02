@@ -7,7 +7,6 @@ dist: bionic
 
 services:
   - docker  # required, but travis uses older version of docker :(
-  - vagrant
 
 before_install:
   # Decrypt the git_deploy_key.enc key into /tmp/git_deploy_key
@@ -25,6 +24,12 @@ before_install:
 
 install:
   - docker --version  # document the version travis is using
+  
+  - # Download Vagrant & Install Vagrant package
+  - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
+  - sudo dpkg -i vagrant_2.2.7_x86_64.deb
+
+  # Vagrant correctly installed?
   - vagrant --version
 
 stages:
