@@ -7,7 +7,8 @@ defmodule MinitwitElixirWeb.Api.RegisterController do
   import MinitwitElixirWeb.RegisterController, only: [user_can_be_registered: 1]
 
   def register(conn, params) do
-    IO.inspect(params)
+    MinitwitElixirWeb.Api.TimelineController.update_latest(params)
+
     user = %{
       "email" => params["email"],
       "pw_1" => params["pwd"],

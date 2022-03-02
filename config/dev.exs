@@ -22,7 +22,8 @@ config :minitwit_elixir,
        # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
        http: [
          ip: {127, 0, 0, 1},
-         port: 4000
+         port: 4000,
+         protocol_options: [idle_timeout: 10_000]
        ],
        check_origin: false,
        code_reloader: true,

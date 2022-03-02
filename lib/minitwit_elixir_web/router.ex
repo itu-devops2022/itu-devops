@@ -37,7 +37,7 @@ defmodule MinitwitElixirWeb.Router do
     pipe_through :api
 
     get "/latest", Api.TimelineController, :latest
-    get "/updateLatest", Api.TimelineController, :update_latest
+    #get "/updateLatest", Api.TimelineController, :update_latest
     post "/register", Api.RegisterController, :register
     get "/msgs", Api.TimelineController, :all_msgs
     get "/msgs/:username", Api.TimelineController, :get_user_msgs

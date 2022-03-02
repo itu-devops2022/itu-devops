@@ -62,7 +62,7 @@ defmodule MinitwitElixirWeb.TimelineController do
 
     other_id = User.get_userid_from_username(other_name)
 
-    if length(other_id) == 0 do
+    if other_id == -1 do
       conn
       |> put_status(404)
       |> put_view(MinitwitElixirWeb.ErrorView)
@@ -71,7 +71,9 @@ defmodule MinitwitElixirWeb.TimelineController do
 
     # Follower.changeset(%Follower{}, %{who_id: user_id, whom_id: Enum.at(other_id, 0)}) |> Repo.insert()
     Follower.follow(user_id, other_id)
-    redirect(conn, to: Routes.timeline_path(conn, :user_timeline, username))
+    conn |>
+      put_flash(:info, "You are now following #{other_name}") |>
+      redirect(to: Routes.timeline_path(conn, :user_timeline, username))
   end
 
   def unfollow_user(conn, %{"username" => username}) do
@@ -88,7 +90,7 @@ defmodule MinitwitElixirWeb.TimelineController do
 
     other_id = User.get_userid_from_username(other_name)
 
-    if length(other_id) == 0 do
+    if other_id == -1 do
       conn
       |> put_status(404)
       |> put_view(MinitwitElixirWeb.ErrorView)
@@ -98,7 +100,8 @@ defmodule MinitwitElixirWeb.TimelineController do
     # Repo.delete_all(from(f in Follower, where: f.who_id == ^user_id and f.whom_id == ^Enum.at(other_id, 0)))
     Follower.unfollow(user_id, other_id)
 
-    redirect(conn, to: Routes.timeline_path(conn, :user_timeline, username))
+    conn |>
+      put_flash(:info, "You are no longer following #{other_name}") |>
+      redirect(to: Routes.timeline_path(conn, :user_timeline, username))
   end
 end
-
