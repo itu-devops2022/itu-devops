@@ -20,17 +20,10 @@ before_install:
   # Add the key to the authentication agent
   - export DISPLAY=":0.0" 
   - export SSH_ASKPASS="/tmp/askpass" 
-  # - setsid ssh-add /tmp/git_deploy_key
+  - setsid ssh-add /tmp/git_deploy_key
 
 install:
   - docker --version  # document the version travis is using
-  
-  - # Download Vagrant & Install Vagrant package
-  - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
-  - sudo dpkg -i vagrant_2.2.7_x86_64.deb
-
-  # Vagrant correctly installed?
-  - vagrant --version
 
 stages:
   - docker_build
@@ -68,6 +61,10 @@ jobs:
       install: skip
       # -o flag to get around "add ip to known hosts prompt"
       script: |
-        vagrant up --provider=digital_ocean
+        ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
+        "source /root/.bash_profile && \
+        cd /vagrant && \
+        docker-compose pull && \
+        docker-compose up -d
 
 

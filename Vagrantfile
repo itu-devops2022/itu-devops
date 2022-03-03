@@ -38,8 +38,6 @@ Vagrant.configure("2") do |config|
     source $HOME/.bash_profile
     cd /docker
     ls -la
-    docker-compose pull
-    docker-compose up
 
     echo -e "\nVagrant setup done ..."
     echo -e "minitwit will later be accessible at http://$(hostname -I | awk '{print $1}'):4000"
