@@ -63,7 +63,7 @@ jobs:
       script: |
         ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
         "source /root/.bash_profile && \
-        cd /vagrant && \
+        cd /docker && \
         docker-compose pull && \
         docker-compose up -d"
 
