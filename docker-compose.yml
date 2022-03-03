@@ -14,10 +14,10 @@ services:
     env_file:
       - database.config.env
     entrypoint:
-      - /docker/entrypoint.sh
+      - ./entrypoint.sh
 
   db:
-    image: endritmegusta/minitwit-elixir-db:latest
+    image: endritmegusta/minitwit-elixir-db
     container_name: db
     environment:
       - POSTGRES_PASSWORD=postgres
