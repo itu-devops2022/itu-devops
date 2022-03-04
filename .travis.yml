@@ -39,12 +39,12 @@ jobs:
         - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
         - echo "BUILD"
         - docker build -t $DOCKER_USERNAME/minitwit-elixir:latest . -f docker/minitwit-elixir/Dockerfile
-        - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
+        # - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
         # - docker build -t $DOCKER_USERNAME/mysqlimage:latest . -f Dockerfile-mysql
         # - docker build -t $DOCKER_USERNAME/flagtoolimage:latest . -f Dockerfile-flagtool
         - echo "PUSH"
         - docker push $DOCKER_USERNAME/minitwit-elixir:latest
-        - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
+        # - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
         # - docker push $DOCKER_USERNAME/mysqlimage:latest
         # - docker push $DOCKER_USERNAME/flagtoolimage:latest
 
@@ -64,7 +64,6 @@ jobs:
         ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
         "source /root/.bash_profile && \
         cd /docker && \
-        docker-compose pull && \
-        docker-compose up -d"
+        docker run -p 4000:4000 --env-file=database.config.env -d $DOCKER_USERNAME/minitwit-elixir"
 
 

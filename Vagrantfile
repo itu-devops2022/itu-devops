@@ -8,8 +8,34 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/docker", type: "rsync", rsync__args: ["-r", "--include=docker-compose.yml", "--include=database.config.env" "--include=entrypoint.sh" "--exclude=*"]
   
-  config.vm.define "minitwit-elixir", primary: true do |server|
+  config.vm.define "minitwit-elixir-db",  primary: true do |server|
+    server.vm.network "private_network", ip: "192.168.56.2"
+    server.vm.provider :digital_ocean do |provider|
+      provider.ssh_key_name = "do_ssh_key"
+      provider.token = ENV["DIGITAL_OCEAN_TOKEN"]
+      provider.image = 'docker-18-04'
+      provider.region = 'fra1'
+      provider.size = 's-1vcpu-1gb'
+      provider.privatenetworking = true
+    end
+    server.vm.hostname = "minitwit-elixir-db"
+    server.vm.provision "shell", inline: <<-SHELL
 
+    echo -e "\nVerifying that docker works ...\n"
+    docker run --rm hello-world
+    docker rmi hello-world
+
+    cd /docker
+    ls -la
+    docker run -p 5432:5432 --env-file=database.config.env -d postgres
+
+    echo -e "\nVagrant setup for db done ..."
+    SHELL
+  end
+
+
+
+  config.vm.define "minitwit-elixir", primary: true do |server|
     server.vm.provider :digital_ocean do |provider|
       provider.ssh_key_name = "do_ssh_key"
       provider.token = ENV["DIGITAL_OCEAN_TOKEN"]
@@ -39,9 +65,8 @@ Vagrant.configure("2") do |config|
     cd /docker
     ls -la
 
-    echo -e "\nVagrant setup done ..."
+    echo -e "\nVagrant setup for server done ..."
     echo -e "minitwit will later be accessible at http://$(hostname -I | awk '{print $1}'):4000"
-    echo -e "The mysql database needs a minute to initialize, if the landing page is stack-trace ..."
     SHELL
   end
 end
