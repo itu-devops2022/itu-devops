@@ -64,6 +64,6 @@ jobs:
         ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
         "source /root/.bash_profile && \
         cd /docker && \
-        docker run -p 4000:4000 --env-file=database.config.env -d $DOCKER_USERNAME/minitwit-elixir"
+        docker run -p 4000:4000 --env-file=database.config.env --name app -d $DOCKER_USERNAME/minitwit-elixir"
 
 
