@@ -10,7 +10,8 @@ services:
 
 before_install:
   # Decrypt the git_deploy_key.enc key into /tmp/git_deploy_key
-  - openssl aes-256-cbc -K $encrypted_9571421ba08d_key -iv $encrypted_9571421ba08d_iv -in do_ssh_key.enc -out /tmp/git_deploy_key -d
+  # - openssl aes-256-cbc -K $encrypted_9571421ba08d_key -iv $encrypted_9571421ba08d_iv -in do_ssh_key.enc -out /tmp/git_deploy_key -d
+  - openssl aes-256-cbc -k "$TRAVIS_DEPLOY_KEY" -d -md sha256 -a -in travis_key.enc -out /tmp/git_deploy_key
   # Make sure only the current user can read the private key
   - chmod 600 /tmp/git_deploy_key
   # Create a script to return the passphrase environment variable to ssh-add
