@@ -23,6 +23,7 @@ before_install:
   - export DISPLAY=":0.0" 
   - export SSH_ASKPASS="/tmp/askpass" 
   - setsid ssh-add /tmp/git_deploy_key
+  - echo $RELEASE_PAT > /tmp/gh_token
 
 install:
   - docker --version  # document the version travis is using
@@ -85,7 +86,7 @@ jobs:
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
         sudo apt update
         sudo apt install gh
-        gh auth login --with-token $RELEASE_PAT
+        gh auth login --with-token /tmp/gh_token
         gh release create "test" -d --target release
 
 
