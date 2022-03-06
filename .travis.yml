@@ -89,7 +89,7 @@ jobs:
         - gh auth login --with-token < /tmp/gh_token
         - gh auth status
         - export TAG="$(( $(date +"%U") - 5))"
-        - gh release list > tmp/list
+        - gh release list > /tmp/list
         - export SUB="$(grep -c 'v0.${TAG}' tmp/list)"
         - gh release create "v0.${TAG}.${SUB}" --generate-notes --target release
 
