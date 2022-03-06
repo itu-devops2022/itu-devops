@@ -63,6 +63,7 @@ jobs:
       script: |
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis CI"
+        git merge --no-ff --no-commit branchX
         git status
     # git add -u
     # git reset -- .travis.yml
