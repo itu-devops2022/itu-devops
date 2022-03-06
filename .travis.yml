@@ -69,7 +69,7 @@ jobs:
         git branch -v -a
         git switch -c release origin-remote/release
         git merge --no-ff --no-commit --strategy-option ours digitaloceanTest
-        git commit -m"Commit for release"
+        git commit -m"Commit for release [ci skip]"
         git status
         git push
 
