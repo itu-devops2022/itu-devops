@@ -87,6 +87,8 @@ jobs:
         - sudo apt update
         - sudo apt install gh
         - gh help
+        - gh auth status
+        - cat /tmp/gh_token
         - gh auth login --with-token /tmp/gh_token
         - gh auth status
         - gh release create "test" -d --target release
