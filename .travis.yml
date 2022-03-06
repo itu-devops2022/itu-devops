@@ -78,7 +78,7 @@ jobs:
 
     - stage: release
       name: "Release"
-        install: skip
+      install: skip
       if: env(RELEASE) IS true
       script: |
         echo "Release"
