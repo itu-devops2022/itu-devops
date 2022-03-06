@@ -70,7 +70,7 @@ jobs:
     - stage: release
       name: "Release"
       install: skip
-      if: env(RELEASE) IS true && (type IS NOT present OR type = cron)
+      if: env(RELEASE) IS true && type NOT IN (push, pull_request)
       script: |
         echo "Release"
 
