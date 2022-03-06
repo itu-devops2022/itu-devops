@@ -65,6 +65,7 @@ jobs:
     - stage: push
       name: "push to branch"
       install: skip
+      if: env(RELEASE) IS false
       script: |
         echo "Create release"
 
