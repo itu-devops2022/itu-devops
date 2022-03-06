@@ -26,9 +26,10 @@ install:
   - docker --version  # document the version travis is using
 
 stages:
-  - docker_build
+  # - docker_build
   # - test
-  - deploy
+  - push
+  # - deploy
 
 jobs:
   include:
@@ -55,7 +56,17 @@ jobs:
     #     - docker build -t $DOCKER_USERNAME/minitwittestimage -f Dockerfile-minitwit-tests .
     #     - yes | docker-compose up -d
     #     - docker run -it --rm --network=itu-minitwit-network $DOCKER_USERNAME/minitwittestimage
- 
+
+    - stage: push
+      name: "push to branch"
+      install: skip
+      script: |
+        git config --global user.email "travis@travis-ci.org"
+        git config --global user.name "Travis CI"
+        git status
+    # git add -u
+    # git reset -- .travis.yml
+
     - stage: deploy
       name: "deploy new version"
       install: skip
