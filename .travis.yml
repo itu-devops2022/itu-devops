@@ -20,8 +20,8 @@ before_install:
   # Start the authentication agent
   - eval "$(ssh-agent -s)"
   # Add the key to the authentication agent
-  - export DISPLAY=":0.0" 
-  - export SSH_ASKPASS="/tmp/askpass" 
+  - export DISPLAY=":0.0"
+  - export SSH_ASKPASS="/tmp/askpass"
   - setsid ssh-add /tmp/git_deploy_key
 
 install:
@@ -36,21 +36,21 @@ stages:
 
 jobs:
   include:
-#    - stage: docker_build
-#      name: "build and push docker"
-#      script:
-#        - echo "LOGIN"
-#        - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-#        - echo "BUILD"
-#        - docker build -t $DOCKER_USERNAME/minitwit-elixir:latest . -f docker/minitwit-elixir/Dockerfile
-#        # - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
-#        # - docker build -t $DOCKER_USERNAME/mysqlimage:latest . -f Dockerfile-mysql
-#        # - docker build -t $DOCKER_USERNAME/flagtoolimage:latest . -f Dockerfile-flagtool
-#        - echo "PUSH"
-#        - docker push $DOCKER_USERNAME/minitwit-elixir:latest
-#        # - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
-#        # - docker push $DOCKER_USERNAME/mysqlimage:latest
-#        # - docker push $DOCKER_USERNAME/flagtoolimage:latest
+    #    - stage: docker_build
+    #      name: "build and push docker"
+    #      script:
+    #        - echo "LOGIN"
+    #        - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    #        - echo "BUILD"
+    #        - docker build -t $DOCKER_USERNAME/minitwit-elixir:latest . -f docker/minitwit-elixir/Dockerfile
+    #        # - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
+    #        # - docker build -t $DOCKER_USERNAME/mysqlimage:latest . -f Dockerfile-mysql
+    #        # - docker build -t $DOCKER_USERNAME/flagtoolimage:latest . -f Dockerfile-flagtool
+    #        - echo "PUSH"
+    #        - docker push $DOCKER_USERNAME/minitwit-elixir:latest
+    #        # - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
+    #        # - docker push $DOCKER_USERNAME/mysqlimage:latest
+    #        # - docker push $DOCKER_USERNAME/flagtoolimage:latest
 
     # - stage: test
     #   name: "run pytest"
@@ -65,14 +65,23 @@ jobs:
       install: skip
       if: env(RELEASE) IS false
       script: |
-        echo "Create release"
+        git config --global user.email "travis@travis-ci.org"
+        git config --global user.name "Travis CI"
+        git remote add origin-remote git@github.com:HolgerGottChristensen/itu-devops.git
+        git fetch origin-remote
+        git branch -v -a
+        git switch -c release origin-remote/release
+        git merge --no-ff --no-commit --strategy-option ours digitaloceanTest
+        git commit -m"Commit for release"
+        git status
+        git push
 
     - stage: release
       name: "Release"
       install: skip
       if: env(RELEASE) IS true && type NOT IN (push, pull_request)
       script: |
-        echo "Release 2"
+        echo "Release"
 
 #    - stage: deploy
 #      name: "deploy new version"
