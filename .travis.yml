@@ -33,21 +33,21 @@ stages:
 
 jobs:
   include:
-    - stage: docker_build
-      name: "build and push docker"
-      script:
-        - echo "LOGIN"
-        - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-        - echo "BUILD"
-        - docker build -t $DOCKER_USERNAME/minitwit-elixir:latest . -f docker/minitwit-elixir/Dockerfile
-        # - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
-        # - docker build -t $DOCKER_USERNAME/mysqlimage:latest . -f Dockerfile-mysql
-        # - docker build -t $DOCKER_USERNAME/flagtoolimage:latest . -f Dockerfile-flagtool
-        - echo "PUSH"
-        - docker push $DOCKER_USERNAME/minitwit-elixir:latest
-        # - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
-        # - docker push $DOCKER_USERNAME/mysqlimage:latest
-        # - docker push $DOCKER_USERNAME/flagtoolimage:latest
+#    - stage: docker_build
+#      name: "build and push docker"
+#      script:
+#        - echo "LOGIN"
+#        - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+#        - echo "BUILD"
+#        - docker build -t $DOCKER_USERNAME/minitwit-elixir:latest . -f docker/minitwit-elixir/Dockerfile
+#        # - docker build -t $DOCKER_USERNAME/minitwit-elixir-db:latest . -f docker/db/Dockerfile
+#        # - docker build -t $DOCKER_USERNAME/mysqlimage:latest . -f Dockerfile-mysql
+#        # - docker build -t $DOCKER_USERNAME/flagtoolimage:latest . -f Dockerfile-flagtool
+#        - echo "PUSH"
+#        - docker push $DOCKER_USERNAME/minitwit-elixir:latest
+#        # - docker push $DOCKER_USERNAME/minitwit-elixir-db:latest
+#        # - docker push $DOCKER_USERNAME/mysqlimage:latest
+#        # - docker push $DOCKER_USERNAME/flagtoolimage:latest
 
     # - stage: test
     #   name: "run pytest"
@@ -63,20 +63,21 @@ jobs:
       script: |
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis CI"
-        git checkout release
+        git remote add origin https://github.com/HolgerGottChristensen/itu-devops.git
+        git checkout origin/release
         git merge --no-ff --no-commit digitaloceanTest
         git status
     # git add -u
     # git reset -- .travis.yml
 
-    - stage: deploy
-      name: "deploy new version"
-      install: skip
-      # -o flag to get around "add ip to known hosts prompt"
-      script: |
-        ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
-        "source /root/.bash_profile && \
-        cd /docker && \
-        docker run -p 4000:4000 --env-file=database.config.env --name minitwit-app -d $DOCKER_USERNAME/minitwit-elixir"
+#    - stage: deploy
+#      name: "deploy new version"
+#      install: skip
+#      # -o flag to get around "add ip to known hosts prompt"
+#      script: |
+#        ssh -o "StrictHostKeyChecking no" ${MT_USER}@${MT_SERVER} \
+#        "source /root/.bash_profile && \
+#        cd /docker && \
+#        docker run -p 4000:4000 --env-file=database.config.env --name minitwit-app -d $DOCKER_USERNAME/minitwit-elixir"
 
 
