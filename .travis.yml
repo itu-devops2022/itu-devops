@@ -62,16 +62,7 @@ jobs:
       name: "push to branch"
       install: skip
       script: |
-        git config --global user.email "travis@travis-ci.org"
-        git config --global user.name "Travis CI"
-        git remote add origin-remote git@github.com:HolgerGottChristensen/itu-devops.git
-        git fetch origin-remote
-        git branch -v -a
-        git switch -c release origin-remote/release
-        git merge --no-ff --no-commit --strategy-option ours digitaloceanTest
-        git commit -m"Commit for release"
-        git status
-        git push
+        echo "Create release"
 
 #    - stage: deploy
 #      name: "deploy new version"
