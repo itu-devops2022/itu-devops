@@ -88,8 +88,8 @@ jobs:
         - sudo apt install gh
         - gh auth login --with-token < /tmp/gh_token
         - gh auth status
-        - export TAG= $(( $(date +"%U") - 4))
-        - gh release create $TAG -d --target release
+        - export TAG="$(( $(date +"%U") - 5))"
+        - gh release create "v0.${TAG}.0" -d --target release
 
 
 #    - stage: deploy
