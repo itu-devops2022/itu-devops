@@ -70,8 +70,7 @@ jobs:
         git merge --no-ff --no-commit --strategy-option theirs digitaloceanTest
         git commit -m"Commit for release"
         git status
-    # git add -u
-    # git reset -- .travis.yml
+        git push
 
 #    - stage: deploy
 #      name: "deploy new version"
