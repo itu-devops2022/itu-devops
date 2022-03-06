@@ -63,6 +63,8 @@ jobs:
       script: |
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis CI"
+        git checkout release
+        git merge --no-ff --no-commit digitaloceanTest
         git status
     # git add -u
     # git reset -- .travis.yml
