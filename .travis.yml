@@ -81,14 +81,14 @@ jobs:
       name: "Release"
       install: skip
       if: env(RELEASE) IS true && type NOT IN (push, pull_request)
-      script: |
-        curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-        sudo apt update
-        sudo apt install gh
-        gh auth login --with-token /tmp/gh_token
-        gh auth status
-        gh release create "test" -d --target release
+      script:
+        - curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+        - echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+        - sudo apt update
+        - sudo apt install gh
+        - gh auth login --with-token /tmp/gh_token
+        - gh auth status
+        - gh release create "test" -d --target release
 
 
 #    - stage: deploy
