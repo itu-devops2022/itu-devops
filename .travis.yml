@@ -72,7 +72,7 @@ jobs:
       install: skip
       if: env(RELEASE) IS true && type NOT IN (push, pull_request)
       script: |
-        echo "Release"
+        echo "Release 2"
 
 #    - stage: deploy
 #      name: "deploy new version"
