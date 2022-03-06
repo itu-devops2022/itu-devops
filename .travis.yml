@@ -5,6 +5,10 @@ dist: bionic
 # python:
 #   - 3.7
 
+branches:
+  except:
+    - release
+
 services:
   - docker  # required, but travis uses older version of docker :(
 
