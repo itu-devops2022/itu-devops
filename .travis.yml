@@ -68,7 +68,7 @@ jobs:
         git branch -v -a
         git switch -c release origin-remote/release
         git merge --no-ff --no-commit digitaloceanTest
-        git reset .travis.yml
+        git restore .travis.yml
         git status
     # git add -u
     # git reset -- .travis.yml
