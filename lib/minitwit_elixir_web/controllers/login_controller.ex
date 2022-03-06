@@ -9,7 +9,7 @@ defmodule MinitwitElixirWeb.LoginController do
 
     # If the user was already logged in
     if get_session(conn, :user_id) do
-      IO.puts("The user was already logged in")
+      IO.puts("A user is already logged in")
       redirect(conn, to: Routes.timeline_path(conn, :index))
     end
 
