@@ -63,8 +63,8 @@ jobs:
       script: |
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis CI"
-        git remote add origin https://github.com/HolgerGottChristensen/itu-devops.git
-        git checkout origin/release
+        git remote add origin-remote https://github.com/HolgerGottChristensen/itu-devops.git
+        git checkout origin-remote/release
         git merge --no-ff --no-commit digitaloceanTest
         git status
     # git add -u
