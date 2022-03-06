@@ -31,6 +31,7 @@ stages:
   # - docker_build
   # - test
   - push
+  - release
   # - deploy
 
 jobs:
@@ -74,6 +75,13 @@ jobs:
         git commit -m"Commit for release"
         git status
         git push
+
+    - stage: release
+      name: "Release"
+        install: skip
+      if: env(RELEASE) IS true
+      script: |
+        echo "Release"
 
 #    - stage: deploy
 #      name: "deploy new version"
