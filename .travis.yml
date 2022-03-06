@@ -65,6 +65,7 @@ jobs:
     - stage: push
       name: "push to branch"
       install: skip
+      if: env(RELEASE) IS false
       script: |
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis CI"
