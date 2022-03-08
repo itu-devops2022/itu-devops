@@ -106,6 +106,8 @@ jobs:
         ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} \
         "source /root/.bash_profile && \
         cd /docker && \
+        docker stop minitwit-app && \
+        docker rm minitwit-app && \
         docker run -p 4000:4000 --env-file=database.config.env --name minitwit-app -d $DOCKER_USERNAME/minitwit-elixir"
 
 
