@@ -4,7 +4,7 @@ import Config
 config :minitwit_elixir,
        MinitwitElixir.Repo,
        username: "postgres",
-       password: "postgres",
+       password: "basum9491",
        hostname: "localhost",
        database: "minitwit_elixir_dev",
        show_sensitive_data_on_connection_error: true,

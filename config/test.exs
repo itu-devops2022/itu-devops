@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :minitwit_elixir, MinitwitElixir.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "basum9491",
   hostname: "localhost",
   database: "minitwit_elixir_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
