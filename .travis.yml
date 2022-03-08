@@ -73,7 +73,7 @@ jobs:
         - git fetch origin-remote
         - git branch -v -a
         - git switch -c release origin-remote/release
-        - git merge --no-ff --no-commit --strategy-option ours digitaloceanTest
+        - git merge --no-ff --no-commit --strategy-option theirs digitaloceanTest
         - git commit -m"Commit for release"
         - git status
         - git push
