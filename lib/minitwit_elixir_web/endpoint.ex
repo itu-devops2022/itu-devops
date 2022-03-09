@@ -52,7 +52,7 @@ defmodule MinitwitElixirWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug :introspect
+  # plug :introspect
   plug :api_routing
   plug MinitwitElixirWeb.Router
 
