@@ -11,7 +11,7 @@ defmodule MinitwitElixirWeb.Telemetry do
     children = [
       # Telemetry poller will execute the given period measurements
       # every 10_000ms. Learn more here: https://hexdocs.pm/telemetry_metrics
-      {:telemetry_poller, measurements: periodic_measurements(), period: 10_000}
+      {:telemetry_poller, measurements: periodic_measurements(), period: 10_00}
       # Add reporters as children of your supervision tree.
       # {Telemetry.Metrics.ConsoleReporter, metrics: metrics()}
     ]
@@ -21,6 +21,9 @@ defmodule MinitwitElixirWeb.Telemetry do
 
   def metrics do
     [
+
+      counter("minitwit_elixir.users.total"),
+      last_value("minitwit_elixir.users.total"),
       # Phoenix Metrics
       summary("phoenix.endpoint.stop.duration",
         unit: {:native, :millisecond}
@@ -65,7 +68,7 @@ defmodule MinitwitElixirWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {MinitwitElixirWeb, :count_users, []}
+      {MinitwitElixirWeb, :measure_users, []}
     ]
   end
 end

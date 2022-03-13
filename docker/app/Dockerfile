@@ -17,4 +17,5 @@ RUN mix deps.get
 
 EXPOSE 4000
 
+# CMD ["mix", "phx.server"]
 CMD ["/app/entrypoint.sh"]

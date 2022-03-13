@@ -10,6 +10,8 @@ defmodule MinitwitElixir.Application do
     children = [
       # Start the Ecto repository
       MinitwitElixir.Repo,
+      # Start the Prometheus
+      MinitwitElixir.PromEx,
       # Start the Telemetry supervisor
       MinitwitElixirWeb.Telemetry,
       # Start the PubSub system
