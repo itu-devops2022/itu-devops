@@ -8,19 +8,20 @@ defmodule MinitwitElixirWeb.TimelineController do
   alias MinitwitElixir.Repo
 
   def index(conn, _params) do
+    :telemetry.execute([:minitwit_elixir, :timeline_loads], %{count: 3})
     # If no users are logged in redirect to the public timeline
-    if !get_session(conn, :user_id) do
+    if is_nil(get_session(conn, :user_id)) do
       redirect(conn, to: Routes.timeline_path(conn, :public_timeline))
+    else
+      user_id = get_session(conn, :user_id)
+      user = Repo.get(User, user_id) |> Repo.preload([:followings])
+      followings_id = Enum.map(user.followings, fn x -> x.id end)
+
+      query = from(u in Message, limit: 30, where: u.author_id == ^user_id or u.author_id in ^followings_id, order_by: [desc: u.inserted_at])
+      messages = Repo.all(query) |> Repo.preload([:author])
+
+      render(conn, "timeline.html", messages: messages, page_title: "My Timeline", timeline_type: :timeline)
     end
-
-    user_id = get_session(conn, :user_id)
-    user = Repo.get(User, user_id) |> Repo.preload([:followings])
-    followings_id = Enum.map(user.followings, fn x -> x.id end)
-
-    query = from(u in Message, limit: 30, where: u.author_id == ^user_id or u.author_id in ^followings_id, order_by: [desc: u.inserted_at])
-    messages = Repo.all(query) |> Repo.preload([:author])
-
-    render(conn, "timeline.html", messages: messages, page_title: "My Timeline", timeline_type: :timeline)
   end
 
   def public_timeline(conn, _params) do

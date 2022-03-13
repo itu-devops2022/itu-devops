@@ -70,7 +70,7 @@ defmodule MinitwitElixir.PromEx do
       # Plugins.Broadway,
 
       # Add your own PromEx metrics plugins
-      # MinitwitElixir.Users.PromExPlugin
+      MinitwitElixir.PromEx.CustomMetrics
     ]
   end
 
@@ -96,7 +96,7 @@ defmodule MinitwitElixir.PromEx do
       # {:prom_ex, "broadway.json"},
 
       # Add your dashboard definitions here with the format: {:otp_app, "path_in_priv"}
-      # {:minitwit_elixir, "/grafana_dashboards/user_metrics.json"}
+      {:minitwit_elixir, "/dashboards/custom.json"}
     ]
   end
 end

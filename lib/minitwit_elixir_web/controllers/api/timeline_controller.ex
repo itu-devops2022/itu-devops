@@ -10,6 +10,7 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
 
   def latest(conn, _params) do
     latest = Repo.get(Latest, -1).number
+    :telemetry.execute([:minitwit_elixir, :latest, :count], %{})
     json(conn, %{latest: latest})
   end
 
@@ -29,113 +30,159 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
   end
 
   def all_msgs(conn, params) do
-    # update latest missing
     update_latest(params)
 
-    not_req_from_simulator(conn)
+    if simulator_authorized(conn) do
+      no_msgs = params["no"] || 100
 
-    no_msgs = params["no"] || 100
+      query = from(u in Message, limit: ^no_msgs, order_by: [desc: u.inserted_at])
+      messages = Repo.all(query) |> Repo.preload([:author])
 
-    query = from(u in Message, limit: ^no_msgs, order_by: [desc: u.inserted_at])
-    messages = Repo.all(query) |> Repo.preload([:author])
-
-    res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
-    json(conn, res)
+      res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
+      :telemetry.execute([:minitwit_elixir, :public_timeline, :success], %{})
+      json(conn, res)
+    else
+      :telemetry.execute([:minitwit_elixir, :public_timeline, :not_authorized], %{})
+      not_authorized_response(conn)
+    end
   end
 
   def get_user_msgs(conn, %{"username" => username} = params) do
     # Update latest missing
     update_latest(params)
 
-    not_req_from_simulator(conn)
+    if simulator_authorized(conn) do
+      no_msgs = elem(Integer.parse(params["no"]), 0) || 100
+      user_id = User.get_userid_from_username(username)
 
-    no_msgs = elem(Integer.parse(params["no"]), 0) || 100
-    user_id = verify_user_exists(conn, username)
+      # query = from(u in Message, limit: ^no_msgs, where: u.author_id == ^user_id, order_by: [desc: u.inserted_at])
+      # messages = Repo.all(query) |> Repo.preload([:author])
+      messages = Message.get_messages_by_author_id(user_id, no_msgs)
 
-    # query = from(u in Message, limit: ^no_msgs, where: u.author_id == ^user_id, order_by: [desc: u.inserted_at])
-    # messages = Repo.all(query) |> Repo.preload([:author])
-    messages = Message.get_messages_by_author_id(user_id, no_msgs)
-
-    res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
-    json(conn, res)
+      res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
+      :telemetry.execute([:minitwit_elixir, :user_timeline, :success], %{})
+      json(conn, res)
+    else
+      :telemetry.execute([:minitwit_elixir, :user_timeline, :not_authorized], %{})
+      not_authorized_response(conn)
+    end
   end
 
   def post_user_msgs(conn, %{"username" => username} = params) do
     update_latest(params)
 
-    not_req_from_simulator(conn)
+    if simulator_authorized(conn) do
+        user_id = User.get_userid_from_username(username)
 
-    user_id = verify_user_exists(conn, username)
+        if user_id != -1 do
+          message = params["content"]
 
-    message = params["content"]
-
-    Message.insert_message(message, user_id)
-
-    conn |>
-      put_status(204) |>
-      text("")
+          inserted = Message.insert_message(message, user_id)
+          :telemetry.execute([:minitwit_elixir, :tweet, :success], %{})
+          conn |>
+            put_status(204) |>
+            text("")
+        else
+          :telemetry.execute([:minitwit_elixir, :tweet, :user_dont_exist], %{})
+          user_not_found_response(conn, username)
+        end
+      else
+        :telemetry.execute([:minitwit_elixir, :tweet, :not_authorized], %{})
+        not_authorized_response(conn)
+    end
   end
 
   def get_followers(conn, %{"username" => username} = params) do
     update_latest(params)
 
-    not_req_from_simulator(conn)
+    if simulator_authorized(conn) do
+      user_id = User.get_userid_from_username(username)
 
-    no_followers = elem(Integer.parse(params["no"]), 0) || 100
+      if user_id != -1 do
+        no_followers = elem(Integer.parse(params["no"]), 0) || 100
 
-    user_id = verify_user_exists(conn, username)
-
-    followings = User.get_followings_from_username(user_id, no_followers)
-    usernames = Enum.take(Enum.map(followings, fn x ->  x.username end), no_followers)
-    conn |>
-      json(%{follows: usernames})
-
+        followings = User.get_followings_from_username(user_id, no_followers)
+        usernames = Enum.take(Enum.map(followings, fn x ->  x.username end), no_followers)
+        :telemetry.execute([:minitwit_elixir, :get_followers, :success], %{})
+        conn |>
+          json(%{follows: usernames})
+      else
+        :telemetry.execute([:minitwit_elixir, :get_followers, :user_dont_exist], %{})
+        user_not_found_response(conn, username)
+      end
+    else
+      :telemetry.execute([:minitwit_elixir, :get_followers, :not_authorized], %{})
+      not_authorized_response(conn)
+    end
   end
 
   def post_followers(conn, %{"username" => username} = params) do
     update_latest(params)
-    not_req_from_simulator(conn)
-    IO.inspect(params)
 
-    user_id = verify_user_exists(conn, username)
+    if simulator_authorized(conn) do
+      user_id = User.get_userid_from_username(username)
 
-    case params do
-      %{"follow" => other_name} ->
-        other_id = verify_user_exists(conn, other_name)
-        Follower.follow(user_id, other_id)
-        conn |>
-          put_status(204) |>
-          text("")
-      %{"unfollow" =>  other_name} ->
-        other_id = verify_user_exists(conn, other_name)
-        Follower.unfollow(user_id, other_id)
-        conn |>
-          put_status(204) |>
-          text("")
-      %{} -> conn |> put_status(404) |> text("Hej")
+      if user_id != -1 do
+        case params do
+          %{"follow" => other_name} ->
+            other_id = User.get_userid_from_username(other_name)
+
+            if other_id != -1 do
+                Follower.follow(user_id, other_id)
+                :telemetry.execute([:minitwit_elixir, :post_followers, :follow, :success], %{})
+                conn |>
+                  put_status(204) |>
+                  text("")
+              else
+                :telemetry.execute([:minitwit_elixir, :post_followers, :follow, :other_dont_exist], %{})
+                user_not_found_response(conn, other_name)
+            end
+
+          %{"unfollow" =>  other_name} ->
+            other_id = User.get_userid_from_username(other_name)
+
+            if other_id != -1 do
+              Follower.unfollow(user_id, other_id)
+              :telemetry.execute([:minitwit_elixir, :post_followers, :unfollow, :success], %{})
+              conn |>
+                put_status(204) |>
+                text("")
+            else
+              :telemetry.execute([:minitwit_elixir, :post_followers, :unfollow, :other_dont_exist], %{})
+              user_not_found_response(conn, other_name)
+            end
+
+          %{} ->
+            :telemetry.execute([:minitwit_elixir, :post_followers, :action_missing], %{})
+            conn |> put_status(404) |> text("")
+        end
+      else
+        :telemetry.execute([:minitwit_elixir, :post_followers, :user_dont_exist], %{})
+        user_not_found_response(conn, username)
+      end
+    else
+      :telemetry.execute([:minitwit_elixir, :post_followers, :not_authorized], %{})
+      not_authorized_response(conn)
     end
 
   end
 
-  def verify_user_exists(conn, username) do
-    user_id = User.get_userid_from_username(username)
-    if user_id == -1 do
-      IO.puts("The user id was not found for user: #{username}")
-      conn |>
-        put_status(404) |>
-        text("")
-    end
-    user_id
-  end
-
-  def not_req_from_simulator(conn) do
+  def simulator_authorized(conn) do
     auth = get_req_header(conn, "authorization")
-    if Enum.at(auth, 0) != "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh" do
-      err = "You are not authorized to use this resource!"
-      conn |>
-        put_status(403) |>
-        json(%{status: 403, error_msg: err})
-    end
+    Enum.at(auth, 0) == "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh"
+  end
 
+  def not_authorized_response(conn) do
+    err = "You are not authorized to use this resource!"
+    conn |>
+      put_status(403) |>
+      json(%{status: 403, error_msg: err})
+  end
+
+  def user_not_found_response(conn, username) do
+    IO.puts("The user id was not found for user: #{username}")
+    conn |>
+      put_status(404) |>
+      text("")
   end
 end

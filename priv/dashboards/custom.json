@@ -1,0 +1,386 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_api_requests_count{}",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Number of api requests handled",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_messages_count{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "All messages"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_flagged_messages_count{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Flagged messages"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_messages_count{}",
+          "format": "time_series",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_flagged_messages_count{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "title": "Number of messages and flagged messages",
+      "type": "piechart"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_username_taken{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Username taken"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_password_missing{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Password missing"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_username_missing{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Username missing"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_email_not_valid{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Email not valid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 8,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_success{}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_username_taken{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_passwords_dont_match{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_password_missing{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_email_not_valid{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_register_username_missing{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "F"
+        }
+      ],
+      "title": "Register stats",
+      "type": "bargauge"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Custom dashboard",
+  "uid": "126qTnPnz",
+  "version": 1,
+  "weekStart": ""
+}

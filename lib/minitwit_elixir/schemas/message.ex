@@ -29,4 +29,12 @@ defmodule MinitwitElixir.Schemas.Message do
     Message.changeset(%Message{}, %{text: message, author_id: user_id}) |> Repo.insert()
   end
 
+  def get_message_count() do
+    Repo.aggregate(Message, :count, :id)
+  end
+
+  def get_flagged_message_count() do
+    Enum.count(Repo.all(from(m in Message, where: m.flagged == true)))
+  end
+
 end
