@@ -59,7 +59,9 @@ jobs:
       install: skip
       script:
         - docker build -t $DOCKER_USERNAME/minitwittestimage . -f docker/minitwit-elixir-test/Dockerfile
-        - yes | docker-compose up -d
+        - yes | docker-compose up -d
+        - docker-compose pull -d
+        - docker stop minitwit-elixir-web
         - docker run -it --rm --network=itu-minitwit-network $DOCKER_USERNAME/minitwittestimage
 
     - stage: push
