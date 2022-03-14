@@ -1,5 +1,5 @@
 # MinitwitElixir
-
+![](https://app.travis-ci.com/itu-devops2022/itu-devops.svg?branch=master)
 ## Why Elixir and Phoenix?
 
 "Elixir and Phoenix are fast. For example, [tests of Elixir’s performance](https://mlsdev.com/services/software-testing) show much better results during software testing services than those for Ruby, and Phoenix response times are measured in microseconds. Impressive, isn’t it? Speed matters a lot when we speak about user experience. It is great to see that the app reacts and responds quickly to all actions. Additionally, good performance helps to save energy and money." [source](https://mlsdev.com/blog/elixir-programming-facts-to-know-for-better-app-development)
