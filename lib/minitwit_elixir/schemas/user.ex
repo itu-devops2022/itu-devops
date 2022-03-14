@@ -42,4 +42,8 @@ defmodule MinitwitElixir.Schemas.User do
     user = Repo.get(User, user_id) |> Repo.preload([:followings])
     user.followings
   end
+
+  def get_user_count() do
+    Repo.aggregate(User, :count, :id)
+  end
 end

@@ -2,24 +2,72 @@ version: "3"
 
 services:
   web:
-    image: app
+    container_name: minitwit-elixir-web
+    image: endritmegusta/minitwit-elixir
     ports:
       - "4000:4000"
     volumes:
       - .:/app
     depends_on:
+      - prometheus
+      - grafana
       - db
     networks:
       - default
-    env_file:
-      - database.config.env
+    environment:
+      # Variables to connect to our Postgres server.
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: minitwit_elixir_dev
+      PGPORT: 5432
+      # Hostname of our Postgres container.
+      PGHOST: db
+      # Use the docker mix env
+      MIX_ENV: docker
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - default
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      # This disables all authorization. Not ideal for security.
+      GF_AUTH_DISABLE_LOGIN_FORM: true
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning
+    ports:
+      - "3000:3000"
+    networks:
+      - default
 
   db:
-    image: postgres:latest
+    image: postgres
     container_name: db
     environment:
-      - POSTGRES_PASSWORD=postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # Set a path where Postgres should store the data.
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
       - default
+
+# Define the volumes.
+volumes:
+  pgdata:
+  prometheus:
+  grafana-storage:

@@ -17,4 +17,6 @@ RUN mix deps.get
 
 EXPOSE 4000
 
-CMD ["/app/entrypoint.sh"]
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
+

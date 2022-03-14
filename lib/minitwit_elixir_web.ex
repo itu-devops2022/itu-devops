@@ -108,4 +108,8 @@ defmodule MinitwitElixirWeb do
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
+
+  def measure_users do
+    :telemetry.execute([:minitwit_elixir, :users], %{total: 10}, %{})
+  end
 end
