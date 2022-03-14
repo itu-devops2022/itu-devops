@@ -18,7 +18,9 @@ defmodule MinitwitElixirWeb.Api.RegisterController do
       "username" => params["username"]
     }
 
-    case user_can_be_registered(user) do
+    suc = user_can_be_registered(user)
+
+    case suc do
       :no_username ->
         :telemetry.execute([:minitwit_elixir, :register, :username_missing], %{})
         conn |>
