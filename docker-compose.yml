@@ -41,7 +41,7 @@ services:
     container_name: grafana
     environment:
       # This disables all authorization. Not ideal for security.
-      GF_AUTH_DISABLE_LOGIN_FORM: true
+      GF_AUTH_DISABLE_LOGIN_FORM: 'true'
     volumes:
       - grafana-storage:/var/lib/grafana
       - ./provisioning:/etc/grafana/provisioning
