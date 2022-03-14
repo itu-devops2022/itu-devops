@@ -4,67 +4,67 @@ defmodule MinitwitElixirWeb.PageControllerTest do
 
   #tests
   test "register", %{conn: conn} do
-    #data = [
-    #  user: [
-    #    username: "user1",
-    #    pw_1: "default",
-    #    pw_2: "default",
-    #    email: "user1@example.com"
-    #  ]
-    #]
-#
-    #data2 = [
-    #  user: [
-    #    username: "",
-    #    pw_1: "default",
-    #    pw_2: "default",
-    #    email: "user1@example.com"
-    #  ]
-    #]
-#
-    #data3 = [
-    #  user: [
-    #    username: "meh",
-    #    pw_1: "",
-    #    pw_2: "default",
-    #    email: "user1@example.com"
-    #  ]
-    #]
-#
-    #data4 = [
-    #  user: [
-    #    username: "meh",
-    #    pw_1: "x",
-    #    pw_2: "y",
-    #    email: "user1@example.com"
-    #  ]
-    #]
-#
-    #data5 = [
-    #  user: [
-    #    username: "meh",
-    #    pw_1: "foo",
-    #    pw_2: "foo",
-    #    email: "broken"
-    #  ]
-    #]
-    #conn_test = conn |> post("/register", data)
-    #assert flash_messages_contain(conn_test, "You were successfully registered and can login now")
-#
-    #conn_test2 = conn_test |> post("/register", data)
-    #assert flash_messages_contain(conn_test2, "The username is already taken")
-#
-    #conn_test3 = conn_test2 |> post("/register", data2)
-    #assert flash_messages_contain(conn_test3, "You have to enter a username")
-#
-    #conn_test4 = conn_test3 |> post("/register", data3)
-    #assert flash_messages_contain(conn_test4, "You have to enter a password")
-#
-    #conn_test5 = conn_test4 |> post("/register", data4)
-    #assert flash_messages_contain(conn_test5, "The two passwords do not match")
-#
-    #conn_test6 = conn_test5 |> post("/register", data5)
-    #assert flash_messages_contain(conn_test6, "You have to enter a valid email address")
+    data = [
+      user: [
+        username: "user1",
+        pw_1: "default",
+        pw_2: "default",
+        email: "user1@example.com"
+      ]
+    ]
+
+    data2 = [
+      user: [
+        username: "",
+        pw_1: "default",
+        pw_2: "default",
+        email: "user1@example.com"
+      ]
+    ]
+
+    data3 = [
+      user: [
+        username: "meh",
+        pw_1: "",
+        pw_2: "default",
+        email: "user1@example.com"
+      ]
+    ]
+
+    data4 = [
+      user: [
+        username: "meh",
+        pw_1: "x",
+        pw_2: "y",
+        email: "user1@example.com"
+      ]
+    ]
+
+    data5 = [
+      user: [
+        username: "meh",
+        pw_1: "foo",
+        pw_2: "foo",
+        email: "broken"
+      ]
+    ]
+    conn_test = conn |> post("/register", data)
+    assert flash_messages_contain(conn_test, "You were successfully registered and can login now")
+
+    conn_test2 = conn_test |> post("/register", data)
+    assert flash_messages_contain(conn_test2, "The username is already taken")
+
+    conn_test3 = conn_test2 |> post("/register", data2)
+    assert flash_messages_contain(conn_test3, "You have to enter a username")
+
+    conn_test4 = conn_test3 |> post("/register", data3)
+    assert flash_messages_contain(conn_test4, "You have to enter a password")
+
+    conn_test5 = conn_test4 |> post("/register", data4)
+    assert flash_messages_contain(conn_test5, "The two passwords do not match")
+
+    conn_test6 = conn_test5 |> post("/register", data5)
+    assert flash_messages_contain(conn_test6, "You have to enter a valid email address")
   end
 
   test "login_logout", %{conn: conn} do
@@ -121,7 +121,7 @@ defmodule MinitwitElixirWeb.PageControllerTest do
       ]
     ]
 
-#
+
     data2 = [
       user: [
         username: "bar",
@@ -130,7 +130,7 @@ defmodule MinitwitElixirWeb.PageControllerTest do
         email: "bar@example.com"
       ]
     ]
-#
+
     conn_test = conn
                 |> post("/register", data)
                 |> post("/login", [user: [username: "foo", password: "default"]])
