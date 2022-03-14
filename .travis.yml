@@ -107,5 +107,5 @@ jobs:
           cd itu-devops &&
           git pull &&
           git status &&
-          docker-compose pull &&
+          docker-compose pull web &&
           docker-compose up web -d"
