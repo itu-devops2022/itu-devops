@@ -29,8 +29,8 @@ install:
   - docker --version  # document the version travis is using
 
 stages:
+  - test
   - docker_build
-  # - test
   - push
   - release
   - deploy
@@ -54,13 +54,12 @@ jobs:
         # - docker push $DOCKER_USERNAME/mysqlimage:latest
         # - docker push $DOCKER_USERNAME/flagtoolimage:latest
 
-    # - stage: test
-    #   name: "run pytest"
-    #   install: skip
-    #   script:
-    #     - docker build -t $DOCKER_USERNAME/minitwittestimage -f Dockerfile-minitwit-tests .
-    #     - yes | docker-compose up -d
-    #     - docker run -it --rm --network=itu-minitwit-network $DOCKER_USERNAME/minitwittestimage
+    - stage: test
+      name: "run tests"
+      install: skip
+      script:
+        - docker build -t $DOCKER_USERNAME/minitwit-elixir-test . -f docker/minitwit-elixir-test/Dockerfile
+        - docker-compose up test
 
     - stage: push
       name: "push to branch"
@@ -109,4 +108,4 @@ jobs:
           git pull &&
           git status &&
           docker-compose pull &&
-          docker-compose up -d"
+          docker-compose up -d web"

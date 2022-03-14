@@ -10,6 +10,7 @@ done
 if [[ -z $(psql -Atqc "\\list $PGDATABASE") ]]; then
   echo "Database $PGDATABASE does not exist. Creating..."
   mix deps.get
+  mix compile
   mix ecto.create
   echo "Database $PGDATABASE created."
 fi

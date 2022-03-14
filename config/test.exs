@@ -6,10 +6,11 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :minitwit_elixir, MinitwitElixir.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "minitwit_elixir_test#{System.get_env("MIX_TEST_PARTITION")}",
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: "#{System.get_env("PGDATABASE")}#{System.get_env("MIX_TEST_PARTITION")}",
+  hostname: System.get_env("PGHOST"),
+  port:     System.get_env("PGPORT"),
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
