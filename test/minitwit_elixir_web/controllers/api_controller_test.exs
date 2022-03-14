@@ -80,9 +80,14 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
       "latest" => "1"
     }
 
-    msg_data = %{
+    msg_query_data = %{
       "no" => "20",
       "latest" => "3"
+    }
+
+    msg_data = %{
+      "content" => "Blub!",
+      "latest" => "2"
     }
 
     conn_test = conn
@@ -90,12 +95,15 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
                 |> post("/api/register", register_data)
 
     conn_test2 = conn_test
-                |> get("/api/msgs/a", msg_data)
-    assert json_response(conn_test2, 200)
+                |> post("/api/msgs/a", msg_data)
 
-    json_result = json_response(conn_test2, 200)
-    #assert Enum.member?(json_result, msg_data = %{
-    #  "content" => "Blob!",
+    conn_test3 = conn_test2
+                |> get("/api/msgs/a", msg_query_data)
+    assert json_response(conn_test3, 200)
+
+    json_result = json_response(conn_test3, 200)
+    #assert Enum.member?(json_result, msg_query_data = %{
+    #  "content" => "Blub!",
     #  "user" => "a"
     #})
     IO.puts(Enum.empty?(json_result))
@@ -103,6 +111,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
   end
 
   test "get latest messages", %{conn: conn} do
+
 
   end
 
