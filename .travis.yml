@@ -109,4 +109,4 @@ jobs:
           git pull &&
           git status &&
           docker-compose pull &&
-          docker-compose up -d"
+          docker-compose up -d minitwit-elixir-web"

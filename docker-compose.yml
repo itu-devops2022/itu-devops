@@ -25,6 +25,26 @@ services:
       # Use the docker mix env
       MIX_ENV: docker
 
+  test:
+    container_name: minitwit-elixir-test
+    image: endritmegusta/minitwit-elixir-test
+    volumes:
+      - .:/test
+    depends_on:
+      - db
+    networks:
+      - default
+    environment:
+      # Variables to connect to our Postgres server.
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: minitwit_elixir_test
+      PGPORT: 5432
+      # Hostname of our Postgres container.
+      PGHOST: db
+      # Use the docker mix env
+      MIX_ENV: test
+
   prometheus:
     image: prom/prometheus
     container_name: prometheus
