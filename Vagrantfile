@@ -4,7 +4,9 @@
 Vagrant.configure("2") do |config|
   config.vm.box = 'digital_ocean'
   config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
-  config.ssh.private_key_path = '~/ssh_keys/do_ssh_key'
+  config.ssh.private_key_path = '~/.ssh/do_ssh_key'
+
+  config.vm.synced_folder ".", "/docker", disabled: true
 
 #   config.vm.define "minitwit-elixir-db",  primary: true do |server|
 #     server.vm.network "private_network", ip: "192.168.56.2"
