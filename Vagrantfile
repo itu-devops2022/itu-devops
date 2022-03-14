@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
   config.ssh.private_key_path = '~/ssh_keys/do_ssh_key'
 
-  config.vm.synced_folder ".", "/docker", type: "rsync"
+  config.vm.synced_folder ".", "~/docker", type: "rsync"
   
 #   config.vm.define "minitwit-elixir-db",  primary: true do |server|
 #     server.vm.network "private_network", ip: "192.168.56.2"
@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
     echo "export DOCKER_USERNAME='endritmegusta'" >> $HOME/.bash_profile
     echo "export DOCKER_PASSWORD='devops2022'" >> $HOME/.bash_profile
     source $HOME/.bash_profile
-    cd /docker
+    cd ~/docker
     ls -la
 
     echo -e "\nVagrant setup for server done ..."
