@@ -58,11 +58,8 @@ jobs:
       name: "run tests"
       install: skip
       script:
-        - docker build -t $DOCKER_USERNAME/minitwittestimage . -f docker/minitwit-elixir-test/Dockerfile
-        - yes | docker-compose up -d
-        - docker-compose pull -d
-        - docker stop minitwit-elixir-web
-        - docker run -it --rm --network=itu-minitwit-network $DOCKER_USERNAME/minitwittestimage
+        - docker build -t $DOCKER_USERNAME/minitwit-elixir-test . -f docker/minitwit-elixir-test/Dockerfile
+        - docker-compose up minitwit-elixir-test
 
     - stage: push
       name: "push to branch"

@@ -16,4 +16,4 @@ WORKDIR /test
 RUN mix deps.get
 
 RUN chmod +x /test/test_entrypoint.sh
-ENTRYPOINT ["/test/test:entrypoint.sh"]
+ENTRYPOINT ["/test/test_entrypoint.sh"]
