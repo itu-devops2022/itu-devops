@@ -6,6 +6,9 @@ do
   sleep 2
 done
 
+echo "Get deps"
+mix deps.get
+
 echo "Migrating"
 mix ecto.setup
 echo "Migrating finished"
