@@ -39,7 +39,7 @@ jobs:
   include:
     - stage: docker_build
       name: "build and push docker"
-      if: env(RELEASE) IS false
+      if: env(RELEASE) IS false AND branch = master
       script:
         - echo "LOGIN"
         - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
@@ -65,7 +65,7 @@ jobs:
     - stage: push
       name: "push to branch"
       install: skip
-      if: env(RELEASE) IS false
+      if: env(RELEASE) IS false AND branch = master
       script:
         - git config --global user.email "travis@travis-ci.org"
         - git config --global user.name "Travis CI"
@@ -100,7 +100,7 @@ jobs:
     - stage: deploy
       name: "deploy new version"
       install: skip
-      if: env(RELEASE) IS false
+      if: env(RELEASE) IS false AND branch = master
       # -o flag to get around "add ip to known hosts prompt"
       # the string at the end means it runs inside the ssh connection
       script:
