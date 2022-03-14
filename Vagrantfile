@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
   config.ssh.private_key_path = '~/ssh_keys/do_ssh_key'
 
-  config.vm.synced_folder ".", "/docker", type: "rsync", rsync__args: ["-r", "--include=docker-compose.yml", "--include=database.config.env" "--include=entrypoint.sh" "--exclude=*"]
+  config.vm.synced_folder ".", "/docker", type: "rsync"
   
 #   config.vm.define "minitwit-elixir-db",  primary: true do |server|
 #     server.vm.network "private_network", ip: "192.168.56.2"
@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
       provider.token = ENV["DIGITAL_OCEAN_TOKEN"]
       provider.image = 'docker-18-04'
       provider.region = 'fra1'
-      provider.size = 's-1vcpu-1gb'
+      provider.size = 's-2vcpu-4gb-amd'
       provider.privatenetworking = true
     end
 
