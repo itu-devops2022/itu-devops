@@ -59,6 +59,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
     }
     conn_test = conn
                 |> put_req_header("content-type", "application/json")
+                |> put_req_header("authorization", "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh")
                 |> post("/api/register", register_data)
 
     conn_test2 = conn_test
@@ -92,6 +93,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
 
     conn_test = conn
                 |> put_req_header("content-type", "application/json")
+                |> put_req_header("authorization", "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh")
                 |> post("/api/register", register_data)
 
     conn_test2 = conn_test
@@ -99,19 +101,52 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
 
     conn_test3 = conn_test2
                 |> get("/api/msgs/a", msg_query_data)
-    assert json_response(conn_test3, 200)
 
-    json_result = json_response(conn_test3, 200)
-    #assert Enum.member?(json_result, msg_query_data = %{
-    #  "content" => "Blub!",
-    #  "user" => "a"
-    #})
-    IO.puts(Enum.empty?(json_result))
+    json_response(conn_test3, 200) == [
+      %{
+        "content" => "Blub!",
+        "user" => "a"
+      }
+    ]
 
   end
 
   test "get latest messages", %{conn: conn} do
 
+    register_data = %{
+      "username" => "a",
+      "email" => "a@a.a",
+      "pwd" => "a",
+      "latest" => "1"
+    }
+
+    msg_query_data = %{
+      "no" => "20",
+      "latest" => "3"
+    }
+
+    msg_data = %{
+      "content" => "Blub!",
+      "latest" => "2"
+    }
+
+    conn_test = conn
+                |> put_req_header("content-type", "application/json")
+                |> put_req_header("authorization", "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh")
+                |> post("/api/register", register_data)
+
+    conn_test2 = conn_test
+                 |> post("/api/msgs/a", msg_data)
+
+    conn_test3 = conn_test2
+                 |> get("/api/msgs/", msg_query_data)
+
+    json_response(conn_test3, 200) == [
+      %{
+        "content" => "Blub!",
+        "user" => "a"
+      }
+    ]
 
   end
 
@@ -172,6 +207,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
       latest: "6"
     ]
     conn_test = conn |>
+      put_req_header("authorization", "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh") |>
       post("/api/register", data_a)
 
     conn_test2 = conn_test |>
@@ -239,6 +275,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
       latest: "6"
     ]
     conn_test = conn |>
+      put_req_header("authorization", "Basic c2ltdWxhdG9yOnN1cGVyX3NhZmUh") |>
       post("/api/register", data_a) |>
       post("/api/register", data_b) |>
       post("/api/register", data_c)
