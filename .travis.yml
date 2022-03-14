@@ -29,10 +29,10 @@ install:
   - docker --version  # document the version travis is using
 
 stages:
-  #- test
-  #- docker_build
-  #- push
-  #- release
+  - test
+  - docker_build
+  - push
+  - release
   - deploy
 
 jobs:
