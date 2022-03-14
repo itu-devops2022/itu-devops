@@ -73,7 +73,7 @@ jobs:
         - git fetch origin-remote
         - git branch -v -a
         - git switch -c release origin-remote/release
-        - git merge --no-ff --no-commit --strategy-option theirs origin-remote/monitoring
+        - git merge --no-ff --no-commit --strategy-option theirs monitoring
         - git diff --quiet && git diff --staged --quiet || git commit -m"Commit for release"
         - git status
         - git push
@@ -103,7 +103,7 @@ jobs:
       if: env(RELEASE) IS false
       # -o flag to get around "add ip to known hosts prompt"
       script:
-        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "source /root/.bash_profile
+        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER}
         - cd /docker
         - docker-compose pull
         - docker-compose up -d
