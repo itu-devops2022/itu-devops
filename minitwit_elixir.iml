@@ -103,5 +103,18 @@
     <orderEntry type="library" name="x509" level="project" />
     <orderEntry type="library" name="comeonin" level="project" />
     <orderEntry type="library" name="pbkdf2_elixir" level="project" />
+    <orderEntry type="library" name="prom_ex" level="project" />
+    <orderEntry type="library" name="telemetry_metrics_prometheus_core" level="project" />
+    <orderEntry type="library" name="oban" level="project" />
+    <orderEntry type="library" name="absinthe" level="project" />
+    <orderEntry type="library" name="broadway" level="project" />
+    <orderEntry type="library" name="doctor" level="project" />
+    <orderEntry type="library" name="credo" level="project" />
+    <orderEntry type="library" name="git_hooks" level="project" />
+    <orderEntry type="library" name="mint" level="project" />
+    <orderEntry type="library" name="nimble_pool" level="project" />
+    <orderEntry type="library" name="nimble_options" level="project" />
+    <orderEntry type="library" name="hpax" level="project" />
+    <orderEntry type="library" name="hpack" level="project" />
   </component>
 </module>

@@ -79,3 +79,10 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :minitwit_elixir, MinitwitElixir.PromEx,
+       disabled: false,
+       manual_metrics_start_delay: :no_delay,
+       drop_metrics_groups: [],
+       grafana: :disabled,
+       metrics_server: :disabled

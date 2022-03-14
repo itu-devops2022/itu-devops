@@ -11,9 +11,17 @@ defmodule MinitwitElixirWeb.Router do
   end
 
   pipeline :api do
+    plug :count_calls
     plug :accepts, ["json"]
   end
-  
+
+  def count_calls(conn, _opts) do
+    :telemetry.execute([:minitwit_elixir, :api_requests, :count], %{})
+    conn
+  end
+
+
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -64,7 +72,7 @@ defmodule MinitwitElixirWeb.Router do
 
   end
 
-  
+
 
   # Enables the Swoosh mailbox preview in development.
   #

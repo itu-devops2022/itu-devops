@@ -65,7 +65,7 @@ config :minitwit_elixir, MinitwitElixirWeb.Endpoint,
   ]
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+config :logger, :console, level: :info, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
@@ -73,3 +73,15 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :minitwit_elixir, MinitwitElixir.PromEx,
+       disabled: false,
+       manual_metrics_start_delay: :no_delay,
+       drop_metrics_groups: [],
+       grafana: [
+          host: "http://grafana:3000",
+          username: "admin",  # Or authenticate via Basic Auth
+          password: "admin",
+          upload_dashboards_on_start: true # This is an optional setting and will default to `true`
+       ],
+       metrics_server: :disabled

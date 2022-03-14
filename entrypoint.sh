@@ -7,7 +7,7 @@ do
 done
 
 # Create, migrate, and seed database if it doesn't exist.
-if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
+if [[ -z $(psql -Atqc "\\list $PGDATABASE") ]]; then
   echo "Database $PGDATABASE does not exist. Creating..."
   mix deps.get
   mix ecto.create

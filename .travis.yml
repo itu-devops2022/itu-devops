@@ -73,7 +73,7 @@ jobs:
         - git fetch origin-remote
         - git branch -v -a
         - git switch -c release origin-remote/release
-        - git merge --no-ff --no-commit --strategy-option theirs digitaloceanTest
+        - git merge --no-ff --no-commit --strategy-option theirs origin-remote/monitoring
         - git diff --quiet && git diff --staged --quiet || git commit -m"Commit for release"
         - git status
         - git push
@@ -102,12 +102,8 @@ jobs:
       install: skip
       if: env(RELEASE) IS false
       # -o flag to get around "add ip to known hosts prompt"
-      script: |
-        ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} \
-        "source /root/.bash_profile && \
-        cd /docker && \
-        docker stop minitwit-app && \
-        docker rm minitwit-app && \
-        docker run -p 4000:4000 --env-file=database.config.env --name minitwit-app -d $DOCKER_USERNAME/minitwit-elixir"
-
-
+      script:
+        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "source /root/.bash_profile
+        - cd /docker
+        - docker-compose pull
+        - docker-compose up -d

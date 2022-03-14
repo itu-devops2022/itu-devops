@@ -42,6 +42,7 @@ defmodule MinitwitElixirWeb.Endpoint do
        cookie_key: "request_logger"
 
   plug Plug.RequestId
+  plug PromEx.Plug, prom_ex_module: MinitwitElixir.PromEx
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
   plug Plug.Parsers,
@@ -52,7 +53,7 @@ defmodule MinitwitElixirWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug :introspect
+  # plug :introspect
   plug :api_routing
   plug MinitwitElixirWeb.Router
 
