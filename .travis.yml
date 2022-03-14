@@ -102,8 +102,9 @@ jobs:
       install: skip
       if: env(RELEASE) IS false
       # -o flag to get around "add ip to known hosts prompt"
+      # the string at the end means it runs inside the ssh connection
       script:
-        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} &&
+        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "
           cd /docker &&
           docker-compose pull &&
-          docker-compose up -d
+          docker-compose up -d"
