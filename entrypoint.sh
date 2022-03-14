@@ -11,8 +11,11 @@ if [[ -z $(psql -Atqc "\\list $PGDATABASE") ]]; then
   echo "Database $PGDATABASE does not exist. Creating..."
   mix deps.get
   mix ecto.create
-  mix ecto.migrate
   echo "Database $PGDATABASE created."
 fi
+
+echo "Migrating"
+mix ecto.migrate
+echo "Migrating finished"
 
 exec mix phx.server
