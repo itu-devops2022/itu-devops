@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 ADD . /test
 
-# Install Phoenix packages
+# Install Phoenix packagess
 RUN mix local.hex --force && \
     mix local.rebar --force && \
     mix archive.install --force hex phx_new 1.5.1
