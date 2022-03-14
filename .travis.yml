@@ -106,5 +106,7 @@ jobs:
       script:
         - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "
           cd /docker &&
+          git pull &&
+          git status &&
           docker-compose pull &&
           docker-compose up -d"
