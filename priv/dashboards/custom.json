@@ -26,7 +26,6 @@
   "liveNow": false,
   "panels": [
     {
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -39,6 +38,10 @@
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -46,12 +49,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 4,
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 12,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -74,14 +77,13 @@
             "uid": "NXzlkZPnk"
           },
           "exemplar": true,
-          "expr": "minitwit_elixir_custom_api_requests_count{}",
-          "instant": false,
+          "expr": "minitwit_elixir_custom_latest_count",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Number of api requests handled",
+      "title": "Number of calls to latest",
       "type": "stat"
     },
     {
@@ -127,7 +129,7 @@
         ]
       },
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 4,
         "x": 4,
         "y": 0
@@ -186,6 +188,365 @@
       ],
       "title": "Number of messages and flagged messages",
       "type": "piechart"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_public_timeline_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_public_timeline_not_authorized{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Not authorised"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_public_timeline_success{}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_public_timeline_not_authorized{}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "title": "Visits to the public timeline",
+      "type": "timeseries"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_api_requests_count{}",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Number of api requests handled",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 4,
+        "y": 6
+      },
+      "id": 14,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_users_count",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Number of users",
+      "type": "gauge"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_user_timeline_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_user_timeline_not_authorized{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Not authorised"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 8
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_user_timeline_success{}",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_user_timeline_not_authorized",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "title": "Visits to user timeline",
+      "type": "timeseries"
     },
     {
       "description": "",
@@ -265,18 +626,33 @@
                 "value": "Email not valid"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_register_passwords_dont_match{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Passwords don't match"
+              }
+            ]
           }
         ]
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 8,
-        "y": 0
+        "h": 12,
+        "w": 8,
+        "x": 0,
+        "y": 13
       },
       "id": 6,
+      "interval": "5s",
       "options": {
-        "displayMode": "gradient",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -285,8 +661,7 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true,
-        "text": {}
+        "textMode": "auto"
       },
       "pluginVersion": "8.4.3",
       "targets": [
@@ -363,10 +738,514 @@
         }
       ],
       "title": "Register stats",
-      "type": "bargauge"
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_tweet_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_tweet_not_authorized{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Not authorised"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_tweet_user_dont_exist{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "User don't exist"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 16
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_tweet_success",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_tweet_not_authorized",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_tweet_user_dont_exist",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        }
+      ],
+      "title": "Tweets",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_follow_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Follow success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_unfollow_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Unfollow success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_follow_other_dont_exist{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Follow other don't exist"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_not_authorized{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Not authorised"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_unfollow_other_dont_exist{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Unfollow other don't exist"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_user_dont_exist{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Follow/unfollow user don't exist"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_post_followers_action_missing{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Action missing"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 8,
+        "y": 24
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_follow_success",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_unfollow_success",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_follow_other_dont_exist",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_not_authorized",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_unfollow_other_dont_exist",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_user_dont_exist",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_post_followers_action_missing",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "G"
+        }
+      ],
+      "title": "Follow/unfollow",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_get_followers_success{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Success"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_get_followers_user_dont_exist{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "User don't exist"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "minitwit_elixir_custom_get_followers_not_authorized{group=\"production\", instance=\"minitwit-elixir-web:4000\", job=\"itu-minitwit-app\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Not authorised"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 25
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_get_followers_success",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_get_followers_user_dont_exist",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "NXzlkZPnk"
+          },
+          "exemplar": true,
+          "expr": "minitwit_elixir_custom_get_followers_not_authorized",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        }
+      ],
+      "title": "Get follower requests",
+      "type": "stat"
     }
   ],
-  "refresh": "10s",
+  "refresh": "5s",
   "schemaVersion": 35,
   "style": "dark",
   "tags": [],
@@ -381,6 +1260,6 @@
   "timezone": "",
   "title": "Custom dashboard",
   "uid": "126qTnPnz",
-  "version": 1,
+  "version": 11,
   "weekStart": ""
 }

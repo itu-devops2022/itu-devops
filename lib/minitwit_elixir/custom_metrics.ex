@@ -128,6 +128,14 @@ defmodule MinitwitElixir.PromEx.CustomMetrics do
             measurement: :count
           ),
 
+          # Counters for get my timeline
+          counter(
+            [:minitwit_elixir, :custom, :my_timeline, :success],
+            event_name: [:minitwit_elixir, :my_timeline, :success],
+            description: "Request for my timeline success",
+            measurement: :count
+          ),
+
           # Counters for get user messages
           counter(
             [:minitwit_elixir, :custom, :user_timeline, :success],
