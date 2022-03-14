@@ -57,6 +57,7 @@ jobs:
     - stage: test
       name: "run tests"
       install: skip
+      if: branch != release
       script:
         - docker build -t $DOCKER_USERNAME/minitwit-elixir-test . -f docker/minitwit-elixir-test/Dockerfile
         - docker-compose up test
@@ -107,5 +108,5 @@ jobs:
           cd itu-devops &&
           git pull &&
           git status &&
-          docker-compose pull &&
+          docker-compose pull web &&
           docker-compose up web -d"
