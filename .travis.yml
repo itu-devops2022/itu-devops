@@ -29,8 +29,8 @@ install:
   - docker --version  # document the version travis is using
 
 stages:
-  - docker_build
   - test
+  - docker_build
   - push
   - release
   - deploy
@@ -59,7 +59,7 @@ jobs:
       install: skip
       script:
         - docker build -t $DOCKER_USERNAME/minitwit-elixir-test . -f docker/minitwit-elixir-test/Dockerfile
-        - docker-compose up minitwit-elixir-test
+        - docker-compose up test
 
     - stage: push
       name: "push to branch"
@@ -108,4 +108,4 @@ jobs:
           git pull &&
           git status &&
           docker-compose pull &&
-          docker-compose up -d minitwit-elixir-web"
+          docker-compose up -d web"
