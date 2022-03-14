@@ -105,7 +105,7 @@ jobs:
       # the string at the end means it runs inside the ssh connection
       script:
         - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "
-          cd ~/docker &&
+          cd /docker &&
           git pull &&
           git status &&
           docker-compose pull &&
