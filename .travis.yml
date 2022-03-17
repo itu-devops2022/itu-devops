@@ -60,7 +60,7 @@ jobs:
       if: branch != release
       script:
         - docker build -t $DOCKER_USERNAME/minitwit-elixir-test . -f docker/minitwit-elixir-test/Dockerfile
-        - docker-compose up test
+        - docker-compose up test --abort-on-container-exit
 
     - stage: push
       name: "push to branch"
