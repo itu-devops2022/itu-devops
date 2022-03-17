@@ -19,7 +19,7 @@ defmodule MinitwitElixirWeb.ApiControllerTest do
     # verify that latest was updated
     conn_test2 = conn_test
                  |> get(Routes.timeline_path(conn_test, :latest))
-    assert json_response(conn_test2, 204) == %{"latest" => 1337}
+    assert json_response(conn_test2, 200) == %{"latest" => 1337}
   end
 
   test "register a", %{conn: conn} do
