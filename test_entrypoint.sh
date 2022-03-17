@@ -15,3 +15,8 @@ echo "Migrating finished"
 
 echo "Starting tests..."
 exec mix test
+
+if [[ $? != 0 ]]; then
+  echo "exit code for test: " $?
+  exit $?
+fi

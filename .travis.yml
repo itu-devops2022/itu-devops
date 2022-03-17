@@ -33,7 +33,7 @@ stages:
   - docker_build
   - push
   - release
-  - deploy
+  #- deploy
 
 jobs:
   include:
@@ -97,16 +97,16 @@ jobs:
         - gh release create "v0.${TAG}.${SUB}" --generate-notes --target release
 
 
-    - stage: deploy
-      name: "deploy new version"
-      install: skip
-      if: env(RELEASE) IS false AND branch = master
-      # -o flag to get around "add ip to known hosts prompt"
-      # the string at the end means it runs inside the ssh connection
-      script:
-        - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "
-          cd itu-devops &&
-          git pull &&
-          git status &&
-          docker-compose pull web &&
-          docker-compose up web -d"
+    #- stage: deploy
+    #  name: "deploy new version"
+    #  install: skip
+    #  if: env(RELEASE) IS false AND branch = master
+    #  # -o flag to get around "add ip to known hosts prompt"
+    #  # the string at the end means it runs inside the ssh connection
+    #  script:
+    #    - ssh -o "StrictHostKeyChecking no" -i /tmp/git_deploy_key ${MT_USER}@${MT_SERVER} "
+    #      cd itu-devops &&
+    #      git pull &&
+    #      git status &&
+    #      docker-compose pull web &&
+    #      docker-compose up -d web"
