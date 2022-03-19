@@ -70,6 +70,9 @@ defmodule MinitwitElixirWeb.Router do
     get "/fllws/:username", Api.TimelineController, :get_followers
     post "/fllws/:username", Api.TimelineController, :post_followers
 
+    get "/metrics/import", Api.TelemetryController, :import_metric
+    get "/metrics/export", Api.TelemetryController, :export_metric
+
   end
 
 
