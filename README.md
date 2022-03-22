@@ -1,5 +1,6 @@
 # MinitwitElixir
 ![](https://app.travis-ci.com/itu-devops2022/itu-devops.svg?branch=master)
+![license](https://img.shields.io/crates/l/druid)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/913b64dac5d54da0a65c426cccbd8903)](https://www.codacy.com/gh/itu-devops2022/itu-devops/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=itu-devops2022/itu-devops&amp;utm_campaign=Badge_Grade)
 ## Why Elixir and Phoenix?
 
