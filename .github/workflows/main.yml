@@ -46,16 +46,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Push
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: release
-      # uses: s0/git-publish-subdir-action@develop
-      # env:
-      #   REPO: self
-      #   BRANCH: release  # The branch name where you want to push
-      #   FOLDER: . # The folder that you want to push
-      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: release  # The branch name where you want to push
+        FOLDER: ./ # The folder that you want to push
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
   #deploy:
   #  name: deploy new version
