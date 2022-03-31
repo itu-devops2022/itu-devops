@@ -47,6 +47,7 @@ jobs:
     steps:
     - name: Push
       run: |
+        git status
         git fetch origin
         git branch -v -a
         git switch -c release origin/release
