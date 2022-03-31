@@ -6,7 +6,7 @@ defmodule MinitwitElixirWeb.LoginController do
   import Ecto.Query
 
   def index(conn, params) do
-
+    Logger.info "Test"
     # If the user was already logged in
     if get_session(conn, :user_id) do
       IO.puts("A user is already logged in")

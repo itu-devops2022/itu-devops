@@ -20,7 +20,7 @@ defmodule MinitwitElixir.MixProject do
   def application do
     [
       mod: {MinitwitElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools, :crypto]
+      extra_applications: [:logger, :logstash_json, :runtime_tools, :crypto]
     ]
   end
 
@@ -50,7 +50,9 @@ defmodule MinitwitElixir.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:pbkdf2_elixir, "~> 2.0"},
-      {:prom_ex, "~> 1.7"}
+      {:prom_ex, "~> 1.7"},
+      {:logstash_json, github: "itu-devops2022/logstash-json"},
+      {:blocking_queue, "~> 1.3"}
     ]
   end
 

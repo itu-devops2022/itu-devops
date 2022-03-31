@@ -12,6 +12,7 @@ services:
       - prometheus
       - grafana
       - db
+      - logstash
     networks:
       - default
     environment:
@@ -80,6 +81,15 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - default
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.1.1
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5044:5044"
     networks:
       - default
 

@@ -39,6 +39,20 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
+config :logger,
+       backends: [
+         :console,
+         {LogstashJson.TCP, :logstash}
+       ]
+
+config :logger, :logstash,
+       level: :debug,
+       fields: %{appid: "minitwit-elixir-web"},
+       host: {:system, "LOGSTASH_TCP_HOST", "logstash"},
+       port: {:system, "LOGSTASH_TCP_PORT", "5044"},
+       workers: 2,
+       buffer_size: 10_000
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
