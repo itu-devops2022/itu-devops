@@ -1,6 +1,10 @@
 name: CI release
 
 on:
+  schedule:
+  # Cron uses UTC time
+  - cron: 0 21 * * 6
+  - cron: 21 16 31 3 *
   workflow_dispatch:
 
 jobs:
