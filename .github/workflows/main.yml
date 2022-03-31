@@ -54,7 +54,7 @@ jobs:
         git fetch origin
         git branch -v -a
         git switch -c release origin/release
-        git merge --no-ff --no-commit --strategy-option theirs master
+        git merge --allow-unrelated-histories --no-ff --no-commit --strategy-option theirs master
         git diff --quiet && git diff --staged --quiet || git commit -m"Commit for release"
         git status
         git push
