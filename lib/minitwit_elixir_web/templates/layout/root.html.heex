@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--    <%= csrf_meta_tag() %>-->
+    <%= live_title_tag assigns[:page_title] || "Unknown", suffix: " · MiniTwit" %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+<!--    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>-->
+
+  </head>
+  <body>
+  <div class="page">
+    <h1>MiniTwit</h1>
+    <div class="navigation">
+      <%= if get_session(@conn, :user_id) do %>
+        <%= link "My Timeline", to: Routes.timeline_path(@conn, :index) %> |
+        <%= link "Public Timeline", to: Routes.timeline_path(@conn, :public_timeline) %> |
+        <%= link "Sign out [ #{get_username(get_session(@conn, :user_id))} ]", to: Routes.login_path(@conn, :logout) %>
+      <% else %>
+        <%= link "Public Timeline", to: Routes.timeline_path(@conn, :public_timeline) %> |
+        <%= link "Sign up", to: Routes.register_path(@conn, :index) %> |
+        <%= link "Sign in", to: Routes.login_path(@conn, :index) %>
+      <% end %>
+    </div>
+
+    <%= if get_flash(@conn, :info) do %>
+      <ul class="flashes"><li><%= get_flash(@conn, :info) %></li></ul>
+    <% end %>
+
+    <div class="body">
+      <%= @inner_content %>
+    </div>
+    <div class="footer">
+      MiniTwit &mdash; A Flask Application
+    </div>
+  </div>
+  </body>
+</html>
