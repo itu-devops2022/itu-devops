@@ -49,9 +49,9 @@ jobs:
     - name: Push
       run: |
         git status
-        git fetch origin-remote
+        git fetch origin
         git branch -v -a
-        git switch -c release origin-remote/release
+        git switch -c release origin/release
         git merge --allow-unrelated-histories --no-ff --no-commit --strategy-option theirs master
         git diff --quiet && git diff --staged --quiet || git commit -m"Commit for release"
         git status
