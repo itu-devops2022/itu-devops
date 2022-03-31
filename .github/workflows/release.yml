@@ -1,19 +1,24 @@
 name: CI release
 
 on:
+  push:
+    tags:
+      - "v0.*.*"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Create release
-        run: |
-          export TAG="$(( $(date +"%U") - 5))"
-          gh release list > /tmp/list
-          cat /tmp/list
-          export SUB="$(grep -c "v0.${TAG}" /tmp/list)"
-          echo "v0.${TAG}.${SUB}"
-          gh release create "v0.${TAG}.${SUB}" --generate-notes --target release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+    #   - name: Create release
+    #     run: |
+    #       export TAG="$(( $(date +"%U") - 5))"
+    #       gh release list > /tmp/list
+    #       cat /tmp/list
+    #       export SUB="$(grep -c "v0.${TAG}" /tmp/list)"
+    #       echo "v0.${TAG}.${SUB}"
+    #       gh release create "v0.${TAG}.${SUB}" --generate-notes --target release
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
