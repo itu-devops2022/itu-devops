@@ -46,8 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Push
-    - uses: actions/checkout@v3
-    - run: |
+      run: |
         git fetch origin-remote
         git branch -v -a
         git switch -c release origin-remote/release
@@ -62,7 +61,6 @@ jobs:
   #  needs: build
   #  steps:
   #  - name: deploy script
-  #  - uses: actions/checkout@v3
   #    run: |
   #      ssh -o "StrictHostKeyChecking no" -i ${{ secrets.DO_SSH_KEY }} ${{ secrets.MT_USER }}@${{ secrets.MT_SERVER }}
   #      cd itu-devops
