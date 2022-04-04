@@ -3,7 +3,7 @@ name: CI release
 on:
   schedule:
   # Cron uses UTC time
-  - cron: 0 21 * * 6 # Runs at 21:00 UTC every Saturday
+  - cron: 0 21 * * 0 # Runs at 21:00 UTC every Sunday
   workflow_dispatch:
 
 jobs:
