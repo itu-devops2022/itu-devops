@@ -12,6 +12,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    needs: test
     name: build and push docker
     
     # The type of runner that the job will run on
@@ -42,6 +43,7 @@ jobs:
         docker-compose up --abort-on-container-exit test
         
   push:
+    needs: [build, test]
     name: push to release branch
     runs-on: ubuntu-latest
     steps:
@@ -60,15 +62,30 @@ jobs:
         git push
       
   deploy:
-    name: deploy new version
+    needs: [build, test]
     runs-on: ubuntu-latest
-    needs: build
     steps:
-    - name: deploy script
-      run: |
-        ssh -o "StrictHostKeyChecking no" -i ${{ secrets.DO_SSH_KEY }} ${{ secrets.MT_USER }}@${{ secrets.MT_SERVER }}
-        cd itu-devops
-        git pull
-        git status
-        docker-compose pull web
-        docker-compose up -d web
+    - name: deploy new version
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.MT_SERVER }}
+        username: ${{ secrets.MT_USER }}
+        key: ${{ secrets.DO_SSH_KEY }}
+        script: |
+          cd itu-devops
+          git pull
+          git status
+          docker-compose pull web
+          docker-compose up -d web
+    # name: deploy new version
+    # runs-on: ubuntu-latest
+    # needs: build
+    # steps:
+    # - name: deploy script
+    #   run: |
+    #     ssh -o "StrictHostKeyChecking no" -i ${{ secrets.DO_SSH_KEY }} ${{ secrets.MT_USER }}@${{ secrets.MT_SERVER }}
+    #     cd itu-devops
+    #     git pull
+    #     git status
+    #     docker-compose pull web
+    #     docker-compose up -d web
