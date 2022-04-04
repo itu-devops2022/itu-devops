@@ -12,6 +12,7 @@ services:
       - prometheus
       - grafana
       - db
+      - loki
     networks:
       - default
     environment:
@@ -44,6 +45,17 @@ services:
       PGHOST: db
       # Use the docker mix env
       MIX_ENV: test
+
+  loki:
+    image: grafana/loki
+    container_name: loki
+    networks:
+      - default
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yml:/etc/loki/local-config.yaml
+      - loki:/loki
 
   prometheus:
     image: prom/prometheus
@@ -87,4 +99,5 @@ services:
 volumes:
   pgdata:
   prometheus:
+  loki:
   grafana-storage:

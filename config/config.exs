@@ -39,6 +39,16 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
+config :logger, backends: [:console, LokiLogger]
+
+config :logger, :loki_logger,
+       level: :info,
+       format: "$metadata level=$level $levelpad$message",
+       metadata: :all,
+       max_buffer: 50,
+       loki_labels: %{application: "loki_logger_library", elixir_node: node()},
+       loki_host: "http://loki:3100"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
