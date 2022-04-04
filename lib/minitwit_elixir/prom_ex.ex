@@ -96,7 +96,8 @@ defmodule MinitwitElixir.PromEx do
       # {:prom_ex, "broadway.json"},
 
       # Add your dashboard definitions here with the format: {:otp_app, "path_in_priv"}
-      {:minitwit_elixir, "/dashboards/custom.json"}
+      {:minitwit_elixir, "/dashboards/custom.json"},
+      {:minitwit_elixir, "/dashboards/log_dashboard.json"}
     ]
   end
 end

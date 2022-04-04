@@ -48,7 +48,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/pbkdf2_elixir" />
       <excludeFolder url="file://$MODULE_DIR$/_build" />
     </content>
-    <orderEntry type="jdk" jdkName="Elixir 1.13.3" jdkType="Elixir SDK" />
+    <orderEntry type="jdk" jdkName="Elixir 1.13.2" jdkType="Elixir SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="phoenix" level="project" />
     <orderEntry type="library" name="phoenix_ecto" level="project" />
@@ -116,5 +116,25 @@
     <orderEntry type="library" name="nimble_options" level="project" />
     <orderEntry type="library" name="hpax" level="project" />
     <orderEntry type="library" name="hpack" level="project" />
+    <orderEntry type="library" name="logstash_json" level="project" />
+    <orderEntry type="library" name="blocking_queue" level="project" />
+    <orderEntry type="library" name="excheck" level="project" />
+    <orderEntry type="library" name="triq" level="project" />
+    <orderEntry type="library" name="inch_ex" level="project" />
+    <orderEntry type="library" name="earmark" level="project" />
+    <orderEntry type="library" name="loki_logger" level="project" />
+    <orderEntry type="library" name="tzdata" level="project" />
+    <orderEntry type="library" name="httpoison" level="project" />
+    <orderEntry type="library" name="json" level="project" />
+    <orderEntry type="library" name="timex" level="project" />
+    <orderEntry type="library" name="protobuf" level="project" />
+    <orderEntry type="library" name="google_protos" level="project" />
+    <orderEntry type="library" name="snappyer" level="project" />
+    <orderEntry type="library" name="mimic" level="project" />
+    <orderEntry type="library" name="httparrot" level="project" />
+    <orderEntry type="library" name="dialyzex" level="project" />
+    <orderEntry type="library" name="combine" level="project" />
+    <orderEntry type="library" name="benchfella" level="project" />
+    <orderEntry type="library" name="eqc_ex" level="project" />
   </component>
 </module>

@@ -4,8 +4,11 @@ defmodule MinitwitElixirWeb.LoginController do
   alias MinitwitElixir.Schemas.User
   alias MinitwitElixir.Repo
   import Ecto.Query
+  require Logger
 
   def index(conn, params) do
+    Logger.info("Sample message", tags: ["Hello"])
+    Logger.flush()
 
     # If the user was already logged in
     if get_session(conn, :user_id) do

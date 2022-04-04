@@ -1,9 +1,11 @@
 defmodule MinitwitElixirWeb.Router do
   use MinitwitElixirWeb, :router
+  require Logger
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
+    plug :log_request
     plug :fetch_live_flash
     plug :put_root_layout, {MinitwitElixirWeb.LayoutView, :root}
     plug :protect_from_forgery
@@ -12,6 +14,7 @@ defmodule MinitwitElixirWeb.Router do
 
   pipeline :api do
     plug :count_calls
+    plug :log_request
     plug :accepts, ["json"]
   end
 
@@ -20,6 +23,37 @@ defmodule MinitwitElixirWeb.Router do
     conn
   end
 
+  def log_request(conn, _params) do
+    body = conn.body_params
+    body = Enum.at(Tuple.to_list(pop_in(body, ["_csrf_token"])), 1)
+
+    body = if !is_nil(get_in(body, ["user", "password"])) do
+      put_in(body, ["user", "password"], "[hidden]")
+    else
+      body
+    end
+
+    body = if !is_nil(get_in(body, ["user", "pw_1"])) do
+      put_in(body, ["user", "pw_1"], "[hidden]")
+    else
+      body
+    end
+
+    body = if !is_nil(get_in(body, ["user", "pw_2"])) do
+      put_in(body, ["user", "pw_2"], "[hidden]")
+    else
+      body
+    end
+
+    body = if !is_nil(get_in(body, ["pwd"])) do
+      put_in(body, ["pwd"], "[hidden]")
+    else
+      body
+    end
+
+    Logger.info("Request to: #{conn.request_path} \n with headers: '#{Kernel.inspect conn.req_headers}'\nwith body_params: '#{Kernel.inspect body}' \nwith query_params: '#{Kernel.inspect conn.query_params}'")
+    conn
+  end
 
 
   # Enables LiveDashboard only for development
