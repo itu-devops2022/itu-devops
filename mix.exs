@@ -51,7 +51,7 @@ defmodule MinitwitElixir.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:pbkdf2_elixir, "~> 2.0"},
       {:prom_ex, "~> 1.7"},
-#      {:loki_logger, "~> 0.3.0"}
+      {:loki_logger, "~> 0.3.0"}
     ]
   end
 

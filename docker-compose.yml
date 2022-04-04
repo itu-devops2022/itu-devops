@@ -12,7 +12,7 @@ services:
       - prometheus
       - grafana
       - db
-      #- loki
+      - loki
     networks:
       - default
     environment:
