@@ -19,7 +19,7 @@ defmodule MinitwitElixirWeb.Router do
   end
 
   def count_calls(conn, _opts) do
-    :telemetry.execute([:minitwit_elixir, :api_requests, :count], %{})
+    MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :api_requests, :count])
     conn
   end
 

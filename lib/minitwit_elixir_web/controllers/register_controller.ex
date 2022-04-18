@@ -19,27 +19,27 @@ defmodule MinitwitElixirWeb.RegisterController do
 
         case user_can_be_registered(user) do
           :no_username ->
-            :telemetry.execute([:minitwit_elixir, :register, :username_missing], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :username_missing])
             put_flash(conn, :error, "You have to enter a username") |>
               redirect(to: Routes.register_path(conn, :index))
           :email_not_valid ->
-            :telemetry.execute([:minitwit_elixir, :register, :email_not_valid], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :email_not_valid])
             put_flash(conn, :error, "You have to enter a valid email address") |>
               redirect(to: Routes.register_path(conn, :index))
           :password_missing ->
-            :telemetry.execute([:minitwit_elixir, :register, :password_missing], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :password_missing])
             put_flash(conn, :error, "You have to enter a password") |>
               redirect(to: Routes.register_path(conn, :index))
           :passwords_dont_match ->
-            :telemetry.execute([:minitwit_elixir, :register, :passwords_dont_match], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :passwords_dont_match])
             put_flash(conn, :error, "The two passwords do not match") |>
               redirect(to: Routes.register_path(conn, :index))
           :username_taken ->
-            :telemetry.execute([:minitwit_elixir, :register, :username_taken], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :username_taken])
             put_flash(conn, :error, "The username is already taken") |>
               redirect(to: Routes.register_path(conn, :index))
           :ok ->
-            :telemetry.execute([:minitwit_elixir, :register, :success], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :success])
             User.new_user(user)
             conn |>
               put_flash(:info, "You were successfully registered and can login now") |>
