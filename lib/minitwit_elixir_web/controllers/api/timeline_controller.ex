@@ -10,7 +10,7 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
 
   def latest(conn, _params) do
     latest = Repo.get(Latest, -1).number
-    :telemetry.execute([:minitwit_elixir, :latest, :count], %{})
+    MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :latest, :count])
     json(conn, %{latest: latest})
   end
 
@@ -39,10 +39,10 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
       messages = Repo.all(query) |> Repo.preload([:author])
 
       res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
-      :telemetry.execute([:minitwit_elixir, :public_timeline, :success], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :public_timeline, :success])
       json(conn, res)
     else
-      :telemetry.execute([:minitwit_elixir, :public_timeline, :not_authorized], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :public_timeline, :not_authorized])
       not_authorized_response(conn)
     end
   end
@@ -60,10 +60,10 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
       messages = Message.get_messages_by_author_id(user_id, no_msgs)
 
       res = Enum.map(messages, fn x ->  %{content: x.text, pub_date: x.inserted_at, user: x.author.username} end)
-      :telemetry.execute([:minitwit_elixir, :user_timeline, :success], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :user_timeline, :success])
       json(conn, res)
     else
-      :telemetry.execute([:minitwit_elixir, :user_timeline, :not_authorized], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :user_timeline, :not_authorized])
       not_authorized_response(conn)
     end
   end
@@ -78,16 +78,16 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
           message = params["content"]
 
           inserted = Message.insert_message(message, user_id)
-          :telemetry.execute([:minitwit_elixir, :tweet, :success], %{})
+          MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :tweet, :success])
           conn |>
             put_status(204) |>
             text("")
         else
-          :telemetry.execute([:minitwit_elixir, :tweet, :user_dont_exist], %{})
+          MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :tweet, :user_dont_exist])
           user_not_found_response(conn, username)
         end
       else
-        :telemetry.execute([:minitwit_elixir, :tweet, :not_authorized], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :tweet, :not_authorized])
         not_authorized_response(conn)
     end
   end
@@ -103,15 +103,15 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
 
         followings = User.get_followings_from_username(user_id, no_followers)
         usernames = Enum.take(Enum.map(followings, fn x ->  x.username end), no_followers)
-        :telemetry.execute([:minitwit_elixir, :get_followers, :success], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :get_followers, :success])
         conn |>
           json(%{follows: usernames})
       else
-        :telemetry.execute([:minitwit_elixir, :get_followers, :user_dont_exist], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :get_followers, :user_dont_exist])
         user_not_found_response(conn, username)
       end
     else
-      :telemetry.execute([:minitwit_elixir, :get_followers, :not_authorized], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :get_followers, :not_authorized])
       not_authorized_response(conn)
     end
   end
@@ -129,12 +129,12 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
 
             if other_id != -1 do
                 Follower.follow(user_id, other_id)
-                :telemetry.execute([:minitwit_elixir, :post_followers, :follow, :success], %{})
+                MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :follow, :success])
                 conn |>
                   put_status(204) |>
                   text("")
               else
-                :telemetry.execute([:minitwit_elixir, :post_followers, :follow, :other_dont_exist], %{})
+              MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :follow, :other_dont_exist])
                 user_not_found_response(conn, other_name)
             end
 
@@ -143,25 +143,25 @@ defmodule MinitwitElixirWeb.Api.TimelineController do
 
             if other_id != -1 do
               Follower.unfollow(user_id, other_id)
-              :telemetry.execute([:minitwit_elixir, :post_followers, :unfollow, :success], %{})
+              MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :unfollow, :success])
               conn |>
                 put_status(204) |>
                 text("")
             else
-              :telemetry.execute([:minitwit_elixir, :post_followers, :unfollow, :other_dont_exist], %{})
+              MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :unfollow, :other_dont_exist])
               user_not_found_response(conn, other_name)
             end
 
           %{} ->
-            :telemetry.execute([:minitwit_elixir, :post_followers, :action_missing], %{})
+            MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :action_missing])
             conn |> put_status(404) |> text("")
         end
       else
-        :telemetry.execute([:minitwit_elixir, :post_followers, :user_dont_exist], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :user_dont_exist])
         user_not_found_response(conn, username)
       end
     else
-      :telemetry.execute([:minitwit_elixir, :post_followers, :not_authorized], %{})
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :post_followers, :not_authorized])
       not_authorized_response(conn)
     end
 
