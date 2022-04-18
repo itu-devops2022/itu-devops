@@ -2,7 +2,6 @@ version: "3"
 
 services:
   web:
-    container_name: minitwit-elixir-web
     image: endritmegusta/minitwit-elixir
     ports:
       - "4000:4000"
@@ -25,6 +24,9 @@ services:
       PGHOST: db
       # Use the docker mix env
       MIX_ENV: docker
+    deploy:
+      mode: replicated
+      replicas: 1
 
   test:
     container_name: minitwit-elixir-test
@@ -56,6 +58,12 @@ services:
     volumes:
       - ./loki-config.yml:/etc/loki/local-config.yaml
       - loki:/loki
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.role==manager" # This makes sure it is run on the manager
 
   prometheus:
     image: prom/prometheus
@@ -67,6 +75,12 @@ services:
       - "9090:9090"
     networks:
       - default
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.role==manager" # This makes sure it is run on the manager
 
   grafana:
     image: grafana/grafana:latest
@@ -78,6 +92,12 @@ services:
       - "3000:3000"
     networks:
       - default
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.role==manager" # This makes sure it is run on the manager
 
   db:
     image: postgres
@@ -94,6 +114,14 @@ services:
       - "5432:5432"
     networks:
       - default
+    # Things for deployment to docker swarm
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.role==manager" # This makes sure it is run on the manager
+
 
 # Define the volumes.
 volumes:
