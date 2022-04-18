@@ -22,32 +22,32 @@ defmodule MinitwitElixirWeb.Api.RegisterController do
 
     case suc do
       :no_username ->
-        :telemetry.execute([:minitwit_elixir, :register, :username_missing], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :username_missing])
         conn |>
           put_status(400) |>
           json(%{status: 400, error_msg: "You have to enter a username"})
       :email_not_valid ->
-        :telemetry.execute([:minitwit_elixir, :register, :email_not_valid], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :email_not_valid])
         conn |>
           put_status(400) |>
           json(%{status: 400, error_msg: "You have to enter a valid email address"})
       :password_missing ->
-        :telemetry.execute([:minitwit_elixir, :register, :password_missing], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :password_missing])
         conn |>
           put_status(400) |>
           json(%{status: 400, error_msg: "You have to enter a password"})
       :passwords_dont_match ->
-        :telemetry.execute([:minitwit_elixir, :register, :passwords_dont_match], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :passwords_dont_match])
         conn |>
           put_status(400) |>
           json(%{status: 400, error_msg: "You have to enter a password"})
       :username_taken ->
-        :telemetry.execute([:minitwit_elixir, :register, :username_taken], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :username_taken])
         conn |>
           put_status(400) |>
           json(%{status: 400, error_msg: "The username is already taken"})
       :ok ->
-        :telemetry.execute([:minitwit_elixir, :register, :success], %{})
+        MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :register, :success])
         User.new_user(user)
         conn |>
           put_status(204) |>
