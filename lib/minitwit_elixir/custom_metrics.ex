@@ -15,26 +15,7 @@ defmodule MinitwitElixir.PromEx.CustomMetrics do
       :minitwit_elixir_custom_polling,
       poll_rate,
       {__MODULE__, :latest_counts, []},
-      [
-        last_value(
-          [:minitwit_elixir, :custom, :users, :count],
-          event_name: [:minitwit_elixir, :users, :count],
-          description: "Number of users in the db",
-          measurement: :count
-        ),
-        last_value(
-          [:minitwit_elixir, :custom, :messages, :count],
-          event_name: [:minitwit_elixir, :messages, :count],
-          description: "Number of messages in the db",
-          measurement: :count
-        ),
-        last_value(
-          [:minitwit_elixir, :custom, :flagged_messages, :count],
-          event_name: [:minitwit_elixir, :flagged_messages, :count],
-          description: "Number of flagged messages in the db",
-          measurement: :count
-        ),
-      ]
+      []
     )
   end
 
@@ -256,6 +237,25 @@ defmodule MinitwitElixir.PromEx.CustomMetrics do
             [:minitwit_elixir, :custom, :api_requests, :count],
             event_name: [:minitwit_elixir, :api_requests, :count],
             description: "The number of times the api was called",
+            measurement: :count
+          ),
+
+          last_value(
+            [:minitwit_elixir, :custom, :users, :count],
+            event_name: [:minitwit_elixir, :users, :count],
+            description: "Number of users in the db",
+            measurement: :count
+          ),
+          last_value(
+            [:minitwit_elixir, :custom, :messages, :count],
+            event_name: [:minitwit_elixir, :messages, :count],
+            description: "Number of messages in the db",
+            measurement: :count
+          ),
+          last_value(
+            [:minitwit_elixir, :custom, :flagged_messages, :count],
+            event_name: [:minitwit_elixir, :flagged_messages, :count],
+            description: "Number of flagged messages in the db",
             measurement: :count
           ),
         ]
