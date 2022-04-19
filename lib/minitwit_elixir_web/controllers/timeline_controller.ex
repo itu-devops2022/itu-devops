@@ -38,10 +38,19 @@ defmodule MinitwitElixirWeb.TimelineController do
     messages = Repo.all(query) |> Repo.preload([:author])
 
     username_query = from(u in User, where: u.username == ^username, select: u.id)
-    username_id = Enum.at(Repo.all(username_query), 0)
 
-    MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :user_timeline, :success])
-    render(conn, "timeline.html", messages: messages, page_title: "#{username}'s Timeline", timeline_type: :user_timeline, currently_viewing_id: username_id)
+    user_ids = Repo.all(username_query)
+    if Enum.count(user_ids) == 1 do
+      username_id = Enum.at(user_ids, 0)
+      MinitwitElixir.Schemas.Metrics.increment([:minitwit_elixir, :user_timeline, :success])
+      render(conn, "timeline.html", messages: messages, page_title: "#{username}'s Timeline", timeline_type: :user_timeline, currently_viewing_id: username_id)
+    else
+      conn
+      |> put_status(404)
+      |> put_view(MinitwitElixirWeb.ErrorView)
+      |> render(:"404")
+    end
+
   end
 
   def add_message(conn, params) do
