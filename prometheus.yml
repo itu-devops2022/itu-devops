@@ -24,6 +24,6 @@ scrape_configs:
     scrape_interval: 5s
 
     static_configs:
-      - targets: ['minitwit-elixir-web:4000']
+      - targets: ['itu-devops_web_1:4000']
         labels:
           group: 'production'
