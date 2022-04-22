@@ -1,0 +1,4756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP Scanning Report</title>
+<link
+	href="Devops-report/normalize/normalize.css" rel="stylesheet">
+<link
+	href="Devops-report/themes/original/main.css" rel="stylesheet">
+<link
+	href="Devops-report/themes/original/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP Scanning Report</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org"><img
+				src="Devops-report/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on tir. 19 apr. 2022, at 15:10:35</span>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a
+						href="#about-this-report">About this report</a>
+						<ol>
+							
+							<li><a
+								href="#report-parameters">Report parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a
+						href="#summaries">Summaries</a>
+						<ol>
+							
+							<li><a
+								href="#site-risk-counts">Alert counts by site and risk</a></li>
+							<li><a
+								href="#alert-type-counts">Alert counts by alert type</a></li>
+						</ol></li>
+					<li><a
+						href="#alerts">Alerts</a>
+						<ol>
+							
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-3-confidence-2"><span>Risk</span>=<span
+									class="risk-level">High</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-2-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Medium</span>, <span>Confidence</span>=<span
+									class="confidence-level">High</span> <span>(1)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-2-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Medium</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-1-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Low</span>, <span>Confidence</span>=<span
+									class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-0-confidence-1"><span>Risk</span>=<span
+									class="risk-level">Informational</span>, <span>Confidence</span>=<span
+									class="confidence-level">Low</span> <span>(1)</span></a></li>
+							  
+						</ol></li>
+					<li><a
+						href="#appendix">Appendix</a>
+						<ol>
+							<li><a
+								href="#alert-types">Alert types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section
+			id="about-this-report" class="about-this-report">
+			<h2>About this report</h2>
+
+			
+
+			<section
+				id="report-parameters">
+				<h3>Report parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">https://www.gravatar.com</span></li>
+						<li><span class="site">http://172.20.10.3:4000</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">High</span>, <span class="risk-level">Medium</span>, <span class="risk-level">Low</span>, <span class="risk-level">Informational</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span>, <span class="confidence-level">False Positive</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			
+
+			<section
+				id="site-risk-counts">
+				<h3>Alert counts by site and risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of &quot;False Positive&quot; have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>High</span><br>  <span
+									class="additional-info-percentages">(= High)</span>  
+							</th>
+							<th scope="col">
+								<span>Medium</span><br>   <span
+									class="additional-info-percentages">(&gt;= Medium)</span> 
+							</th>
+							<th scope="col">
+								<span>Low</span><br>   <span
+									class="additional-info-percentages">(&gt;= Low)</span> 
+							</th>
+							<th scope="col">
+								<span>Informational</span><br>   <span
+									class="additional-info-percentages">(&gt;= Informational)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="1">Site</th>
+							<th scope="row">http://172.20.10.3:4000</th>
+							
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(3)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(5)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(6)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="alert-type-counts">
+				<h3>Alert counts by alert type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type&#39;s risk level.</p>
+						<p>(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-0">SQL Injection</a></th>
+							<td class="risk-level">High</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(33,3 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-1">Content Security Policy (CSP) Header Not Set</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>5</span><br> <span
+								class="additional-info-percentages">(83,3 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-2">Missing Anti-clickjacking Header</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(16,7 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-3">Cookie without SameSite Attribute</a></th>
+							<td class="risk-level">Low</td>
+							<td><span>6</span><br> <span
+								class="additional-info-percentages">(100,0 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-4">X-Content-Type-Options Header Missing</a></th>
+							<td class="risk-level">Low</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(33,3 %)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-5">Information Disclosure - Suspicious Comments</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(33,3 %)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>6</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-3-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">High</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://172.20.10.3:4000</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-0">SQL Injection</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST http://172.20.10.3:4000/login</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">WSTG-v42-INPV-05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>SQL injection may be possible.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>The page results were successfully manipulated using the boolean conditions [e AND 1=1 -- ] and [e OR 1=1 -- ]</p>
+
+<p>The parameter value being modified was NOT stripped from the HTML output for the purposes of the comparison</p>
+
+<p>Data was NOT returned for the original parameter.</p>
+
+<p>The vulnerability was detected by successfully retrieving more data than originally returned, by manipulating the parameter</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (1013 bytes)</summary>
+				
+				<pre><code>POST http://172.20.10.3:4000/login HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+Content-Length: 126
+Cache-Control: max-age=0
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;macOS&quot;
+Upgrade-Insecure-Requests: 1
+Origin: https://172.20.10.3:4000
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://172.20.10.3:4000/login
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (126 bytes)</summary>
+				
+				<pre><code>_csrf_token=K1IsHA8mTwZpBHUAESZDETU4Yn8RMBE5YaBpkywKYlENGuvac_62_CdJ&amp;user%5Busername%5D=e+AND+1%3D1+--+&amp;user%5Bpassword%5D=123</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (700 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 Found
+cache-control: max-age=0, private, must-revalidate
+content-length: 145
+content-type: text/html; charset=utf-8
+cross-origin-window-policy: deny
+date: Tue, 19 Apr 2022 12:20:04 GMT
+location: /
+server: Cowboy
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-request-id: FudLgNpPLu7z8OAAAELD
+x-xss-protection: 1; mode=block
+set-cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAADbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3VzbQAAAA1waG9lbml4X2ZsYXNodAAAAAFtAAAABGluZm9tAAAAEllvdSB3ZXJlIGxvZ2dlZCBpbm0AAAAHdXNlcl9pZGE1.GuGctC8NnJKc39WEzDHj9CdTphxVWcsMR3KOhgPwkX0; path=/; HttpOnly
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (145 bytes)</summary>
+				
+				<pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;/&quot;&gt;redirected&lt;/a&gt;.&lt;iframe hidden height=&quot;0&quot; width=&quot;0&quot; src=&quot;/phoenix/live_reload/frame&quot;&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>user[username]</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Attack</th>
+		<td><pre><code>e OR 1=1 -- </code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Do not trust client side input, even if there is client side validation in place.  </p>
+
+<p>In general, type check all data on the server side.</p>
+
+<p>If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by &#39;?&#39;</p>
+
+<p>If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries.</p>
+
+<p>If database Stored Procedures can be used, use them.</p>
+
+<p>Do *not* concatenate strings into queries in the stored procedure, or use &#39;exec&#39;, &#39;exec immediate&#39;, or equivalent functionality!</p>
+
+<p>Do not create dynamic SQL queries using simple string concatenation.</p>
+
+<p>Escape all data received from the client.</p>
+
+<p>Apply an &#39;allow list&#39; of allowed characters, or a &#39;deny list&#39; of disallowed characters in user input.</p>
+
+<p>Apply the principle of least privilege by using the least privileged database user possible.</p>
+
+<p>In particular, avoid using the &#39;sa&#39; or &#39;db-owner&#39; database users. This does not eliminate SQL injection, but minimizes its impact.</p>
+
+<p>Grant the minimum database access that is necessary for the application.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-2-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medium</span>, <span>Confidence</span>=<span
+							class="confidence-level">High</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://172.20.10.3:4000</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-1">Content Security Policy (CSP) Header Not Set</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://172.20.10.3:4000/public</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (710 bytes)</summary>
+				
+				<pre><code>GET http://172.20.10.3:4000/public HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;macOS&quot;
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (593 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+cache-control: max-age=0, private, must-revalidate
+content-length: 1474
+content-type: text/html; charset=utf-8
+cross-origin-window-policy: deny
+date: Tue, 19 Apr 2022 12:09:16 GMT
+server: Cowboy
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-request-id: FudK6Yeaqkesj3oAAAGC
+x-xss-protection: 1; mode=block
+set-cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0; path=/; HttpOnly
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (1474 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!--    &lt;meta content=&quot;JVEYIzRpfigHBWMoEDFqGR4OOXgvJzssWbvOP6Fe7mSfFb_iHim5aTN_&quot; name=&quot;csrf-token&quot;&gt;--&gt;
+&lt;title data-suffix=&quot; · MiniTwit&quot;&gt;Public Timeline · MiniTwit&lt;/title&gt;
+    &lt;link phx-track-static rel=&quot;stylesheet&quot; href=&quot;/assets/app.css&quot;&gt;
+&lt;!--    &lt;script defer phx-track-static type=&quot;text/javascript&quot; src={Routes.static_path(@conn, &quot;/assets/app.js&quot;)}&gt;&lt;/script&gt;--&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div class=&quot;page&quot;&gt;
+    &lt;h1&gt;MiniTwit&lt;/h1&gt;
+    &lt;div class=&quot;navigation&quot;&gt;
+
+&lt;a href=&quot;/public&quot;&gt;Public Timeline&lt;/a&gt; |
+&lt;a href=&quot;/register&quot;&gt;Sign up&lt;/a&gt; |
+&lt;a href=&quot;/login&quot;&gt;Sign in&lt;/a&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class=&quot;body&quot;&gt;
+&lt;main class=&quot;container&quot;&gt;
+&lt;h2&gt;Public Timeline&lt;/h2&gt;
+
+&lt;ul class=&quot;messages&quot;&gt;
+
+
+            &lt;li&gt;
+&lt;img src=&quot;http://www.gravatar.com/avatar/db127b2eb7be0a7e67d4fe4ac8b13033?d=identicon&amp;amp;s=48&quot;&gt;
+                &lt;p&gt;
+                    &lt;strong&gt;
+&lt;a href=&quot;/e&quot;&gt;e&lt;/a&gt;
+                    &lt;/strong&gt;
+                    &lt;small&gt;
+                        &amp;mdash; 2022-04-19 @ 10:00:40
+                    &lt;/small&gt;
+                    &lt;br&gt;
+a
+                &lt;/p&gt;
+            &lt;/li&gt;
+
+
+&lt;/ul&gt;
+&lt;/main&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;
+      MiniTwit &amp;mdash; A Flask Application
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;iframe hidden height=&quot;0&quot; width=&quot;0&quot; src=&quot;/phoenix/live_reload/frame&quot;&gt;&lt;/iframe&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: &quot;Content-Security-Policy&quot; for Chrome 25+, Firefox 23+ and Safari 7+, &quot;X-Content-Security-Policy&quot; for Firefox 4.0+ and Internet Explorer 10+, and &quot;X-WebKit-CSP&quot; for Chrome 14+ and Safari 6+.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-2-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Medium</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://172.20.10.3:4000</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-2">Missing Anti-clickjacking Header</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://172.20.10.3:4000/phoenix/live_reload/frame</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking">WSTG-v42-CLNT-09</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The response does not include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options to protect against &#39;ClickJacking&#39; attacks.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (881 bytes)</summary>
+				
+				<pre><code>GET http://172.20.10.3:4000/phoenix/live_reload/frame HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;macOS&quot;
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Dest: iframe
+Referer: https://172.20.10.3:4000/public
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (187 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+cache-control: max-age=0, private, must-revalidate
+Content-Length: 37668
+content-type: text/html; charset=utf-8
+date: Tue, 19 Apr 2022 12:09:16 GMT
+server: Cowboy
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (37668 bytes)</summary>
+				
+				<pre><code>&lt;html&gt;&lt;body&gt;
+&lt;script&gt;
+var Phoenix = (() =&gt; {
+  var __defProp = Object.defineProperty;
+  var __markAsModule = (target) =&gt; __defProp(target, &quot;__esModule&quot;, { value: true });
+  var __export = (target, all) =&gt; {
+    __markAsModule(target);
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+
+  // js/phoenix/index.js
+  var phoenix_exports = {};
+  __export(phoenix_exports, {
+    Channel: () =&gt; Channel,
+    LongPoll: () =&gt; LongPoll,
+    Presence: () =&gt; Presence,
+    Serializer: () =&gt; serializer_default,
+    Socket: () =&gt; Socket
+  });
+
+  // js/phoenix/utils.js
+  var closure = (value) =&gt; {
+    if (typeof value === &quot;function&quot;) {
+      return value;
+    } else {
+      let closure2 = function() {
+        return value;
+      };
+      return closure2;
+    }
+  };
+
+  // js/phoenix/constants.js
+  var globalSelf = typeof self !== &quot;undefined&quot; ? self : null;
+  var phxWindow = typeof window !== &quot;undefined&quot; ? window : null;
+  var global = globalSelf || phxWindow || void 0;
+  var DEFAULT_VSN = &quot;2.0.0&quot;;
+  var SOCKET_STATES = { connecting: 0, open: 1, closing: 2, closed: 3 };
+  var DEFAULT_TIMEOUT = 1e4;
+  var WS_CLOSE_NORMAL = 1e3;
+  var CHANNEL_STATES = {
+    closed: &quot;closed&quot;,
+    errored: &quot;errored&quot;,
+    joined: &quot;joined&quot;,
+    joining: &quot;joining&quot;,
+    leaving: &quot;leaving&quot;
+  };
+  var CHANNEL_EVENTS = {
+    close: &quot;phx_close&quot;,
+    error: &quot;phx_error&quot;,
+    join: &quot;phx_join&quot;,
+    reply: &quot;phx_reply&quot;,
+    leave: &quot;phx_leave&quot;
+  };
+  var TRANSPORTS = {
+    longpoll: &quot;longpoll&quot;,
+    websocket: &quot;websocket&quot;
+  };
+  var XHR_STATES = {
+    complete: 4
+  };
+
+  // js/phoenix/push.js
+  var Push = class {
+    constructor(channel, event, payload, timeout) {
+      this.channel = channel;
+      this.event = event;
+      this.payload = payload || function() {
+        return {};
+      };
+      this.receivedResp = null;
+      this.timeout = timeout;
+      this.timeoutTimer = null;
+      this.recHooks = [];
+      this.sent = false;
+    }
+    resend(timeout) {
+      this.timeout = timeout;
+      this.reset();
+      this.send();
+    }
+    send() {
+      if (this.hasReceived(&quot;timeout&quot;)) {
+        return;
+      }
+      this.startTimeout();
+      this.sent = true;
+      this.channel.socket.push({
+        topic: this.channel.topic,
+        event: this.event,
+        payload: this.payload(),
+        ref: this.ref,
+        join_ref: this.channel.joinRef()
+      });
+    }
+    receive(status, callback) {
+      if (this.hasReceived(status)) {
+        callback(this.receivedResp.response);
+      }
+      this.recHooks.push({ status, callback });
+      return this;
+    }
+    reset() {
+      this.cancelRefEvent();
+      this.ref = null;
+      this.refEvent = null;
+      this.receivedResp = null;
+      this.sent = false;
+    }
+    matchReceive({ status, response, _ref }) {
+      this.recHooks.filter((h) =&gt; h.status === status).forEach((h) =&gt; h.callback(response));
+    }
+    cancelRefEvent() {
+      if (!this.refEvent) {
+        return;
+      }
+      this.channel.off(this.refEvent);
+    }
+    cancelTimeout() {
+      clearTimeout(this.timeoutTimer);
+      this.timeoutTimer = null;
+    }
+    startTimeout() {
+      if (this.timeoutTimer) {
+        this.cancelTimeout();
+      }
+      this.ref = this.channel.socket.makeRef();
+      this.refEvent = this.channel.replyEventName(this.ref);
+      this.channel.on(this.refEvent, (payload) =&gt; {
+        this.cancelRefEvent();
+        this.cancelTimeout();
+        this.receivedResp = payload;
+        this.matchReceive(payload);
+      });
+      this.timeoutTimer = setTimeout(() =&gt; {
+        this.trigger(&quot;timeout&quot;, {});
+      }, this.timeout);
+    }
+    hasReceived(status) {
+      return this.receivedResp &amp;&amp; this.receivedResp.status === status;
+    }
+    trigger(status, response) {
+      this.channel.trigger(this.refEvent, { status, response });
+    }
+  };
+
+  // js/phoenix/timer.js
+  var Timer = class {
+    constructor(callback, timerCalc) {
+      this.callback = callback;
+      this.timerCalc = timerCalc;
+      this.timer = null;
+      this.tries = 0;
+    }
+    reset() {
+      this.tries = 0;
+      clearTimeout(this.timer);
+    }
+    scheduleTimeout() {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() =&gt; {
+        this.tries = this.tries + 1;
+        this.callback();
+      }, this.timerCalc(this.tries + 1));
+    }
+  };
+
+  // js/phoenix/channel.js
+  var Channel = class {
+    constructor(topic, params, socket) {
+      this.state = CHANNEL_STATES.closed;
+      this.topic = topic;
+      this.params = closure(params || {});
+      this.socket = socket;
+      this.bindings = [];
+      this.bindingRef = 0;
+      this.timeout = this.socket.timeout;
+      this.joinedOnce = false;
+      this.joinPush = new Push(this, CHANNEL_EVENTS.join, this.params, this.timeout);
+      this.pushBuffer = [];
+      this.stateChangeRefs = [];
+      this.rejoinTimer = new Timer(() =&gt; {
+        if (this.socket.isConnected()) {
+          this.rejoin();
+        }
+      }, this.socket.rejoinAfterMs);
+      this.stateChangeRefs.push(this.socket.onError(() =&gt; this.rejoinTimer.reset()));
+      this.stateChangeRefs.push(this.socket.onOpen(() =&gt; {
+        this.rejoinTimer.reset();
+        if (this.isErrored()) {
+          this.rejoin();
+        }
+      }));
+      this.joinPush.receive(&quot;ok&quot;, () =&gt; {
+        this.state = CHANNEL_STATES.joined;
+        this.rejoinTimer.reset();
+        this.pushBuffer.forEach((pushEvent) =&gt; pushEvent.send());
+        this.pushBuffer = [];
+      });
+      this.joinPush.receive(&quot;error&quot;, () =&gt; {
+        this.state = CHANNEL_STATES.errored;
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.onClose(() =&gt; {
+        this.rejoinTimer.reset();
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `close ${this.topic} ${this.joinRef()}`);
+        this.state = CHANNEL_STATES.closed;
+        this.socket.remove(this);
+      });
+      this.onError((reason) =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `error ${this.topic}`, reason);
+        if (this.isJoining()) {
+          this.joinPush.reset();
+        }
+        this.state = CHANNEL_STATES.errored;
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.joinPush.receive(&quot;timeout&quot;, () =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `timeout ${this.topic} (${this.joinRef()})`, this.joinPush.timeout);
+        let leavePush = new Push(this, CHANNEL_EVENTS.leave, closure({}), this.timeout);
+        leavePush.send();
+        this.state = CHANNEL_STATES.errored;
+        this.joinPush.reset();
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.on(CHANNEL_EVENTS.reply, (payload, ref) =&gt; {
+        this.trigger(this.replyEventName(ref), payload);
+      });
+    }
+    join(timeout = this.timeout) {
+      if (this.joinedOnce) {
+        throw new Error(&quot;tried to join multiple times. &#39;join&#39; can only be called a single time per channel instance&quot;);
+      } else {
+        this.timeout = timeout;
+        this.joinedOnce = true;
+        this.rejoin();
+        return this.joinPush;
+      }
+    }
+    onClose(callback) {
+      this.on(CHANNEL_EVENTS.close, callback);
+    }
+    onError(callback) {
+      return this.on(CHANNEL_EVENTS.error, (reason) =&gt; callback(reason));
+    }
+    on(event, callback) {
+      let ref = this.bindingRef++;
+      this.bindings.push({ event, ref, callback });
+      return ref;
+    }
+    off(event, ref) {
+      this.bindings = this.bindings.filter((bind) =&gt; {
+        return !(bind.event === event &amp;&amp; (typeof ref === &quot;undefined&quot; || ref === bind.ref));
+      });
+    }
+    canPush() {
+      return this.socket.isConnected() &amp;&amp; this.isJoined();
+    }
+    push(event, payload, timeout = this.timeout) {
+      payload = payload || {};
+      if (!this.joinedOnce) {
+        throw new Error(`tried to push &#39;${event}&#39; to &#39;${this.topic}&#39; before joining. Use channel.join() before pushing events`);
+      }
+      let pushEvent = new Push(this, event, function() {
+        return payload;
+      }, timeout);
+      if (this.canPush()) {
+        pushEvent.send();
+      } else {
+        pushEvent.startTimeout();
+        this.pushBuffer.push(pushEvent);
+      }
+      return pushEvent;
+    }
+    leave(timeout = this.timeout) {
+      this.rejoinTimer.reset();
+      this.joinPush.cancelTimeout();
+      this.state = CHANNEL_STATES.leaving;
+      let onClose = () =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `leave ${this.topic}`);
+        this.trigger(CHANNEL_EVENTS.close, &quot;leave&quot;);
+      };
+      let leavePush = new Push(this, CHANNEL_EVENTS.leave, closure({}), timeout);
+      leavePush.receive(&quot;ok&quot;, () =&gt; onClose()).receive(&quot;timeout&quot;, () =&gt; onClose());
+      leavePush.send();
+      if (!this.canPush()) {
+        leavePush.trigger(&quot;ok&quot;, {});
+      }
+      return leavePush;
+    }
+    onMessage(_event, payload, _ref) {
+      return payload;
+    }
+    isMember(topic, event, payload, joinRef) {
+      if (this.topic !== topic) {
+        return false;
+      }
+      if (joinRef &amp;&amp; joinRef !== this.joinRef()) {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, &quot;dropping outdated message&quot;, { topic, event, payload, joinRef });
+        return false;
+      } else {
+        return true;
+      }
+    }
+    joinRef() {
+      return this.joinPush.ref;
+    }
+    rejoin(timeout = this.timeout) {
+      if (this.isLeaving()) {
+        return;
+      }
+      this.socket.leaveOpenTopic(this.topic);
+      this.state = CHANNEL_STATES.joining;
+      this.joinPush.resend(timeout);
+    }
+    trigger(event, payload, ref, joinRef) {
+      let handledPayload = this.onMessage(event, payload, ref, joinRef);
+      if (payload &amp;&amp; !handledPayload) {
+        throw new Error(&quot;channel onMessage callbacks must return the payload, modified or unmodified&quot;);
+      }
+      let eventBindings = this.bindings.filter((bind) =&gt; bind.event === event);
+      for (let i = 0; i &lt; eventBindings.length; i++) {
+        let bind = eventBindings[i];
+        bind.callback(handledPayload, ref, joinRef || this.joinRef());
+      }
+    }
+    replyEventName(ref) {
+      return `chan_reply_${ref}`;
+    }
+    isClosed() {
+      return this.state === CHANNEL_STATES.closed;
+    }
+    isErrored() {
+      return this.state === CHANNEL_STATES.errored;
+    }
+    isJoined() {
+      return this.state === CHANNEL_STATES.joined;
+    }
+    isJoining() {
+      return this.state === CHANNEL_STATES.joining;
+    }
+    isLeaving() {
+      return this.state === CHANNEL_STATES.leaving;
+    }
+  };
+
+  // js/phoenix/ajax.js
+  var Ajax = class {
+    static request(method, endPoint, accept, body, timeout, ontimeout, callback) {
+      if (global.XDomainRequest) {
+        let req = new global.XDomainRequest();
+        this.xdomainRequest(req, method, endPoint, body, timeout, ontimeout, callback);
+      } else {
+        let req = new global.XMLHttpRequest();
+        this.xhrRequest(req, method, endPoint, accept, body, timeout, ontimeout, callback);
+      }
+    }
+    static xdomainRequest(req, method, endPoint, body, timeout, ontimeout, callback) {
+      req.timeout = timeout;
+      req.open(method, endPoint);
+      req.onload = () =&gt; {
+        let response = this.parseJSON(req.responseText);
+        callback &amp;&amp; callback(response);
+      };
+      if (ontimeout) {
+        req.ontimeout = ontimeout;
+      }
+      req.onprogress = () =&gt; {
+      };
+      req.send(body);
+    }
+    static xhrRequest(req, method, endPoint, accept, body, timeout, ontimeout, callback) {
+      req.open(method, endPoint, true);
+      req.timeout = timeout;
+      req.setRequestHeader(&quot;Content-Type&quot;, accept);
+      req.onerror = () =&gt; {
+        callback &amp;&amp; callback(null);
+      };
+      req.onreadystatechange = () =&gt; {
+        if (req.readyState === XHR_STATES.complete &amp;&amp; callback) {
+          let response = this.parseJSON(req.responseText);
+          callback(response);
+        }
+      };
+      if (ontimeout) {
+        req.ontimeout = ontimeout;
+      }
+      req.send(body);
+    }
+    static parseJSON(resp) {
+      if (!resp || resp === &quot;&quot;) {
+        return null;
+      }
+      try {
+        return JSON.parse(resp);
+      } catch (e) {
+        console &amp;&amp; console.log(&quot;failed to parse JSON response&quot;, resp);
+        return null;
+      }
+    }
+    static serialize(obj, parentKey) {
+      let queryStr = [];
+      for (var key in obj) {
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue;
+        }
+        let paramKey = parentKey ? `${parentKey}[${key}]` : key;
+        let paramVal = obj[key];
+        if (typeof paramVal === &quot;object&quot;) {
+          queryStr.push(this.serialize(paramVal, paramKey));
+        } else {
+          queryStr.push(encodeURIComponent(paramKey) + &quot;=&quot; + encodeURIComponent(paramVal));
+        }
+      }
+      return queryStr.join(&quot;&amp;&quot;);
+    }
+    static appendParams(url, params) {
+      if (Object.keys(params).length === 0) {
+        return url;
+      }
+      let prefix = url.match(/\?/) ? &quot;&amp;&quot; : &quot;?&quot;;
+      return `${url}${prefix}${this.serialize(params)}`;
+    }
+  };
+
+  // js/phoenix/longpoll.js
+  var LongPoll = class {
+    constructor(endPoint) {
+      this.endPoint = null;
+      this.token = null;
+      this.skipHeartbeat = true;
+      this.onopen = function() {
+      };
+      this.onerror = function() {
+      };
+      this.onmessage = function() {
+      };
+      this.onclose = function() {
+      };
+      this.pollEndpoint = this.normalizeEndpoint(endPoint);
+      this.readyState = SOCKET_STATES.connecting;
+      this.poll();
+    }
+    normalizeEndpoint(endPoint) {
+      return endPoint.replace(&quot;wss://&quot;, &quot;http://&quot;).replace(&quot;wss://&quot;, &quot;https://&quot;).replace(new RegExp(&quot;(.*)/&quot; + TRANSPORTS.websocket), &quot;$1/&quot; + TRANSPORTS.longpoll);
+    }
+    endpointURL() {
+      return Ajax.appendParams(this.pollEndpoint, { token: this.token });
+    }
+    closeAndRetry() {
+      this.close();
+      this.readyState = SOCKET_STATES.connecting;
+    }
+    ontimeout() {
+      this.onerror(&quot;timeout&quot;);
+      this.closeAndRetry();
+    }
+    poll() {
+      if (!(this.readyState === SOCKET_STATES.open || this.readyState === SOCKET_STATES.connecting)) {
+        return;
+      }
+      Ajax.request(&quot;GET&quot;, this.endpointURL(), &quot;application/json&quot;, null, this.timeout, this.ontimeout.bind(this), (resp) =&gt; {
+        if (resp) {
+          var { status, token, messages } = resp;
+          this.token = token;
+        } else {
+          status = 0;
+        }
+        switch (status) {
+          case 200:
+            messages.forEach((msg) =&gt; {
+              setTimeout(() =&gt; {
+                this.onmessage({ data: msg });
+              }, 0);
+            });
+            this.poll();
+            break;
+          case 204:
+            this.poll();
+            break;
+          case 410:
+            this.readyState = SOCKET_STATES.open;
+            this.onopen();
+            this.poll();
+            break;
+          case 403:
+            this.onerror();
+            this.close();
+            break;
+          case 0:
+          case 500:
+            this.onerror();
+            this.closeAndRetry();
+            break;
+          default:
+            throw new Error(`unhandled poll status ${status}`);
+        }
+      });
+    }
+    send(body) {
+      Ajax.request(&quot;POST&quot;, this.endpointURL(), &quot;application/json&quot;, body, this.timeout, this.onerror.bind(this, &quot;timeout&quot;), (resp) =&gt; {
+        if (!resp || resp.status !== 200) {
+          this.onerror(resp &amp;&amp; resp.status);
+          this.closeAndRetry();
+        }
+      });
+    }
+    close(_code, _reason) {
+      this.readyState = SOCKET_STATES.closed;
+      this.onclose();
+    }
+  };
+
+  // js/phoenix/presence.js
+  var Presence = class {
+    constructor(channel, opts = {}) {
+      let events = opts.events || { state: &quot;presence_state&quot;, diff: &quot;presence_diff&quot; };
+      this.state = {};
+      this.pendingDiffs = [];
+      this.channel = channel;
+      this.joinRef = null;
+      this.caller = {
+        onJoin: function() {
+        },
+        onLeave: function() {
+        },
+        onSync: function() {
+        }
+      };
+      this.channel.on(events.state, (newState) =&gt; {
+        let { onJoin, onLeave, onSync } = this.caller;
+        this.joinRef = this.channel.joinRef();
+        this.state = Presence.syncState(this.state, newState, onJoin, onLeave);
+        this.pendingDiffs.forEach((diff) =&gt; {
+          this.state = Presence.syncDiff(this.state, diff, onJoin, onLeave);
+        });
+        this.pendingDiffs = [];
+        onSync();
+      });
+      this.channel.on(events.diff, (diff) =&gt; {
+        let { onJoin, onLeave, onSync } = this.caller;
+        if (this.inPendingSyncState()) {
+          this.pendingDiffs.push(diff);
+        } else {
+          this.state = Presence.syncDiff(this.state, diff, onJoin, onLeave);
+          onSync();
+        }
+      });
+    }
+    onJoin(callback) {
+      this.caller.onJoin = callback;
+    }
+    onLeave(callback) {
+      this.caller.onLeave = callback;
+    }
+    onSync(callback) {
+      this.caller.onSync = callback;
+    }
+    list(by) {
+      return Presence.list(this.state, by);
+    }
+    inPendingSyncState() {
+      return !this.joinRef || this.joinRef !== this.channel.joinRef();
+    }
+    static syncState(currentState, newState, onJoin, onLeave) {
+      let state = this.clone(currentState);
+      let joins = {};
+      let leaves = {};
+      this.map(state, (key, presence) =&gt; {
+        if (!newState[key]) {
+          leaves[key] = presence;
+        }
+      });
+      this.map(newState, (key, newPresence) =&gt; {
+        let currentPresence = state[key];
+        if (currentPresence) {
+          let newRefs = newPresence.metas.map((m) =&gt; m.phx_ref);
+          let curRefs = currentPresence.metas.map((m) =&gt; m.phx_ref);
+          let joinedMetas = newPresence.metas.filter((m) =&gt; curRefs.indexOf(m.phx_ref) &lt; 0);
+          let leftMetas = currentPresence.metas.filter((m) =&gt; newRefs.indexOf(m.phx_ref) &lt; 0);
+          if (joinedMetas.length &gt; 0) {
+            joins[key] = newPresence;
+            joins[key].metas = joinedMetas;
+          }
+          if (leftMetas.length &gt; 0) {
+            leaves[key] = this.clone(currentPresence);
+            leaves[key].metas = leftMetas;
+          }
+        } else {
+          joins[key] = newPresence;
+        }
+      });
+      return this.syncDiff(state, { joins, leaves }, onJoin, onLeave);
+    }
+    static syncDiff(state, diff, onJoin, onLeave) {
+      let { joins, leaves } = this.clone(diff);
+      if (!onJoin) {
+        onJoin = function() {
+        };
+      }
+      if (!onLeave) {
+        onLeave = function() {
+        };
+      }
+      this.map(joins, (key, newPresence) =&gt; {
+        let currentPresence = state[key];
+        state[key] = this.clone(newPresence);
+        if (currentPresence) {
+          let joinedRefs = state[key].metas.map((m) =&gt; m.phx_ref);
+          let curMetas = currentPresence.metas.filter((m) =&gt; joinedRefs.indexOf(m.phx_ref) &lt; 0);
+          state[key].metas.unshift(...curMetas);
+        }
+        onJoin(key, currentPresence, newPresence);
+      });
+      this.map(leaves, (key, leftPresence) =&gt; {
+        let currentPresence = state[key];
+        if (!currentPresence) {
+          return;
+        }
+        let refsToRemove = leftPresence.metas.map((m) =&gt; m.phx_ref);
+        currentPresence.metas = currentPresence.metas.filter((p) =&gt; {
+          return refsToRemove.indexOf(p.phx_ref) &lt; 0;
+        });
+        onLeave(key, currentPresence, leftPresence);
+        if (currentPresence.metas.length === 0) {
+          delete state[key];
+        }
+      });
+      return state;
+    }
+    static list(presences, chooser) {
+      if (!chooser) {
+        chooser = function(key, pres) {
+          return pres;
+        };
+      }
+      return this.map(presences, (key, presence) =&gt; {
+        return chooser(key, presence);
+      });
+    }
+    static map(obj, func) {
+      return Object.getOwnPropertyNames(obj).map((key) =&gt; func(key, obj[key]));
+    }
+    static clone(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+  };
+
+  // js/phoenix/serializer.js
+  var serializer_default = {
+    HEADER_LENGTH: 1,
+    META_LENGTH: 4,
+    KINDS: { push: 0, reply: 1, broadcast: 2 },
+    encode(msg, callback) {
+      if (msg.payload.constructor === ArrayBuffer) {
+        return callback(this.binaryEncode(msg));
+      } else {
+        let payload = [msg.join_ref, msg.ref, msg.topic, msg.event, msg.payload];
+        return callback(JSON.stringify(payload));
+      }
+    },
+    decode(rawPayload, callback) {
+      if (rawPayload.constructor === ArrayBuffer) {
+        return callback(this.binaryDecode(rawPayload));
+      } else {
+        let [join_ref, ref, topic, event, payload] = JSON.parse(rawPayload);
+        return callback({ join_ref, ref, topic, event, payload });
+      }
+    },
+    binaryEncode(message) {
+      let { join_ref, ref, event, topic, payload } = message;
+      let metaLength = this.META_LENGTH + join_ref.length + ref.length + topic.length + event.length;
+      let header = new ArrayBuffer(this.HEADER_LENGTH + metaLength);
+      let view = new DataView(header);
+      let offset = 0;
+      view.setUint8(offset++, this.KINDS.push);
+      view.setUint8(offset++, join_ref.length);
+      view.setUint8(offset++, ref.length);
+      view.setUint8(offset++, topic.length);
+      view.setUint8(offset++, event.length);
+      Array.from(join_ref, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(ref, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(topic, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(event, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      var combined = new Uint8Array(header.byteLength + payload.byteLength);
+      combined.set(new Uint8Array(header), 0);
+      combined.set(new Uint8Array(payload), header.byteLength);
+      return combined.buffer;
+    },
+    binaryDecode(buffer) {
+      let view = new DataView(buffer);
+      let kind = view.getUint8(0);
+      let decoder = new TextDecoder();
+      switch (kind) {
+        case this.KINDS.push:
+          return this.decodePush(buffer, view, decoder);
+        case this.KINDS.reply:
+          return this.decodeReply(buffer, view, decoder);
+        case this.KINDS.broadcast:
+          return this.decodeBroadcast(buffer, view, decoder);
+      }
+    },
+    decodePush(buffer, view, decoder) {
+      let joinRefSize = view.getUint8(1);
+      let topicSize = view.getUint8(2);
+      let eventSize = view.getUint8(3);
+      let offset = this.HEADER_LENGTH + this.META_LENGTH - 1;
+      let joinRef = decoder.decode(buffer.slice(offset, offset + joinRefSize));
+      offset = offset + joinRefSize;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      return { join_ref: joinRef, ref: null, topic, event, payload: data };
+    },
+    decodeReply(buffer, view, decoder) {
+      let joinRefSize = view.getUint8(1);
+      let refSize = view.getUint8(2);
+      let topicSize = view.getUint8(3);
+      let eventSize = view.getUint8(4);
+      let offset = this.HEADER_LENGTH + this.META_LENGTH;
+      let joinRef = decoder.decode(buffer.slice(offset, offset + joinRefSize));
+      offset = offset + joinRefSize;
+      let ref = decoder.decode(buffer.slice(offset, offset + refSize));
+      offset = offset + refSize;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      let payload = { status: event, response: data };
+      return { join_ref: joinRef, ref, topic, event: CHANNEL_EVENTS.reply, payload };
+    },
+    decodeBroadcast(buffer, view, decoder) {
+      let topicSize = view.getUint8(1);
+      let eventSize = view.getUint8(2);
+      let offset = this.HEADER_LENGTH + 2;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      return { join_ref: null, ref: null, topic, event, payload: data };
+    }
+  };
+
+  // js/phoenix/socket.js
+  var Socket = class {
+    constructor(endPoint, opts = {}) {
+      this.stateChangeCallbacks = { open: [], close: [], error: [], message: [] };
+      this.channels = [];
+      this.sendBuffer = [];
+      this.ref = 0;
+      this.timeout = opts.timeout || DEFAULT_TIMEOUT;
+      this.transport = opts.transport || global.WebSocket || LongPoll;
+      this.establishedConnections = 0;
+      this.defaultEncoder = serializer_default.encode.bind(serializer_default);
+      this.defaultDecoder = serializer_default.decode.bind(serializer_default);
+      this.closeWasClean = false;
+      this.binaryType = opts.binaryType || &quot;arraybuffer&quot;;
+      this.connectClock = 1;
+      if (this.transport !== LongPoll) {
+        this.encode = opts.encode || this.defaultEncoder;
+        this.decode = opts.decode || this.defaultDecoder;
+      } else {
+        this.encode = this.defaultEncoder;
+        this.decode = this.defaultDecoder;
+      }
+      let awaitingConnectionOnPageShow = null;
+      if (phxWindow &amp;&amp; phxWindow.addEventListener) {
+        phxWindow.addEventListener(&quot;pagehide&quot;, (_e) =&gt; {
+          if (this.conn) {
+            this.disconnect();
+            awaitingConnectionOnPageShow = this.connectClock;
+          }
+        });
+        phxWindow.addEventListener(&quot;pageshow&quot;, (_e) =&gt; {
+          if (awaitingConnectionOnPageShow === this.connectClock) {
+            awaitingConnectionOnPageShow = null;
+            this.connect();
+          }
+        });
+      }
+      this.heartbeatIntervalMs = opts.heartbeatIntervalMs || 3e4;
+      this.rejoinAfterMs = (tries) =&gt; {
+        if (opts.rejoinAfterMs) {
+          return opts.rejoinAfterMs(tries);
+        } else {
+          return [1e3, 2e3, 5e3][tries - 1] || 1e4;
+        }
+      };
+      this.reconnectAfterMs = (tries) =&gt; {
+        if (opts.reconnectAfterMs) {
+          return opts.reconnectAfterMs(tries);
+        } else {
+          return [10, 50, 100, 150, 200, 250, 500, 1e3, 2e3][tries - 1] || 5e3;
+        }
+      };
+      this.logger = opts.logger || null;
+      this.longpollerTimeout = opts.longpollerTimeout || 2e4;
+      this.params = closure(opts.params || {});
+      this.endPoint = `${endPoint}/${TRANSPORTS.websocket}`;
+      this.vsn = opts.vsn || DEFAULT_VSN;
+      this.heartbeatTimer = null;
+      this.pendingHeartbeatRef = null;
+      this.reconnectTimer = new Timer(() =&gt; {
+        this.teardown(() =&gt; this.connect());
+      }, this.reconnectAfterMs);
+    }
+    replaceTransport(newTransport) {
+      this.disconnect();
+      this.transport = newTransport;
+    }
+    protocol() {
+      return location.protocol.match(/^https/) ? &quot;wss&quot; : &quot;ws&quot;;
+    }
+    endPointURL() {
+      let uri = Ajax.appendParams(Ajax.appendParams(this.endPoint, this.params()), { vsn: this.vsn });
+      if (uri.charAt(0) !== &quot;/&quot;) {
+        return uri;
+      }
+      if (uri.charAt(1) === &quot;/&quot;) {
+        return `${this.protocol()}:${uri}`;
+      }
+      return `${this.protocol()}://${location.host}${uri}`;
+    }
+    disconnect(callback, code, reason) {
+      this.connectClock++;
+      this.closeWasClean = true;
+      this.reconnectTimer.reset();
+      this.teardown(callback, code, reason);
+    }
+    connect(params) {
+      this.connectClock++;
+      if (params) {
+        console &amp;&amp; console.log(&quot;passing params to connect is deprecated. Instead pass :params to the Socket constructor&quot;);
+        this.params = closure(params);
+      }
+      if (this.conn) {
+        return;
+      }
+      this.closeWasClean = false;
+      this.conn = new this.transport(this.endPointURL());
+      this.conn.binaryType = this.binaryType;
+      this.conn.timeout = this.longpollerTimeout;
+      this.conn.onopen = () =&gt; this.onConnOpen();
+      this.conn.onerror = (error) =&gt; this.onConnError(error);
+      this.conn.onmessage = (event) =&gt; this.onConnMessage(event);
+      this.conn.onclose = (event) =&gt; this.onConnClose(event);
+    }
+    log(kind, msg, data) {
+      this.logger(kind, msg, data);
+    }
+    hasLogger() {
+      return this.logger !== null;
+    }
+    onOpen(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.open.push([ref, callback]);
+      return ref;
+    }
+    onClose(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.close.push([ref, callback]);
+      return ref;
+    }
+    onError(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.error.push([ref, callback]);
+      return ref;
+    }
+    onMessage(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.message.push([ref, callback]);
+      return ref;
+    }
+    onConnOpen() {
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, `connected to ${this.endPointURL()}`);
+      this.closeWasClean = false;
+      this.establishedConnections++;
+      this.flushSendBuffer();
+      this.reconnectTimer.reset();
+      this.resetHeartbeat();
+      this.stateChangeCallbacks.open.forEach(([, callback]) =&gt; callback());
+    }
+    heartbeatTimeout() {
+      if (this.pendingHeartbeatRef) {
+        this.pendingHeartbeatRef = null;
+        if (this.hasLogger()) {
+          this.log(&quot;transport&quot;, &quot;heartbeat timeout. Attempting to re-establish connection&quot;);
+        }
+        this.abnormalClose(&quot;heartbeat timeout&quot;);
+      }
+    }
+    resetHeartbeat() {
+      if (this.conn &amp;&amp; this.conn.skipHeartbeat) {
+        return;
+      }
+      this.pendingHeartbeatRef = null;
+      clearTimeout(this.heartbeatTimer);
+      setTimeout(() =&gt; this.sendHeartbeat(), this.heartbeatIntervalMs);
+    }
+    teardown(callback, code, reason) {
+      if (!this.conn) {
+        return callback &amp;&amp; callback();
+      }
+      this.waitForBufferDone(() =&gt; {
+        if (this.conn) {
+          if (code) {
+            this.conn.close(code, reason || &quot;&quot;);
+          } else {
+            this.conn.close();
+          }
+        }
+        this.waitForSocketClosed(() =&gt; {
+          if (this.conn) {
+            this.conn.onclose = function() {
+            };
+            this.conn = null;
+          }
+          callback &amp;&amp; callback();
+        });
+      });
+    }
+    waitForBufferDone(callback, tries = 1) {
+      if (tries === 5 || !this.conn || !this.conn.bufferedAmount) {
+        callback();
+        return;
+      }
+      setTimeout(() =&gt; {
+        this.waitForBufferDone(callback, tries + 1);
+      }, 150 * tries);
+    }
+    waitForSocketClosed(callback, tries = 1) {
+      if (tries === 5 || !this.conn || this.conn.readyState === SOCKET_STATES.closed) {
+        callback();
+        return;
+      }
+      setTimeout(() =&gt; {
+        this.waitForSocketClosed(callback, tries + 1);
+      }, 150 * tries);
+    }
+    onConnClose(event) {
+      let closeCode = event &amp;&amp; event.code;
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, &quot;close&quot;, event);
+      this.triggerChanError();
+      clearTimeout(this.heartbeatTimer);
+      if (!this.closeWasClean &amp;&amp; closeCode !== 1e3) {
+        this.reconnectTimer.scheduleTimeout();
+      }
+      this.stateChangeCallbacks.close.forEach(([, callback]) =&gt; callback(event));
+    }
+    onConnError(error) {
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, error);
+      let transportBefore = this.transport;
+      let establishedBefore = this.establishedConnections;
+      this.stateChangeCallbacks.error.forEach(([, callback]) =&gt; {
+        callback(error, transportBefore, establishedBefore);
+      });
+      if (transportBefore === this.transport || establishedBefore &gt; 0) {
+        this.triggerChanError();
+      }
+    }
+    triggerChanError() {
+      this.channels.forEach((channel) =&gt; {
+        if (!(channel.isErrored() || channel.isLeaving() || channel.isClosed())) {
+          channel.trigger(CHANNEL_EVENTS.error);
+        }
+      });
+    }
+    connectionState() {
+      switch (this.conn &amp;&amp; this.conn.readyState) {
+        case SOCKET_STATES.connecting:
+          return &quot;connecting&quot;;
+        case SOCKET_STATES.open:
+          return &quot;open&quot;;
+        case SOCKET_STATES.closing:
+          return &quot;closing&quot;;
+        default:
+          return &quot;closed&quot;;
+      }
+    }
+    isConnected() {
+      return this.connectionState() === &quot;open&quot;;
+    }
+    remove(channel) {
+      this.off(channel.stateChangeRefs);
+      this.channels = this.channels.filter((c) =&gt; c.joinRef() !== channel.joinRef());
+    }
+    off(refs) {
+      for (let key in this.stateChangeCallbacks) {
+        this.stateChangeCallbacks[key] = this.stateChangeCallbacks[key].filter(([ref]) =&gt; {
+          return refs.indexOf(ref) === -1;
+        });
+      }
+    }
+    channel(topic, chanParams = {}) {
+      let chan = new Channel(topic, chanParams, this);
+      this.channels.push(chan);
+      return chan;
+    }
+    push(data) {
+      if (this.hasLogger()) {
+        let { topic, event, payload, ref, join_ref } = data;
+        this.log(&quot;push&quot;, `${topic} ${event} (${join_ref}, ${ref})`, payload);
+      }
+      if (this.isConnected()) {
+        this.encode(data, (result) =&gt; this.conn.send(result));
+      } else {
+        this.sendBuffer.push(() =&gt; this.encode(data, (result) =&gt; this.conn.send(result)));
+      }
+    }
+    makeRef() {
+      let newRef = this.ref + 1;
+      if (newRef === this.ref) {
+        this.ref = 0;
+      } else {
+        this.ref = newRef;
+      }
+      return this.ref.toString();
+    }
+    sendHeartbeat() {
+      if (this.pendingHeartbeatRef &amp;&amp; !this.isConnected()) {
+        return;
+      }
+      this.pendingHeartbeatRef = this.makeRef();
+      this.push({ topic: &quot;phoenix&quot;, event: &quot;heartbeat&quot;, payload: {}, ref: this.pendingHeartbeatRef });
+      this.heartbeatTimer = setTimeout(() =&gt; this.heartbeatTimeout(), this.heartbeatIntervalMs);
+    }
+    abnormalClose(reason) {
+      this.closeWasClean = false;
+      if (this.isConnected()) {
+        this.conn.close(WS_CLOSE_NORMAL, reason);
+      }
+    }
+    flushSendBuffer() {
+      if (this.isConnected() &amp;&amp; this.sendBuffer.length &gt; 0) {
+        this.sendBuffer.forEach((callback) =&gt; callback());
+        this.sendBuffer = [];
+      }
+    }
+    onConnMessage(rawMessage) {
+      this.decode(rawMessage.data, (msg) =&gt; {
+        let { topic, event, payload, ref, join_ref } = msg;
+        if (ref &amp;&amp; ref === this.pendingHeartbeatRef) {
+          clearTimeout(this.heartbeatTimer);
+          this.pendingHeartbeatRef = null;
+          setTimeout(() =&gt; this.sendHeartbeat(), this.heartbeatIntervalMs);
+        }
+        if (this.hasLogger())
+          this.log(&quot;receive&quot;, `${payload.status || &quot;&quot;} ${topic} ${event} ${ref &amp;&amp; &quot;(&quot; + ref + &quot;)&quot; || &quot;&quot;}`, payload);
+        for (let i = 0; i &lt; this.channels.length; i++) {
+          const channel = this.channels[i];
+          if (!channel.isMember(topic, event, payload, join_ref)) {
+            continue;
+          }
+          channel.trigger(event, payload, ref, join_ref);
+        }
+        for (let i = 0; i &lt; this.stateChangeCallbacks.message.length; i++) {
+          let [, callback] = this.stateChangeCallbacks.message[i];
+          callback(msg);
+        }
+      });
+    }
+    leaveOpenTopic(topic) {
+      let dupChannel = this.channels.find((c) =&gt; c.topic === topic &amp;&amp; (c.isJoined() || c.isJoining()));
+      if (dupChannel) {
+        if (this.hasLogger())
+          this.log(&quot;transport&quot;, `leaving duplicate topic &quot;${topic}&quot;`);
+        dupChannel.leave();
+      }
+    }
+  };
+  return phoenix_exports;
+})();
+
+var socket = new Phoenix.Socket(&quot;/phoenix/live_reload/socket&quot;);
+var interval = 100;
+var targetWindow = &quot;top&quot;;
+var buildFreshUrl = function(link){
+  var date = Math.round(Date.now() / 1000).toString();
+  var url = link.href.replace(/(\&amp;|\\?)vsn=\d*/, &#39;&#39;);
+  var newLink = document.createElement(&#39;link&#39;);
+  var onComplete = function() {
+    if (link.parentNode !== null) {
+      link.parentNode.removeChild(link);
+    }
+  };
+
+  newLink.onerror = onComplete;
+  newLink.onload  = onComplete;
+  link.setAttribute(&#39;data-pending-removal&#39;, &#39;&#39;);
+  newLink.setAttribute(&#39;rel&#39;, &#39;stylesheet&#39;);
+  newLink.setAttribute(&#39;type&#39;, &#39;text/css&#39;);
+  newLink.setAttribute(&#39;href&#39;, url + (url.indexOf(&#39;?&#39;) &gt;= 0 ? &#39;&amp;&#39; : &#39;?&#39;) +&#39;vsn=&#39; + date);
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+
+  return newLink;
+};
+
+var repaint = function(){
+  var browser = navigator.userAgent.toLowerCase();
+  if(browser.indexOf(&#39;chrome&#39;) &gt; -1){
+    setTimeout(function(){ document.body.offsetHeight; }, 25);
+  }
+};
+
+var cssStrategy = function(){
+  var reloadableLinkElements = window.parent.document.querySelectorAll(
+    &#39;link[rel=stylesheet]:not([data-no-reload]):not([data-pending-removal])&#39;
+  );
+
+  [].slice
+    .call(reloadableLinkElements)
+    .filter(function(link) { return link.href })
+    .forEach(function(link) { buildFreshUrl(link) });
+
+  repaint();
+};
+
+var pageStrategy = function(chan){
+  chan.off(&#39;assets_change&#39;);
+  window[targetWindow].location.reload();
+};
+
+var reloadStrategies = {
+  css: cssStrategy,
+  page: pageStrategy
+};
+
+socket.connect();
+var chan = socket.channel(&#39;phoenix:live_reload&#39;, {})
+chan.on(&#39;assets_change&#39;, function(msg) {
+  var reloadStrategy = reloadStrategies[msg.asset_type] || reloadStrategies.page;
+  setTimeout(function(){ reloadStrategy(chan); }, interval);
+});
+chan.join();
+
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>X-Frame-Options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p>
+
+<p>If you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-1-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Low</span>, <span>Confidence</span>=<span
+							class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://172.20.10.3:4000</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-3">Cookie without SameSite Attribute</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://172.20.10.3:4000/public</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a &#39;cross-site&#39; request. </p>
+
+<p>The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (710 bytes)</summary>
+				
+				<pre><code>GET http://172.20.10.3:4000/public HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;macOS&quot;
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (593 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+cache-control: max-age=0, private, must-revalidate
+content-length: 1474
+content-type: text/html; charset=utf-8
+cross-origin-window-policy: deny
+date: Tue, 19 Apr 2022 12:09:16 GMT
+server: Cowboy
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-request-id: FudK6Yeaqkesj3oAAAGC
+x-xss-protection: 1; mode=block
+set-cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0; path=/; HttpOnly
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (1474 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!--    &lt;meta content=&quot;JVEYIzRpfigHBWMoEDFqGR4OOXgvJzssWbvOP6Fe7mSfFb_iHim5aTN_&quot; name=&quot;csrf-token&quot;&gt;--&gt;
+&lt;title data-suffix=&quot; · MiniTwit&quot;&gt;Public Timeline · MiniTwit&lt;/title&gt;
+    &lt;link phx-track-static rel=&quot;stylesheet&quot; href=&quot;/assets/app.css&quot;&gt;
+&lt;!--    &lt;script defer phx-track-static type=&quot;text/javascript&quot; src={Routes.static_path(@conn, &quot;/assets/app.js&quot;)}&gt;&lt;/script&gt;--&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div class=&quot;page&quot;&gt;
+    &lt;h1&gt;MiniTwit&lt;/h1&gt;
+    &lt;div class=&quot;navigation&quot;&gt;
+
+&lt;a href=&quot;/public&quot;&gt;Public Timeline&lt;/a&gt; |
+&lt;a href=&quot;/register&quot;&gt;Sign up&lt;/a&gt; |
+&lt;a href=&quot;/login&quot;&gt;Sign in&lt;/a&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class=&quot;body&quot;&gt;
+&lt;main class=&quot;container&quot;&gt;
+&lt;h2&gt;Public Timeline&lt;/h2&gt;
+
+&lt;ul class=&quot;messages&quot;&gt;
+
+
+            &lt;li&gt;
+&lt;img src=&quot;http://www.gravatar.com/avatar/db127b2eb7be0a7e67d4fe4ac8b13033?d=identicon&amp;amp;s=48&quot;&gt;
+                &lt;p&gt;
+                    &lt;strong&gt;
+&lt;a href=&quot;/e&quot;&gt;e&lt;/a&gt;
+                    &lt;/strong&gt;
+                    &lt;small&gt;
+                        &amp;mdash; 2022-04-19 @ 10:00:40
+                    &lt;/small&gt;
+                    &lt;br&gt;
+a
+                &lt;/p&gt;
+            &lt;/li&gt;
+
+
+&lt;/ul&gt;
+&lt;/main&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;
+      MiniTwit &amp;mdash; A Flask Application
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;iframe hidden height=&quot;0&quot; width=&quot;0&quot; src=&quot;/phoenix/live_reload/frame&quot;&gt;&lt;/iframe&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>_minitwit_elixir_key</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>set-cookie: _minitwit_elixir_key</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that the SameSite attribute is set to either &#39;lax&#39; or ideally &#39;strict&#39; for all cookies.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-4">X-Content-Type-Options Header Missing</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://172.20.10.3:4000/assets/app.css</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p>
+
+<p>At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (721 bytes)</summary>
+				
+				<pre><code>GET http://172.20.10.3:4000/assets/app.css HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+sec-ch-ua-platform: &quot;macOS&quot;
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://172.20.10.3:4000/public
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (181 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+accept-ranges: bytes
+cache-control: public
+content-length: 45547
+content-type: text/css
+date: Tue, 19 Apr 2022 12:09:16 GMT
+etag: &quot;1B629B0&quot;
+server: Cowboy
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (45547 bytes)</summary>
+				
+				<pre><code>/* css/phoenix.css */
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  color: #000000;
+  font-family:
+    &quot;Helvetica Neue&quot;,
+    &quot;Helvetica&quot;,
+    &quot;Arial&quot;,
+    sans-serif;
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
+}
+blockquote {
+  border-left: 0.3rem solid #d1d1d1;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 1.5rem;
+}
+blockquote *:last-child {
+  margin-bottom: 0;
+}
+.button,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  background-color: #0069d9;
+  border: 0.1rem solid #0069d9;
+  border-radius: .4rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 3.8rem;
+  letter-spacing: .1rem;
+  line-height: 3.8rem;
+  padding: 0 3.0rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.button:focus,
+.button:hover,
+button:focus,
+button:hover,
+input[type=button]:focus,
+input[type=button]:hover,
+input[type=reset]:focus,
+input[type=reset]:hover,
+input[type=submit]:focus,
+input[type=submit]:hover {
+  background-color: #606c76;
+  border-color: #606c76;
+  color: #fff;
+  outline: 0;
+}
+.button[disabled],
+button[disabled],
+input[type=button][disabled],
+input[type=reset][disabled],
+input[type=submit][disabled] {
+  cursor: default;
+  opacity: .5;
+}
+.button[disabled]:focus,
+.button[disabled]:hover,
+button[disabled]:focus,
+button[disabled]:hover,
+input[type=button][disabled]:focus,
+input[type=button][disabled]:hover,
+input[type=reset][disabled]:focus,
+input[type=reset][disabled]:hover,
+input[type=submit][disabled]:focus,
+input[type=submit][disabled]:hover {
+  background-color: #0069d9;
+  border-color: #0069d9;
+}
+.button.button-outline,
+button.button-outline,
+input[type=button].button-outline,
+input[type=reset].button-outline,
+input[type=submit].button-outline {
+  background-color: transparent;
+  color: #0069d9;
+}
+.button.button-outline:focus,
+.button.button-outline:hover,
+button.button-outline:focus,
+button.button-outline:hover,
+input[type=button].button-outline:focus,
+input[type=button].button-outline:hover,
+input[type=reset].button-outline:focus,
+input[type=reset].button-outline:hover,
+input[type=submit].button-outline:focus,
+input[type=submit].button-outline:hover {
+  background-color: transparent;
+  border-color: #606c76;
+  color: #606c76;
+}
+.button.button-outline[disabled]:focus,
+.button.button-outline[disabled]:hover,
+button.button-outline[disabled]:focus,
+button.button-outline[disabled]:hover,
+input[type=button].button-outline[disabled]:focus,
+input[type=button].button-outline[disabled]:hover,
+input[type=reset].button-outline[disabled]:focus,
+input[type=reset].button-outline[disabled]:hover,
+input[type=submit].button-outline[disabled]:focus,
+input[type=submit].button-outline[disabled]:hover {
+  border-color: inherit;
+  color: #0069d9;
+}
+.button.button-clear,
+button.button-clear,
+input[type=button].button-clear,
+input[type=reset].button-clear,
+input[type=submit].button-clear {
+  background-color: transparent;
+  border-color: transparent;
+  color: #0069d9;
+}
+.button.button-clear:focus,
+.button.button-clear:hover,
+button.button-clear:focus,
+button.button-clear:hover,
+input[type=button].button-clear:focus,
+input[type=button].button-clear:hover,
+input[type=reset].button-clear:focus,
+input[type=reset].button-clear:hover,
+input[type=submit].button-clear:focus,
+input[type=submit].button-clear:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: #606c76;
+}
+.button.button-clear[disabled]:focus,
+.button.button-clear[disabled]:hover,
+button.button-clear[disabled]:focus,
+button.button-clear[disabled]:hover,
+input[type=button].button-clear[disabled]:focus,
+input[type=button].button-clear[disabled]:hover,
+input[type=reset].button-clear[disabled]:focus,
+input[type=reset].button-clear[disabled]:hover,
+input[type=submit].button-clear[disabled]:focus,
+input[type=submit].button-clear[disabled]:hover {
+  color: #0069d9;
+}
+code {
+  background: #f4f5f6;
+  border-radius: .4rem;
+  font-size: 86%;
+  margin: 0 .2rem;
+  padding: .2rem .5rem;
+  white-space: nowrap;
+}
+pre {
+  background: #f4f5f6;
+  border-left: 0.3rem solid #0069d9;
+  overflow-y: hidden;
+}
+pre &gt; code {
+  border-radius: 0;
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+hr {
+  border: 0;
+  border-top: 0.1rem solid #f4f5f6;
+  margin: 3.0rem 0;
+}
+input[type=color],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
+input[type=week],
+input:not([type]),
+textarea,
+select {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0.1rem solid #d1d1d1;
+  border-radius: .4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3.8rem;
+  padding: .6rem 1.0rem .7rem;
+  width: 100%;
+}
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+input:not([type]):focus,
+textarea:focus,
+select:focus {
+  border-color: #0069d9;
+  outline: 0;
+}
+select {
+  background: url(&#39;data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 30 8&quot; width=&quot;30&quot;&gt;&lt;path fill=&quot;%23d1d1d1&quot; d=&quot;M0,0l6,8l6-8&quot;/&gt;&lt;/svg&gt;&#39;) center right no-repeat;
+  padding-right: 3.0rem;
+}
+select:focus {
+  background-image: url(&#39;data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 30 8&quot; width=&quot;30&quot;&gt;&lt;path fill=&quot;%230069d9&quot; d=&quot;M0,0l6,8l6-8&quot;/&gt;&lt;/svg&gt;&#39;);
+}
+select[multiple] {
+  background: none;
+  height: auto;
+}
+textarea {
+  min-height: 6.5rem;
+}
+label,
+legend {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+fieldset {
+  border-width: 0;
+  padding: 0;
+}
+input[type=checkbox],
+input[type=radio] {
+  display: inline;
+}
+.label-inline {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: .5rem;
+}
+.container {
+  margin: 0 auto;
+  max-width: 112.0rem;
+  padding: 0 2.0rem;
+  position: relative;
+  width: 100%;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+.row.row-no-padding {
+  padding: 0;
+}
+.row.row-no-padding &gt; .column {
+  padding: 0;
+}
+.row.row-wrap {
+  flex-wrap: wrap;
+}
+.row.row-top {
+  align-items: flex-start;
+}
+.row.row-bottom {
+  align-items: flex-end;
+}
+.row.row-center {
+  align-items: center;
+}
+.row.row-stretch {
+  align-items: stretch;
+}
+.row.row-baseline {
+  align-items: baseline;
+}
+.row .column {
+  display: block;
+  flex: 1 1 auto;
+  margin-left: 0;
+  max-width: 100%;
+  width: 100%;
+}
+.row .column.column-offset-10 {
+  margin-left: 10%;
+}
+.row .column.column-offset-20 {
+  margin-left: 20%;
+}
+.row .column.column-offset-25 {
+  margin-left: 25%;
+}
+.row .column.column-offset-33,
+.row .column.column-offset-34 {
+  margin-left: 33.3333%;
+}
+.row .column.column-offset-40 {
+  margin-left: 40%;
+}
+.row .column.column-offset-50 {
+  margin-left: 50%;
+}
+.row .column.column-offset-60 {
+  margin-left: 60%;
+}
+.row .column.column-offset-66,
+.row .column.column-offset-67 {
+  margin-left: 66.6666%;
+}
+.row .column.column-offset-75 {
+  margin-left: 75%;
+}
+.row .column.column-offset-80 {
+  margin-left: 80%;
+}
+.row .column.column-offset-90 {
+  margin-left: 90%;
+}
+.row .column.column-10 {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+.row .column.column-20 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+.row .column.column-25 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.row .column.column-33,
+.row .column.column-34 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+.row .column.column-40 {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.row .column.column-50 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.row .column.column-60 {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+.row .column.column-66,
+.row .column.column-67 {
+  flex: 0 0 66.6666%;
+  max-width: 66.6666%;
+}
+.row .column.column-75 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.row .column.column-80 {
+  flex: 0 0 80%;
+  max-width: 80%;
+}
+.row .column.column-90 {
+  flex: 0 0 90%;
+  max-width: 90%;
+}
+.row .column .column-top {
+  align-self: flex-start;
+}
+.row .column .column-bottom {
+  align-self: flex-end;
+}
+.row .column .column-center {
+  align-self: center;
+}
+@media (min-width: 40rem) {
+  .row {
+    flex-direction: row;
+    margin-left: -1.0rem;
+    width: calc(100% + 2.0rem);
+  }
+  .row .column {
+    margin-bottom: inherit;
+    padding: 0 1.0rem;
+  }
+}
+a {
+  color: #0069d9;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  color: #606c76;
+}
+dl,
+ol,
+ul {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+}
+dl dl,
+dl ol,
+dl ul,
+ol dl,
+ol ol,
+ol ul,
+ul dl,
+ul ol,
+ul ul {
+  font-size: 90%;
+  margin: 1.5rem 0 1.5rem 3.0rem;
+}
+ol {
+  list-style: decimal inside;
+}
+ul {
+  list-style: circle inside;
+}
+.button,
+button,
+dd,
+dt,
+li {
+  margin-bottom: 1.0rem;
+}
+fieldset,
+input,
+select,
+textarea {
+  margin-bottom: 1.5rem;
+}
+blockquote,
+dl,
+figure,
+form,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 2.5rem;
+}
+table {
+  border-spacing: 0;
+  display: block;
+  overflow-x: auto;
+  text-align: left;
+  width: 100%;
+}
+td,
+th {
+  border-bottom: 0.1rem solid #e1e1e1;
+  padding: 1.2rem 1.5rem;
+}
+td:first-child,
+th:first-child {
+  padding-left: 0;
+}
+td:last-child,
+th:last-child {
+  padding-right: 0;
+}
+@media (min-width: 40rem) {
+  table {
+    display: table;
+    overflow-x: initial;
+  }
+}
+b,
+strong {
+  font-weight: bold;
+}
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  letter-spacing: -.1rem;
+  margin-bottom: 2.0rem;
+  margin-top: 0;
+}
+h1 {
+  font-size: 4.6rem;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 3.6rem;
+  line-height: 1.25;
+}
+h3 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+h4 {
+  font-size: 2.2rem;
+  letter-spacing: -.08rem;
+  line-height: 1.35;
+}
+h5 {
+  font-size: 1.8rem;
+  letter-spacing: -.05rem;
+  line-height: 1.5;
+}
+h6 {
+  font-size: 1.6rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+img {
+  max-width: 100%;
+}
+.clearfix:after {
+  clear: both;
+  content: &quot; &quot;;
+  display: table;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+h1 {
+  font-size: 3.6rem;
+  line-height: 1.25;
+}
+h2 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 2.2rem;
+  letter-spacing: -.08rem;
+  line-height: 1.35;
+}
+h4 {
+  font-size: 1.8rem;
+  letter-spacing: -.05rem;
+  line-height: 1.5;
+}
+h5 {
+  font-size: 1.6rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+h6 {
+  font-size: 1.4rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+pre {
+  padding: 1em;
+}
+.container {
+  margin: 0 auto;
+  max-width: 80.0rem;
+  padding: 0 2.0rem;
+  position: relative;
+  width: 100%;
+}
+select {
+  width: auto;
+}
+.phx-hero {
+  text-align: center;
+  border-bottom: 1px solid #e3e3e3;
+  background: #eee;
+  border-radius: 6px;
+  padding: 3em 3em 1em;
+  margin-bottom: 3rem;
+  font-weight: 200;
+  font-size: 120%;
+}
+.phx-hero input {
+  background: #ffffff;
+}
+.phx-logo {
+  min-width: 300px;
+  margin: 1rem;
+  display: block;
+}
+.phx-logo img {
+  width: auto;
+  display: block;
+}
+header {
+  width: 100%;
+  background: #fdfdfd;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 2rem;
+}
+header section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header section :first-child {
+  order: 2;
+}
+header section :last-child {
+  order: 1;
+}
+header nav ul,
+header nav li {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: right;
+  white-space: nowrap;
+}
+header nav ul {
+  margin: 1rem;
+  margin-top: 0;
+}
+header nav a {
+  display: block;
+}
+@media (min-width: 40.0rem) {
+  header section {
+    flex-direction: row;
+  }
+  header nav ul {
+    margin: 1rem;
+  }
+  .phx-logo {
+    flex-basis: 527px;
+    margin: 2rem 1rem;
+  }
+}
+
+/* css/app.css */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+.invalid-feedback {
+  color: #a94442;
+  display: block;
+  margin: -1rem 0 2rem;
+}
+.phx-no-feedback.invalid-feedback,
+.phx-no-feedback .invalid-feedback {
+  display: none;
+}
+.phx-click-loading {
+  opacity: 0.5;
+  transition: opacity 1s ease-out;
+}
+.phx-loading {
+  cursor: wait;
+}
+.phx-modal {
+  opacity: 1 !important;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.phx-modal-content {
+  background-color: #fefefe;
+  margin: 15vh auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.phx-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.phx-modal-close:hover,
+.phx-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.fade-in-scale {
+  animation: 0.2s ease-in 0s normal forwards 1 fade-in-scale-keys;
+}
+.fade-out-scale {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-out-scale-keys;
+}
+.fade-in {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-in-keys;
+}
+.fade-out {
+  animation: 0.2s ease-out 0s normal forwards 1 fade-out-keys;
+}
+@keyframes fade-in-scale-keys {
+  0% {
+    scale: 0.95;
+    opacity: 0;
+  }
+  100% {
+    scale: 1.0;
+    opacity: 1;
+  }
+}
+@keyframes fade-out-scale-keys {
+  0% {
+    scale: 1.0;
+    opacity: 1;
+  }
+  100% {
+    scale: 0.95;
+    opacity: 0;
+  }
+}
+@keyframes fade-in-keys {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out-keys {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* css/style.css */
+body {
+  background: #CAECE9;
+  font-family: &quot;Trebuchet MS&quot;, sans-serif;
+  font-size: 14px;
+}
+a {
+  color: #26776F;
+}
+a:hover {
+  color: #333;
+}
+input[type=text],
+input[type=email],
+input[type=password] {
+  background: white;
+  border: 1px solid #BFE6E2;
+  padding: 2px;
+  font-family: &quot;Trebuchet MS&quot;, sans-serif;
+  font-size: 14px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  color: #105751;
+}
+button[type=submit] {
+  background: #105751;
+  border: 1px solid #073B36;
+  padding: 1px 3px;
+  font-family: &quot;Trebuchet MS&quot;, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  color: white;
+}
+div.page {
+  background: white;
+  border: 1px solid #6ECCC4;
+  width: 700px;
+  margin: 30px auto;
+}
+div.page h1 {
+  background: #6ECCC4;
+  margin: 0;
+  padding: 10px 14px;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 0 0 3px #24776F;
+  font-weight: normal;
+}
+div.page div.navigation {
+  background: #DEE9E8;
+  padding: 4px 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+div.page div.navigation a {
+  color: #444;
+  font-weight: bold;
+}
+div.page h2 {
+  margin: 0 0 15px 0;
+  color: #105751;
+  text-shadow: 0 1px 2px #ccc;
+}
+div.page div.body {
+  padding: 10px;
+}
+div.page div.footer {
+  background: #eee;
+  color: #888;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+div.page div.followstatus {
+  border: 1px solid #ccc;
+  background: #E3EBEA;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  padding: 3px;
+  font-size: 13px;
+}
+div.page ul.messages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+div.page ul.messages li {
+  margin: 10px 0;
+  padding: 5px;
+  background: #F0FAF9;
+  border: 1px solid #DBF3F1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  min-height: 48px;
+}
+div.page ul.messages p {
+  margin: 0;
+}
+div.page ul.messages li img {
+  float: left;
+  padding: 0 10px 0 0;
+}
+div.page ul.messages li small {
+  font-size: 0.9em;
+  color: #888;
+}
+div.page div.twitbox {
+  margin: 10px 0;
+  padding: 5px;
+  background: #F0FAF9;
+  border: 1px solid #94E2DA;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+div.page div.twitbox h3 {
+  margin: 0;
+  font-size: 1em;
+  color: #2C7E76;
+}
+div.page div.twitbox p {
+  margin: 0;
+}
+div.page div.twitbox input[type=text] {
+  width: 585px;
+}
+div.page div.twitbox input[type=submit] {
+  width: 70px;
+  margin-left: 5px;
+}
+ul.flashes {
+  list-style: none;
+  margin: 10px 10px 0 10px;
+  padding: 0;
+}
+ul.flashes li {
+  background: #B9F3ED;
+  border: 1px solid #81CEC6;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  padding: 4px;
+  font-size: 13px;
+}
+div.error {
+  margin: 10px 0;
+  background: #FAE4E4;
+  border: 1px solid #DD6F6F;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  padding: 4px;
+  font-size: 13px;
+}
+/*# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vYXNzZXRzL2Nzcy9waG9lbml4LmNzcyIsICIuLi8uLi8uLi9hc3NldHMvY3NzL2FwcC5jc3MiLCAiLi4vLi4vLi4vYXNzZXRzL2Nzcy9zdHlsZS5jc3MiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIi8qIEluY2x1ZGVzIHNvbWUgZGVmYXVsdCBzdHlsZSBmb3IgdGhlIHN0YXJ0ZXIgYXBwbGljYXRpb24uXG4gKiBUaGlzIGNhbiBiZSBzYWZlbHkgZGVsZXRlZCB0byBzdGFydCBmcmVzaC5cbiAqL1xuXG4vKiBNaWxsaWdyYW0gdjEuNC4xIGh0dHBzOi8vbWlsbGlncmFtLmdpdGh1Yi5pb1xuICogQ29weXJpZ2h0IChjKSAyMDIwIENKIFBhdG9pbG8gTGljZW5zZWQgdW5kZXIgdGhlIE1JVCBsaWNlbnNlXG4gKi9cblxuKiwqOmFmdGVyLCo6YmVmb3Jle2JveC1zaXppbmc6aW5oZXJpdH1odG1se2JveC1zaXppbmc6Ym9yZGVyLWJveDtmb250LXNpemU6NjIuNSV9Ym9keXtjb2xvcjojMDAwMDAwO2ZvbnQtZmFtaWx5OidIZWx2ZXRpY2EgTmV1ZScsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCBzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxLjZlbTtmb250LXdlaWdodDozMDA7bGV0dGVyLXNwYWNpbmc6LjAxZW07bGluZS1oZWlnaHQ6MS42fWJsb2NrcXVvdGV7Ym9yZGVyLWxlZnQ6MC4zcmVtIHNvbGlkICNkMWQxZDE7bWFyZ2luLWxlZnQ6MDttYXJnaW4tcmlnaHQ6MDtwYWRkaW5nOjFyZW0gMS41cmVtfWJsb2NrcXVvdGUgKjpsYXN0LWNoaWxke21hcmdpbi1ib3R0b206MH0uYnV0dG9uLGJ1dHRvbixpbnB1dFt0eXBlPSdidXR0b24nXSxpbnB1dFt0eXBlPSdyZXNldCddLGlucHV0W3R5cGU9J3N1Ym1pdCdde2JhY2tncm91bmQtY29sb3I6IzAwNjlkOTtib3JkZXI6MC4xcmVtIHNvbGlkICMwMDY5ZDk7Ym9yZGVyLXJhZGl1czouNHJlbTtjb2xvcjojZmZmO2N1cnNvcjpwb2ludGVyO2Rpc3BsYXk6aW5saW5lLWJsb2NrO2ZvbnQtc2l6ZToxLjFyZW07Zm9udC13ZWlnaHQ6NzAwO2hlaWdodDozLjhyZW07bGV0dGVyLXNwYWNpbmc6LjFyZW07bGluZS1oZWlnaHQ6My44cmVtO3BhZGRpbmc6MCAzLjByZW07dGV4dC1hbGlnbjpjZW50ZXI7dGV4dC1kZWNvcmF0aW9uOm5vbmU7dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO3doaXRlLXNwYWNlOm5vd3JhcH0uYnV0dG9uOmZvY3VzLC5idXR0b246aG92ZXIsYnV0dG9uOmZvY3VzLGJ1dHRvbjpob3ZlcixpbnB1dFt0eXBlPSdidXR0b24nXTpmb2N1cyxpbnB1dFt0eXBlPSdidXR0b24nXTpob3ZlcixpbnB1dFt0eXBlPSdyZXNldCddOmZvY3VzLGlucHV0W3R5cGU9J3Jlc2V0J106aG92ZXIsaW5wdXRbdHlwZT0nc3VibWl0J106Zm9jdXMsaW5wdXRbdHlwZT0nc3VibWl0J106aG92ZXJ7YmFja2dyb3VuZC1jb2xvcjojNjA2Yzc2O2JvcmRlci1jb2xvcjojNjA2Yzc2O2NvbG9yOiNmZmY7b3V0bGluZTowfS5idXR0b25bZGlzYWJsZWRdLGJ1dHRvbltkaXNhYmxlZF0saW5wdXRbdHlwZT0nYnV0dG9uJ11bZGlzYWJsZWRdLGlucHV0W3R5cGU9J3Jlc2V0J11bZGlzYWJsZWRdLGlucHV0W3R5cGU9J3N1Ym1pdCddW2Rpc2FibGVkXXtjdXJzb3I6ZGVmYXVsdDtvcGFjaXR5Oi41fS5idXR0b25bZGlzYWJsZWRdOmZvY3VzLC5idXR0b25bZGlzYWJsZWRdOmhvdmVyLGJ1dHRvbltkaXNhYmxlZF06Zm9jdXMsYnV0dG9uW2Rpc2FibGVkXTpob3ZlcixpbnB1dFt0eXBlPSdidXR0b24nXVtkaXNhYmxlZF06Zm9jdXMsaW5wdXRbdHlwZT0nYnV0dG9uJ11bZGlzYWJsZWRdOmhvdmVyLGlucHV0W3R5cGU9J3Jlc2V0J11bZGlzYWJsZWRdOmZvY3VzLGlucHV0W3R5cGU9J3Jlc2V0J11bZGlzYWJsZWRdOmhvdmVyLGlucHV0W3R5cGU9J3N1Ym1pdCddW2Rpc2FibGVkXTpmb2N1cyxpbnB1dFt0eXBlPSdzdWJtaXQnXVtkaXNhYmxlZF06aG92ZXJ7YmFja2dyb3VuZC1jb2xvcjojMDA2OWQ5O2JvcmRlci1jb2xvcjojMDA2OWQ5fS5idXR0b24uYnV0dG9uLW91dGxpbmUsYnV0dG9uLmJ1dHRvbi1vdXRsaW5lLGlucHV0W3R5cGU9J2J1dHRvbiddLmJ1dHRvbi1vdXRsaW5lLGlucHV0W3R5cGU9J3Jlc2V0J10uYnV0dG9uLW91dGxpbmUsaW5wdXRbdHlwZT0nc3VibWl0J10uYnV0dG9uLW91dGxpbmV7YmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudDtjb2xvcjojMDA2OWQ5fS5idXR0b24uYnV0dG9uLW91dGxpbmU6Zm9jdXMsLmJ1dHRvbi5idXR0b24tb3V0bGluZTpob3ZlcixidXR0b24uYnV0dG9uLW91dGxpbmU6Zm9jdXMsYnV0dG9uLmJ1dHRvbi1vdXRsaW5lOmhvdmVyLGlucHV0W3R5cGU9J2J1dHRvbiddLmJ1dHRvbi1vdXRsaW5lOmZvY3VzLGlucHV0W3R5cGU9J2J1dHRvbiddLmJ1dHRvbi1vdXRsaW5lOmhvdmVyLGlucHV0W3R5cGU9J3Jlc2V0J10uYnV0dG9uLW91dGxpbmU6Zm9jdXMsaW5wdXRbdHlwZT0ncmVzZXQnXS5idXR0b24tb3V0bGluZTpob3ZlcixpbnB1dFt0eXBlPSdzdWJtaXQnXS5idXR0b24tb3V0bGluZTpmb2N1cyxpbnB1dFt0eXBlPSdzdWJtaXQnXS5idXR0b24tb3V0bGluZTpob3ZlcntiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O2JvcmRlci1jb2xvcjojNjA2Yzc2O2NvbG9yOiM2MDZjNzZ9LmJ1dHRvbi5idXR0b24tb3V0bGluZVtkaXNhYmxlZF06Zm9jdXMsLmJ1dHRvbi5idXR0b24tb3V0bGluZVtkaXNhYmxlZF06aG92ZXIsYnV0dG9uLmJ1dHRvbi1vdXRsaW5lW2Rpc2FibGVkXTpmb2N1cyxidXR0b24uYnV0dG9uLW91dGxpbmVbZGlzYWJsZWRdOmhvdmVyLGlucHV0W3R5cGU9J2J1dHRvbiddLmJ1dHRvbi1vdXRsaW5lW2Rpc2FibGVkXTpmb2N1cyxpbnB1dFt0eXBlPSdidXR0b24nXS5idXR0b24tb3V0bGluZVtkaXNhYmxlZF06aG92ZXIsaW5wdXRbdHlwZT0ncmVzZXQnXS5idXR0b24tb3V0bGluZVtkaXNhYmxlZF06Zm9jdXMsaW5wdXRbdHlwZT0ncmVzZXQnXS5idXR0b24tb3V0bGluZVtkaXNhYmxlZF06aG92ZXIsaW5wdXRbdHlwZT0nc3VibWl0J10uYnV0dG9uLW91dGxpbmVbZGlzYWJsZWRdOmZvY3VzLGlucHV0W3R5cGU9J3N1Ym1pdCddLmJ1dHRvbi1vdXRsaW5lW2Rpc2FibGVkXTpob3Zlcntib3JkZXItY29sb3I6aW5oZXJpdDtjb2xvcjojMDA2OWQ5fS5idXR0b24uYnV0dG9uLWNsZWFyLGJ1dHRvbi5idXR0b24tY2xlYXIsaW5wdXRbdHlwZT0nYnV0dG9uJ10uYnV0dG9uLWNsZWFyLGlucHV0W3R5cGU9J3Jlc2V0J10uYnV0dG9uLWNsZWFyLGlucHV0W3R5cGU9J3N1Ym1pdCddLmJ1dHRvbi1jbGVhcntiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O2JvcmRlci1jb2xvcjp0cmFuc3BhcmVudDtjb2xvcjojMDA2OWQ5fS5idXR0b24uYnV0dG9uLWNsZWFyOmZvY3VzLC5idXR0b24uYnV0dG9uLWNsZWFyOmhvdmVyLGJ1dHRvbi5idXR0b24tY2xlYXI6Zm9jdXMsYnV0dG9uLmJ1dHRvbi1jbGVhcjpob3ZlcixpbnB1dFt0eXBlPSdidXR0b24nXS5idXR0b24tY2xlYXI6Zm9jdXMsaW5wdXRbdHlwZT0nYnV0dG9uJ10uYnV0dG9uLWNsZWFyOmhvdmVyLGlucHV0W3R5cGU9J3Jlc2V0J10uYnV0dG9uLWNsZWFyOmZvY3VzLGlucHV0W3R5cGU9J3Jlc2V0J10uYnV0dG9uLWNsZWFyOmhvdmVyLGlucHV0W3R5cGU9J3N1Ym1pdCddLmJ1dHRvbi1jbGVhcjpmb2N1cyxpbnB1dFt0eXBlPSdzdWJtaXQnXS5idXR0b24tY2xlYXI6aG92ZXJ7YmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudDtib3JkZXItY29sb3I6dHJhbnNwYXJlbnQ7Y29sb3I6IzYwNmM3Nn0uYnV0dG9uLmJ1dHRvbi1jbGVhcltkaXNhYmxlZF06Zm9jdXMsLmJ1dHRvbi5idXR0b24tY2xlYXJbZGlzYWJsZWRdOmhvdmVyLGJ1dHRvbi5idXR0b24tY2xlYXJbZGlzYWJsZWRdOmZvY3VzLGJ1dHRvbi5idXR0b24tY2xlYXJbZGlzYWJsZWRdOmhvdmVyLGlucHV0W3R5cGU9J2J1dHRvbiddLmJ1dHRvbi1jbGVhcltkaXNhYmxlZF06Zm9jdXMsaW5wdXRbdHlwZT0nYnV0dG9uJ10uYnV0dG9uLWNsZWFyW2Rpc2FibGVkXTpob3ZlcixpbnB1dFt0eXBlPSdyZXNldCddLmJ1dHRvbi1jbGVhcltkaXNhYmxlZF06Zm9jdXMsaW5wdXRbdHlwZT0ncmVzZXQnXS5idXR0b24tY2xlYXJbZGlzYWJsZWRdOmhvdmVyLGlucHV0W3R5cGU9J3N1Ym1pdCddLmJ1dHRvbi1jbGVhcltkaXNhYmxlZF06Zm9jdXMsaW5wdXRbdHlwZT0nc3VibWl0J10uYnV0dG9uLWNsZWFyW2Rpc2FibGVkXTpob3Zlcntjb2xvcjojMDA2OWQ5fWNvZGV7YmFja2dyb3VuZDojZjRmNWY2O2JvcmRlci1yYWRpdXM6LjRyZW07Zm9udC1zaXplOjg2JTttYXJnaW46MCAuMnJlbTtwYWRkaW5nOi4ycmVtIC41cmVtO3doaXRlLXNwYWNlOm5vd3JhcH1wcmV7YmFja2dyb3VuZDojZjRmNWY2O2JvcmRlci1sZWZ0OjAuM3JlbSBzb2xpZCAjMDA2OWQ5O292ZXJmbG93LXk6aGlkZGVufXByZT5jb2Rle2JvcmRlci1yYWRpdXM6MDtkaXNwbGF5OmJsb2NrO3BhZGRpbmc6MXJlbSAxLjVyZW07d2hpdGUtc3BhY2U6cHJlfWhye2JvcmRlcjowO2JvcmRlci10b3A6MC4xcmVtIHNvbGlkICNmNGY1ZjY7bWFyZ2luOjMuMHJlbSAwfWlucHV0W3R5cGU9J2NvbG9yJ10saW5wdXRbdHlwZT0nZGF0ZSddLGlucHV0W3R5cGU9J2RhdGV0aW1lJ10saW5wdXRbdHlwZT0nZGF0ZXRpbWUtbG9jYWwnXSxpbnB1dFt0eXBlPSdlbWFpbCddLGlucHV0W3R5cGU9J21vbnRoJ10saW5wdXRbdHlwZT0nbnVtYmVyJ10saW5wdXRbdHlwZT0ncGFzc3dvcmQnXSxpbnB1dFt0eXBlPSdzZWFyY2gnXSxpbnB1dFt0eXBlPSd0ZWwnXSxpbnB1dFt0eXBlPSd0ZXh0J10saW5wdXRbdHlwZT0ndXJsJ10saW5wdXRbdHlwZT0nd2VlayddLGlucHV0Om5vdChbdHlwZV0pLHRleHRhcmVhLHNlbGVjdHstd2Via2l0LWFwcGVhcmFuY2U6bm9uZTtiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O2JvcmRlcjowLjFyZW0gc29saWQgI2QxZDFkMTtib3JkZXItcmFkaXVzOi40cmVtO2JveC1zaGFkb3c6bm9uZTtib3gtc2l6aW5nOmluaGVyaXQ7aGVpZ2h0OjMuOHJlbTtwYWRkaW5nOi42cmVtIDEuMHJlbSAuN3JlbTt3aWR0aDoxMDAlfWlucHV0W3R5cGU9J2NvbG9yJ106Zm9jdXMsaW5wdXRbdHlwZT0nZGF0ZSddOmZvY3VzLGlucHV0W3R5cGU9J2RhdGV0aW1lJ106Zm9jdXMsaW5wdXRbdHlwZT0nZGF0ZXRpbWUtbG9jYWwnXTpmb2N1cyxpbnB1dFt0eXBlPSdlbWFpbCddOmZvY3VzLGlucHV0W3R5cGU9J21vbnRoJ106Zm9jdXMsaW5wdXRbdHlwZT0nbnVtYmVyJ106Zm9jdXMsaW5wdXRbdHlwZT0ncGFzc3dvcmQnXTpmb2N1cyxpbnB1dFt0eXBlPSdzZWFyY2gnXTpmb2N1cyxpbnB1dFt0eXBlPSd0ZWwnXTpmb2N1cyxpbnB1dFt0eXBlPSd0ZXh0J106Zm9jdXMsaW5wdXRbdHlwZT0ndXJsJ106Zm9jdXMsaW5wdXRbdHlwZT0nd2VlayddOmZvY3VzLGlucHV0Om5vdChbdHlwZV0pOmZvY3VzLHRleHRhcmVhOmZvY3VzLHNlbGVjdDpmb2N1c3tib3JkZXItY29sb3I6IzAwNjlkOTtvdXRsaW5lOjB9c2VsZWN0e2JhY2tncm91bmQ6dXJsKCdkYXRhOmltYWdlL3N2Zyt4bWw7dXRmOCw8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB2aWV3Qm94PVwiMCAwIDMwIDhcIiB3aWR0aD1cIjMwXCI+PHBhdGggZmlsbD1cIiUyM2QxZDFkMVwiIGQ9XCJNMCwwbDYsOGw2LThcIi8+PC9zdmc+JykgY2VudGVyIHJpZ2h0IG5vLXJlcGVhdDtwYWRkaW5nLXJpZ2h0OjMuMHJlbX1zZWxlY3Q6Zm9jdXN7YmFja2dyb3VuZC1pbWFnZTp1cmwoJ2RhdGE6aW1hZ2Uvc3ZnK3htbDt1dGY4LDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMzAgOFwiIHdpZHRoPVwiMzBcIj48cGF0aCBmaWxsPVwiJTIzMDA2OWQ5XCIgZD1cIk0wLDBsNiw4bDYtOFwiLz48L3N2Zz4nKX1zZWxlY3RbbXVsdGlwbGVde2JhY2tncm91bmQ6bm9uZTtoZWlnaHQ6YXV0b310ZXh0YXJlYXttaW4taGVpZ2h0OjYuNXJlbX1sYWJlbCxsZWdlbmR7ZGlzcGxheTpibG9jaztmb250LXNpemU6MS42cmVtO2ZvbnQtd2VpZ2h0OjcwMDttYXJnaW4tYm90dG9tOi41cmVtfWZpZWxkc2V0e2JvcmRlci13aWR0aDowO3BhZGRpbmc6MH1pbnB1dFt0eXBlPSdjaGVja2JveCddLGlucHV0W3R5cGU9J3JhZGlvJ117ZGlzcGxheTppbmxpbmV9LmxhYmVsLWlubGluZXtkaXNwbGF5OmlubGluZS1ibG9jaztmb250LXdlaWdodDpub3JtYWw7bWFyZ2luLWxlZnQ6LjVyZW19LmNvbnRhaW5lcnttYXJnaW46MCBhdXRvO21heC13aWR0aDoxMTIuMHJlbTtwYWRkaW5nOjAgMi4wcmVtO3Bvc2l0aW9uOnJlbGF0aXZlO3dpZHRoOjEwMCV9LnJvd3tkaXNwbGF5OmZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO3BhZGRpbmc6MDt3aWR0aDoxMDAlfS5yb3cucm93LW5vLXBhZGRpbmd7cGFkZGluZzowfS5yb3cucm93LW5vLXBhZGRpbmc+LmNvbHVtbntwYWRkaW5nOjB9LnJvdy5yb3ctd3JhcHtmbGV4LXdyYXA6d3JhcH0ucm93LnJvdy10b3B7YWxpZ24taXRlbXM6ZmxleC1zdGFydH0ucm93LnJvdy1ib3R0b217YWxpZ24taXRlbXM6ZmxleC1lbmR9LnJvdy5yb3ctY2VudGVye2FsaWduLWl0ZW1zOmNlbnRlcn0ucm93LnJvdy1zdHJldGNoe2FsaWduLWl0ZW1zOnN0cmV0Y2h9LnJvdy5yb3ctYmFzZWxpbmV7YWxpZ24taXRlbXM6YmFzZWxpbmV9LnJvdyAuY29sdW1ue2Rpc3BsYXk6YmxvY2s7ZmxleDoxIDEgYXV0bzttYXJnaW4tbGVmdDowO21heC13aWR0aDoxMDAlO3dpZHRoOjEwMCV9LnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtMTB7bWFyZ2luLWxlZnQ6MTAlfS5yb3cgLmNvbHVtbi5jb2x1bW4tb2Zmc2V0LTIwe21hcmdpbi1sZWZ0OjIwJX0ucm93IC5jb2x1bW4uY29sdW1uLW9mZnNldC0yNXttYXJnaW4tbGVmdDoyNSV9LnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtMzMsLnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtMzR7bWFyZ2luLWxlZnQ6MzMuMzMzMyV9LnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtNDB7bWFyZ2luLWxlZnQ6NDAlfS5yb3cgLmNvbHVtbi5jb2x1bW4tb2Zmc2V0LTUwe21hcmdpbi1sZWZ0OjUwJX0ucm93IC5jb2x1bW4uY29sdW1uLW9mZnNldC02MHttYXJnaW4tbGVmdDo2MCV9LnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtNjYsLnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtNjd7bWFyZ2luLWxlZnQ6NjYuNjY2NiV9LnJvdyAuY29sdW1uLmNvbHVtbi1vZmZzZXQtNzV7bWFyZ2luLWxlZnQ6NzUlfS5yb3cgLmNvbHVtbi5jb2x1bW4tb2Zmc2V0LTgwe21hcmdpbi1sZWZ0OjgwJX0ucm93IC5jb2x1bW4uY29sdW1uLW9mZnNldC05MHttYXJnaW4tbGVmdDo5MCV9LnJvdyAuY29sdW1uLmNvbHVtbi0xMHtmbGV4OjAgMCAxMCU7bWF4LXdpZHRoOjEwJX0ucm93IC5jb2x1bW4uY29sdW1uLTIwe2ZsZXg6MCAwIDIwJTttYXgtd2lkdGg6MjAlfS5yb3cgLmNvbHVtbi5jb2x1bW4tMjV7ZmxleDowIDAgMjUlO21heC13aWR0aDoyNSV9LnJvdyAuY29sdW1uLmNvbHVtbi0zMywucm93IC5jb2x1bW4uY29sdW1uLTM0e2ZsZXg6MCAwIDMzLjMzMzMlO21heC13aWR0aDozMy4zMzMzJX0ucm93IC5jb2x1bW4uY29sdW1uLTQwe2ZsZXg6MCAwIDQwJTttYXgtd2lkdGg6NDAlfS5yb3cgLmNvbHVtbi5jb2x1bW4tNTB7ZmxleDowIDAgNTAlO21heC13aWR0aDo1MCV9LnJvdyAuY29sdW1uLmNvbHVtbi02MHtmbGV4OjAgMCA2MCU7bWF4LXdpZHRoOjYwJX0ucm93IC5jb2x1bW4uY29sdW1uLTY2LC5yb3cgLmNvbHVtbi5jb2x1bW4tNjd7ZmxleDowIDAgNjYuNjY2NiU7bWF4LXdpZHRoOjY2LjY2NjYlfS5yb3cgLmNvbHVtbi5jb2x1bW4tNzV7ZmxleDowIDAgNzUlO21heC13aWR0aDo3NSV9LnJvdyAuY29sdW1uLmNvbHVtbi04MHtmbGV4OjAgMCA4MCU7bWF4LXdpZHRoOjgwJX0ucm93IC5jb2x1bW4uY29sdW1uLTkwe2ZsZXg6MCAwIDkwJTttYXgtd2lkdGg6OTAlfS5yb3cgLmNvbHVtbiAuY29sdW1uLXRvcHthbGlnbi1zZWxmOmZsZXgtc3RhcnR9LnJvdyAuY29sdW1uIC5jb2x1bW4tYm90dG9te2FsaWduLXNlbGY6ZmxleC1lbmR9LnJvdyAuY29sdW1uIC5jb2x1bW4tY2VudGVye2FsaWduLXNlbGY6Y2VudGVyfUBtZWRpYSAobWluLXdpZHRoOiA0MHJlbSl7LnJvd3tmbGV4LWRpcmVjdGlvbjpyb3c7bWFyZ2luLWxlZnQ6LTEuMHJlbTt3aWR0aDpjYWxjKDEwMCUgKyAyLjByZW0pfS5yb3cgLmNvbHVtbnttYXJnaW4tYm90dG9tOmluaGVyaXQ7cGFkZGluZzowIDEuMHJlbX19YXtjb2xvcjojMDA2OWQ5O3RleHQtZGVjb3JhdGlvbjpub25lfWE6Zm9jdXMsYTpob3Zlcntjb2xvcjojNjA2Yzc2fWRsLG9sLHVse2xpc3Qtc3R5bGU6bm9uZTttYXJnaW4tdG9wOjA7cGFkZGluZy1sZWZ0OjB9ZGwgZGwsZGwgb2wsZGwgdWwsb2wgZGwsb2wgb2wsb2wgdWwsdWwgZGwsdWwgb2wsdWwgdWx7Zm9udC1zaXplOjkwJTttYXJnaW46MS41cmVtIDAgMS41cmVtIDMuMHJlbX1vbHtsaXN0LXN0eWxlOmRlY2ltYWwgaW5zaWRlfXVse2xpc3Qtc3R5bGU6Y2lyY2xlIGluc2lkZX0uYnV0dG9uLGJ1dHRvbixkZCxkdCxsaXttYXJnaW4tYm90dG9tOjEuMHJlbX1maWVsZHNldCxpbnB1dCxzZWxlY3QsdGV4dGFyZWF7bWFyZ2luLWJvdHRvbToxLjVyZW19YmxvY2txdW90ZSxkbCxmaWd1cmUsZm9ybSxvbCxwLHByZSx0YWJsZSx1bHttYXJnaW4tYm90dG9tOjIuNXJlbX10YWJsZXtib3JkZXItc3BhY2luZzowO2Rpc3BsYXk6YmxvY2s7b3ZlcmZsb3cteDphdXRvO3RleHQtYWxpZ246bGVmdDt3aWR0aDoxMDAlfXRkLHRoe2JvcmRlci1ib3R0b206MC4xcmVtIHNvbGlkICNlMWUxZTE7cGFkZGluZzoxLjJyZW0gMS41cmVtfXRkOmZpcnN0LWNoaWxkLHRoOmZpcnN0LWNoaWxke3BhZGRpbmctbGVmdDowfXRkOmxhc3QtY2hpbGQsdGg6bGFzdC1jaGlsZHtwYWRkaW5nLXJpZ2h0OjB9QG1lZGlhIChtaW4td2lkdGg6IDQwcmVtKXt0YWJsZXtkaXNwbGF5OnRhYmxlO292ZXJmbG93LXg6aW5pdGlhbH19YixzdHJvbmd7Zm9udC13ZWlnaHQ6Ym9sZH1we21hcmdpbi10b3A6MH1oMSxoMixoMyxoNCxoNSxoNntmb250LXdlaWdodDozMDA7bGV0dGVyLXNwYWNpbmc6LS4xcmVtO21hcmdpbi1ib3R0b206Mi4wcmVtO21hcmdpbi10b3A6MH1oMXtmb250LXNpemU6NC42cmVtO2xpbmUtaGVpZ2h0OjEuMn1oMntmb250LXNpemU6My42cmVtO2xpbmUtaGVpZ2h0OjEuMjV9aDN7Zm9udC1zaXplOjIuOHJlbTtsaW5lLWhlaWdodDoxLjN9aDR7Zm9udC1zaXplOjIuMnJlbTtsZXR0ZXItc3BhY2luZzotLjA4cmVtO2xpbmUtaGVpZ2h0OjEuMzV9aDV7Zm9udC1zaXplOjEuOHJlbTtsZXR0ZXItc3BhY2luZzotLjA1cmVtO2xpbmUtaGVpZ2h0OjEuNX1oNntmb250LXNpemU6MS42cmVtO2xldHRlci1zcGFjaW5nOjA7bGluZS1oZWlnaHQ6MS40fWltZ3ttYXgtd2lkdGg6MTAwJX0uY2xlYXJmaXg6YWZ0ZXJ7Y2xlYXI6Ym90aDtjb250ZW50OicgJztkaXNwbGF5OnRhYmxlfS5mbG9hdC1sZWZ0e2Zsb2F0OmxlZnR9LmZsb2F0LXJpZ2h0e2Zsb2F0OnJpZ2h0fVxuXG4vKiBHZW5lcmFsIHN0eWxlICovXG5oMXtmb250LXNpemU6IDMuNnJlbTsgbGluZS1oZWlnaHQ6IDEuMjV9XG5oMntmb250LXNpemU6IDIuOHJlbTsgbGluZS1oZWlnaHQ6IDEuM31cbmgze2ZvbnQtc2l6ZTogMi4ycmVtOyBsZXR0ZXItc3BhY2luZzogLS4wOHJlbTsgbGluZS1oZWlnaHQ6IDEuMzV9XG5oNHtmb250LXNpemU6IDEuOHJlbTsgbGV0dGVyLXNwYWNpbmc6IC0uMDVyZW07IGxpbmUtaGVpZ2h0OiAxLjV9XG5oNXtmb250LXNpemU6IDEuNnJlbTsgbGV0dGVyLXNwYWNpbmc6IDA7IGxpbmUtaGVpZ2h0OiAxLjR9XG5oNntmb250LXNpemU6IDEuNHJlbTsgbGV0dGVyLXNwYWNpbmc6IDA7IGxpbmUtaGVpZ2h0OiAxLjJ9XG5wcmV7cGFkZGluZzogMWVtO31cblxuLmNvbnRhaW5lcntcbiAgbWFyZ2luOiAwIGF1dG87XG4gIG1heC13aWR0aDogODAuMHJlbTtcbiAgcGFkZGluZzogMCAyLjByZW07XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgd2lkdGg6IDEwMCVcbn1cbnNlbGVjdCB7XG4gIHdpZHRoOiBhdXRvO1xufVxuXG4vKiBQaG9lbml4IHByb21vIGFuZCBsb2dvICovXG4ucGh4LWhlcm8ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZTNlM2UzO1xuICBiYWNrZ3JvdW5kOiAjZWVlO1xuICBib3JkZXItcmFkaXVzOiA2cHg7XG4gIHBhZGRpbmc6IDNlbSAzZW0gMWVtO1xuICBtYXJnaW4tYm90dG9tOiAzcmVtO1xuICBmb250LXdlaWdodDogMjAwO1xuICBmb250LXNpemU6IDEyMCU7XG59XG4ucGh4LWhlcm8gaW5wdXQge1xuICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xufVxuLnBoeC1sb2dvIHtcbiAgbWluLXdpZHRoOiAzMDBweDtcbiAgbWFyZ2luOiAxcmVtO1xuICBkaXNwbGF5OiBibG9jaztcbn1cbi5waHgtbG9nbyBpbWcge1xuICB3aWR0aDogYXV0bztcbiAgZGlzcGxheTogYmxvY2s7XG59XG5cbi8qIEhlYWRlcnMgKi9cbmhlYWRlciB7XG4gIHdpZHRoOiAxMDAlO1xuICBiYWNrZ3JvdW5kOiAjZmRmZGZkO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2VhZWFlYTtcbiAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbn1cbmhlYWRlciBzZWN0aW9uIHtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xufVxuaGVhZGVyIHNlY3Rpb24gOmZpcnN0LWNoaWxkIHtcbiAgb3JkZXI6IDI7XG59XG5oZWFkZXIgc2VjdGlvbiA6bGFzdC1jaGlsZCB7XG4gIG9yZGVyOiAxO1xufVxuaGVhZGVyIG5hdiB1bCxcbmhlYWRlciBuYXYgbGkge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB0ZXh0LWFsaWduOiByaWdodDtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbmhlYWRlciBuYXYgdWwge1xuICBtYXJnaW46IDFyZW07XG4gIG1hcmdpbi10b3A6IDA7XG59XG5oZWFkZXIgbmF2IGEge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDQwLjByZW0pIHsgLyogU21hbGwgZGV2aWNlcyAobGFuZHNjYXBlIHBob25lcywgNTc2cHggYW5kIHVwKSAqL1xuICBoZWFkZXIgc2VjdGlvbiB7XG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgfVxuICBoZWFkZXIgbmF2IHVsIHtcbiAgICBtYXJnaW46IDFyZW07XG4gIH1cbiAgLnBoeC1sb2dvIHtcbiAgICBmbGV4LWJhc2lzOiA1MjdweDtcbiAgICBtYXJnaW46IDJyZW0gMXJlbTtcbiAgfVxufVxuIiwgIi8qIFRoaXMgZmlsZSBpcyBmb3IgeW91ciBtYWluIGFwcGxpY2F0aW9uIENTUyAqL1xuQGltcG9ydCBcIi4vcGhvZW5peC5jc3NcIjtcblxuLyogQWxlcnRzIGFuZCBmb3JtIGVycm9ycyB1c2VkIGJ5IHBoeC5uZXcgKi9cbi5hbGVydCB7XG4gIHBhZGRpbmc6IDE1cHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG4uYWxlcnQtaW5mbyB7XG4gIGNvbG9yOiAjMzE3MDhmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZDllZGY3O1xuICBib3JkZXItY29sb3I6ICNiY2U4ZjE7XG59XG4uYWxlcnQtd2FybmluZyB7XG4gIGNvbG9yOiAjOGE2ZDNiO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmNmOGUzO1xuICBib3JkZXItY29sb3I6ICNmYWViY2M7XG59XG4uYWxlcnQtZGFuZ2VyIHtcbiAgY29sb3I6ICNhOTQ0NDI7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmMmRlZGU7XG4gIGJvcmRlci1jb2xvcjogI2ViY2NkMTtcbn1cbi5hbGVydCBwIHtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cbi5hbGVydDplbXB0eSB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4uaW52YWxpZC1mZWVkYmFjayB7XG4gIGNvbG9yOiAjYTk0NDQyO1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWFyZ2luOiAtMXJlbSAwIDJyZW07XG59XG5cbi8qIExpdmVWaWV3IHNwZWNpZmljIGNsYXNzZXMgZm9yIHlvdXIgY3VzdG9taXphdGlvbiAqL1xuLnBoeC1uby1mZWVkYmFjay5pbnZhbGlkLWZlZWRiYWNrLFxuLnBoeC1uby1mZWVkYmFjayAuaW52YWxpZC1mZWVkYmFjayB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5waHgtY2xpY2stbG9hZGluZyB7XG4gIG9wYWNpdHk6IDAuNTtcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAxcyBlYXNlLW91dDtcbn1cblxuLnBoeC1sb2FkaW5ne1xuICBjdXJzb3I6IHdhaXQ7XG59XG5cbi5waHgtbW9kYWwge1xuICBvcGFjaXR5OiAxIWltcG9ydGFudDtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB6LWluZGV4OiAxO1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNCk7XG59XG5cbi5waHgtbW9kYWwtY29udGVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZWZlZmU7XG4gIG1hcmdpbjogMTV2aCBhdXRvO1xuICBwYWRkaW5nOiAyMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjODg4O1xuICB3aWR0aDogODAlO1xufVxuXG4ucGh4LW1vZGFsLWNsb3NlIHtcbiAgY29sb3I6ICNhYWE7XG4gIGZsb2F0OiByaWdodDtcbiAgZm9udC1zaXplOiAyOHB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuLnBoeC1tb2RhbC1jbG9zZTpob3Zlcixcbi5waHgtbW9kYWwtY2xvc2U6Zm9jdXMge1xuICBjb2xvcjogYmxhY2s7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uZmFkZS1pbi1zY2FsZSB7XG4gIGFuaW1hdGlvbjogMC4ycyBlYXNlLWluIDBzIG5vcm1hbCBmb3J3YXJkcyAxIGZhZGUtaW4tc2NhbGUta2V5cztcbn1cblxuLmZhZGUtb3V0LXNjYWxlIHtcbiAgYW5pbWF0aW9uOiAwLjJzIGVhc2Utb3V0IDBzIG5vcm1hbCBmb3J3YXJkcyAxIGZhZGUtb3V0LXNjYWxlLWtleXM7XG59XG5cbi5mYWRlLWluIHtcbiAgYW5pbWF0aW9uOiAwLjJzIGVhc2Utb3V0IDBzIG5vcm1hbCBmb3J3YXJkcyAxIGZhZGUtaW4ta2V5cztcbn1cbi5mYWRlLW91dCB7XG4gIGFuaW1hdGlvbjogMC4ycyBlYXNlLW91dCAwcyBub3JtYWwgZm9yd2FyZHMgMSBmYWRlLW91dC1rZXlzO1xufVxuXG5Aa2V5ZnJhbWVzIGZhZGUtaW4tc2NhbGUta2V5c3tcbiAgMCUgeyBzY2FsZTogMC45NTsgb3BhY2l0eTogMDsgfVxuICAxMDAlIHsgc2NhbGU6IDEuMDsgb3BhY2l0eTogMTsgfVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGUtb3V0LXNjYWxlLWtleXN7XG4gIDAlIHsgc2NhbGU6IDEuMDsgb3BhY2l0eTogMTsgfVxuICAxMDAlIHsgc2NhbGU6IDAuOTU7IG9wYWNpdHk6IDA7IH1cbn1cblxuQGtleWZyYW1lcyBmYWRlLWluLWtleXN7XG4gIDAlIHsgb3BhY2l0eTogMDsgfVxuICAxMDAlIHsgb3BhY2l0eTogMTsgfVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGUtb3V0LWtleXN7XG4gIDAlIHsgb3BhY2l0eTogMTsgfVxuICAxMDAlIHsgb3BhY2l0eTogMDsgfVxufVxuIiwgImJvZHkge1xuICAgIGJhY2tncm91bmQ6ICNDQUVDRTk7XG4gICAgZm9udC1mYW1pbHk6ICdUcmVidWNoZXQgTVMnLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbn1cblxuYSB7XG4gICAgY29sb3I6ICMyNjc3NkY7XG59XG5cbmE6aG92ZXIge1xuICAgIGNvbG9yOiAjMzMzO1xufVxuXG5pbnB1dFt0eXBlPVwidGV4dFwiXSxcbmlucHV0W3R5cGU9XCJlbWFpbFwiXSxcbmlucHV0W3R5cGU9XCJwYXNzd29yZFwiXSB7XG4gICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI0JGRTZFMjtcbiAgICBwYWRkaW5nOiAycHg7XG4gICAgZm9udC1mYW1pbHk6ICdUcmVidWNoZXQgTVMnLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBjb2xvcjogIzEwNTc1MTtcbn1cblxuYnV0dG9uW3R5cGU9XCJzdWJtaXRcIl0ge1xuICAgIGJhY2tncm91bmQ6ICMxMDU3NTE7XG4gICAgYm9yZGVyOiAxcHggc29saWQgIzA3M0IzNjtcbiAgICBwYWRkaW5nOiAxcHggM3B4O1xuICAgIGZvbnQtZmFtaWx5OiAnVHJlYnVjaGV0IE1TJywgc2Fucy1zZXJpZjtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAycHg7XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAycHg7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG5kaXYucGFnZSB7XG4gICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgYm9yZGVyOiAxcHggc29saWQgIzZFQ0NDNDtcbiAgICB3aWR0aDogNzAwcHg7XG4gICAgbWFyZ2luOiAzMHB4IGF1dG87XG59XG5cbmRpdi5wYWdlIGgxIHtcbiAgICBiYWNrZ3JvdW5kOiAjNkVDQ0M0O1xuICAgIG1hcmdpbjogMDtcbiAgICBwYWRkaW5nOiAxMHB4IDE0cHg7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGxldHRlci1zcGFjaW5nOiAxcHg7XG4gICAgdGV4dC1zaGFkb3c6IDAgMCAzcHggIzI0Nzc2RjtcbiAgICBmb250LXdlaWdodDogbm9ybWFsO1xufVxuXG5kaXYucGFnZSBkaXYubmF2aWdhdGlvbiB7XG4gICAgYmFja2dyb3VuZDogI0RFRTlFODtcbiAgICBwYWRkaW5nOiA0cHggMTBweDtcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2VlZTtcbiAgICBjb2xvcjogIzg4ODtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgbGV0dGVyLXNwYWNpbmc6IDAuNXB4O1xufVxuXG5kaXYucGFnZSBkaXYubmF2aWdhdGlvbiBhIHtcbiAgICBjb2xvcjogIzQ0NDtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuZGl2LnBhZ2UgaDIge1xuICAgIG1hcmdpbjogMCAwIDE1cHggMDtcbiAgICBjb2xvcjogIzEwNTc1MTtcbiAgICB0ZXh0LXNoYWRvdzogMCAxcHggMnB4ICNjY2M7XG59XG5cbmRpdi5wYWdlIGRpdi5ib2R5IHtcbiAgICBwYWRkaW5nOiAxMHB4O1xufVxuXG5kaXYucGFnZSBkaXYuZm9vdGVyIHtcbiAgICBiYWNrZ3JvdW5kOiAjZWVlO1xuICAgIGNvbG9yOiAjODg4O1xuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbn1cblxuZGl2LnBhZ2UgZGl2LmZvbGxvd3N0YXR1cyB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgICBiYWNrZ3JvdW5kOiAjRTNFQkVBO1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIHBhZGRpbmc6IDNweDtcbiAgICBmb250LXNpemU6IDEzcHg7XG59XG5cbmRpdi5wYWdlIHVsLm1lc3NhZ2VzIHtcbiAgICBsaXN0LXN0eWxlOiBub25lO1xuICAgIG1hcmdpbjogMDtcbiAgICBwYWRkaW5nOiAwO1xufVxuXG5kaXYucGFnZSB1bC5tZXNzYWdlcyBsaSB7XG4gICAgbWFyZ2luOiAxMHB4IDA7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGJhY2tncm91bmQ6ICNGMEZBRjk7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI0RCRjNGMTtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDVweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBtaW4taGVpZ2h0OiA0OHB4O1xufVxuXG5kaXYucGFnZSB1bC5tZXNzYWdlcyBwIHtcbiAgICBtYXJnaW46IDA7XG59XG5cbmRpdi5wYWdlIHVsLm1lc3NhZ2VzIGxpIGltZyB7XG4gICAgZmxvYXQ6IGxlZnQ7XG4gICAgcGFkZGluZzogMCAxMHB4IDAgMDtcbn1cblxuZGl2LnBhZ2UgdWwubWVzc2FnZXMgbGkgc21hbGwge1xuICAgIGZvbnQtc2l6ZTogMC45ZW07XG4gICAgY29sb3I6ICM4ODg7XG59XG5cbmRpdi5wYWdlIGRpdi50d2l0Ym94IHtcbiAgICBtYXJnaW46IDEwcHggMDtcbiAgICBwYWRkaW5nOiA1cHg7XG4gICAgYmFja2dyb3VuZDogI0YwRkFGOTtcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjOTRFMkRBO1xuICAgIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4O1xufVxuXG5kaXYucGFnZSBkaXYudHdpdGJveCBoMyB7XG4gICAgbWFyZ2luOiAwO1xuICAgIGZvbnQtc2l6ZTogMWVtO1xuICAgIGNvbG9yOiAjMkM3RTc2O1xufVxuXG5kaXYucGFnZSBkaXYudHdpdGJveCBwIHtcbiAgICBtYXJnaW46IDA7XG59XG5cbmRpdi5wYWdlIGRpdi50d2l0Ym94IGlucHV0W3R5cGU9XCJ0ZXh0XCJdIHtcbiAgICB3aWR0aDogNTg1cHg7XG59XG5cbmRpdi5wYWdlIGRpdi50d2l0Ym94IGlucHV0W3R5cGU9XCJzdWJtaXRcIl0ge1xuICAgIHdpZHRoOiA3MHB4O1xuICAgIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG5cbnVsLmZsYXNoZXMge1xuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XG4gICAgbWFyZ2luOiAxMHB4IDEwcHggMCAxMHB4O1xuICAgIHBhZGRpbmc6IDA7XG59XG5cbnVsLmZsYXNoZXMgbGkge1xuICAgIGJhY2tncm91bmQ6ICNCOUYzRUQ7XG4gICAgYm9yZGVyOiAxcHggc29saWQgIzgxQ0VDNjtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBwYWRkaW5nOiA0cHg7XG4gICAgZm9udC1zaXplOiAxM3B4O1xufVxuXG5kaXYuZXJyb3Ige1xuICAgIG1hcmdpbjogMTBweCAwO1xuICAgIGJhY2tncm91bmQ6ICNGQUU0RTQ7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI0RENkY2RjtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBwYWRkaW5nOiA0cHg7XG4gICAgZm9udC1zaXplOiAxM3B4O1xufVxuIl0sCiAgIm1hcHBpbmdzIjogIjtBQVFBO0FBQUE7QUFBQTtBQUFtQjtBQUFBO0FBQW1CO0FBQUs7QUFBc0I7QUFBQTtBQUFnQjtBQUFLO0FBQWM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUErRDtBQUFnQjtBQUFnQjtBQUFxQjtBQUFBO0FBQWdCO0FBQVc7QUFBaUM7QUFBYztBQUFlO0FBQUE7QUFBb0I7QUFBd0I7QUFBQTtBQUFnQjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQTZFO0FBQXlCO0FBQTRCO0FBQW9CO0FBQVc7QUFBZTtBQUFxQjtBQUFpQjtBQUFnQjtBQUFjO0FBQXFCO0FBQW1CO0FBQWlCO0FBQWtCO0FBQXFCO0FBQXlCO0FBQUE7QUFBbUI7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBc047QUFBeUI7QUFBcUI7QUFBVztBQUFBO0FBQVU7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUErSDtBQUFlO0FBQUE7QUFBVztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUEwVDtBQUF5QjtBQUFBO0FBQXFCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBd0o7QUFBNkI7QUFBQTtBQUFjO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQTRXO0FBQTZCO0FBQXFCO0FBQUE7QUFBYztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFnZDtBQUFxQjtBQUFBO0FBQWM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUE4STtBQUE2QjtBQUF5QjtBQUFBO0FBQWM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBd1Y7QUFBNkI7QUFBeUI7QUFBQTtBQUFjO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQTRiO0FBQUE7QUFBYztBQUFLO0FBQW1CO0FBQW9CO0FBQWM7QUFBZTtBQUFvQjtBQUFBO0FBQW1CO0FBQUk7QUFBbUI7QUFBaUM7QUFBQTtBQUFrQjtBQUFTO0FBQWdCO0FBQWM7QUFBb0I7QUFBQTtBQUFnQjtBQUFHO0FBQVM7QUFBZ0M7QUFBQTtBQUFnQjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFnVDtBQUF3QjtBQUE2QjtBQUE0QjtBQUFvQjtBQUFnQjtBQUFtQjtBQUFjO0FBQTJCO0FBQUE7QUFBVztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFnWjtBQUFxQjtBQUFBO0FBQVU7QUFBTztBQUF1TDtBQUFBO0FBQXFCO0FBQWE7QUFBQTtBQUFzSztBQUFpQjtBQUFnQjtBQUFBO0FBQVk7QUFBUztBQUFBO0FBQWtCO0FBQUE7QUFBYTtBQUFjO0FBQWlCO0FBQWdCO0FBQUE7QUFBb0I7QUFBUztBQUFlO0FBQUE7QUFBVTtBQUFBO0FBQTJDO0FBQUE7QUFBZTtBQUFjO0FBQXFCO0FBQW1CO0FBQUE7QUFBa0I7QUFBVztBQUFjO0FBQW1CO0FBQWlCO0FBQWtCO0FBQUE7QUFBVztBQUFLO0FBQWE7QUFBc0I7QUFBVTtBQUFBO0FBQVc7QUFBb0I7QUFBQTtBQUFVO0FBQTRCO0FBQUE7QUFBVTtBQUFjO0FBQUE7QUFBZTtBQUFhO0FBQUE7QUFBdUI7QUFBZ0I7QUFBQTtBQUFxQjtBQUFnQjtBQUFBO0FBQW1CO0FBQWlCO0FBQUE7QUFBb0I7QUFBa0I7QUFBQTtBQUFxQjtBQUFhO0FBQWM7QUFBYztBQUFjO0FBQWU7QUFBQTtBQUFXO0FBQThCO0FBQUE7QUFBZ0I7QUFBOEI7QUFBQTtBQUFnQjtBQUE4QjtBQUFBO0FBQWdCO0FBQUE7QUFBNEQ7QUFBQTtBQUFxQjtBQUE4QjtBQUFBO0FBQWdCO0FBQThCO0FBQUE7QUFBZ0I7QUFBOEI7QUFBQTtBQUFnQjtBQUFBO0FBQTREO0FBQUE7QUFBcUI7QUFBOEI7QUFBQTtBQUFnQjtBQUE4QjtBQUFBO0FBQWdCO0FBQThCO0FBQUE7QUFBZ0I7QUFBdUI7QUFBYTtBQUFBO0FBQWM7QUFBdUI7QUFBYTtBQUFBO0FBQWM7QUFBdUI7QUFBYTtBQUFBO0FBQWM7QUFBQTtBQUE4QztBQUFrQjtBQUFBO0FBQW1CO0FBQXVCO0FBQWE7QUFBQTtBQUFjO0FBQXVCO0FBQWE7QUFBQTtBQUFjO0FBQXVCO0FBQWE7QUFBQTtBQUFjO0FBQUE7QUFBOEM7QUFBa0I7QUFBQTtBQUFtQjtBQUF1QjtBQUFhO0FBQUE7QUFBYztBQUF1QjtBQUFhO0FBQUE7QUFBYztBQUF1QjtBQUFhO0FBQUE7QUFBYztBQUF5QjtBQUFBO0FBQXNCO0FBQTRCO0FBQUE7QUFBb0I7QUFBNEI7QUFBQTtBQUFrQjtBQUEwQjtBQUFLO0FBQW1CO0FBQW9CO0FBQUE7QUFBMEI7QUFBYTtBQUFzQjtBQUFBO0FBQUE7QUFBa0I7QUFBRTtBQUFjO0FBQUE7QUFBcUI7QUFBQTtBQUFnQjtBQUFBO0FBQWM7QUFBQTtBQUFBO0FBQVM7QUFBZ0I7QUFBYTtBQUFBO0FBQWU7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQXNEO0FBQWM7QUFBQTtBQUE4QjtBQUFHO0FBQUE7QUFBMEI7QUFBRztBQUFBO0FBQXlCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBd0I7QUFBQTtBQUFxQjtBQUFBO0FBQUE7QUFBQTtBQUErQjtBQUFBO0FBQXFCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUE0QztBQUFBO0FBQXFCO0FBQU07QUFBaUI7QUFBYztBQUFnQjtBQUFnQjtBQUFBO0FBQVc7QUFBQTtBQUFNO0FBQW1DO0FBQUE7QUFBc0I7QUFBQTtBQUE4QjtBQUFBO0FBQWU7QUFBQTtBQUE0QjtBQUFBO0FBQWdCO0FBQTBCO0FBQU07QUFBYztBQUFBO0FBQUE7QUFBb0I7QUFBQTtBQUFTO0FBQUE7QUFBaUI7QUFBRTtBQUFBO0FBQWE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQWtCO0FBQWdCO0FBQXNCO0FBQXFCO0FBQUE7QUFBYTtBQUFHO0FBQWlCO0FBQUE7QUFBZ0I7QUFBRztBQUFpQjtBQUFBO0FBQWlCO0FBQUc7QUFBaUI7QUFBQTtBQUFnQjtBQUFHO0FBQWlCO0FBQXVCO0FBQUE7QUFBaUI7QUFBRztBQUFpQjtBQUF1QjtBQUFBO0FBQWdCO0FBQUc7QUFBaUI7QUFBaUI7QUFBQTtBQUFnQjtBQUFJO0FBQUE7QUFBZTtBQUFnQjtBQUFXO0FBQVk7QUFBQTtBQUFjO0FBQVk7QUFBQTtBQUFXO0FBQWE7QUFBQTtBQUdqdlI7QUFBRztBQUFtQjtBQUFBO0FBQ3RCO0FBQUc7QUFBbUI7QUFBQTtBQUN0QjtBQUFHO0FBQW1CO0FBQXlCO0FBQUE7QUFDL0M7QUFBRztBQUFtQjtBQUF5QjtBQUFBO0FBQy9DO0FBQUc7QUFBbUI7QUFBbUI7QUFBQTtBQUN6QztBQUFHO0FBQW1CO0FBQW1CO0FBQUE7QUFDekM7QUFBSTtBQUFBO0FBRUo7QUFDRTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFFRjtBQUNFO0FBQUE7QUFJRjtBQUNFO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUVGO0FBQ0U7QUFDQTtBQUNBO0FBQUE7QUFFRjtBQUNFO0FBQ0E7QUFBQTtBQUlGO0FBQ0U7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUVGO0FBQUE7QUFFRTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFFRjtBQUNFO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUdGO0FBQ0U7QUFDRTtBQUFBO0FBRUY7QUFDRTtBQUFBO0FBRUY7QUFDRTtBQUNBO0FBQUE7QUFBQTs7O0FDOUZKO0FBQ0U7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFDQTtBQUNBO0FBQUE7QUFFRjtBQUNFO0FBQ0E7QUFDQTtBQUFBO0FBRUY7QUFDRTtBQUNBO0FBQ0E7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUVGO0FBQ0U7QUFBQTtBQUVGO0FBQ0U7QUFDQTtBQUNBO0FBQUE7QUFJRjtBQUFBO0FBRUU7QUFBQTtBQUdGO0FBQ0U7QUFDQTtBQUFBO0FBR0Y7QUFDRTtBQUFBO0FBR0Y7QUFDRTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdGO0FBQ0U7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0Y7QUFDRTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0Y7QUFBQTtBQUVFO0FBQ0E7QUFDQTtBQUFBO0FBR0Y7QUFDRTtBQUFBO0FBR0Y7QUFDRTtBQUFBO0FBR0Y7QUFDRTtBQUFBO0FBRUY7QUFDRTtBQUFBO0FBR0Y7QUFBQTtBQUNPO0FBQWE7QUFBQTtBQUFBO0FBQ1g7QUFBWTtBQUFBO0FBQUE7QUFHckI7QUFBQTtBQUNPO0FBQVk7QUFBQTtBQUFBO0FBQ1Y7QUFBYTtBQUFBO0FBQUE7QUFHdEI7QUFBQTtBQUNPO0FBQUE7QUFBQTtBQUNFO0FBQUE7QUFBQTtBQUdUO0FBQUE7QUFDTztBQUFBO0FBQUE7QUFDRTtBQUFBO0FBQUE7OztBQ3RIVDtBQUNJO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFBQTtBQUFBO0FBR0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTsiLAogICJuYW1lcyI6IFtdCn0K */
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>X-Content-Type-Options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &#39;nosniff&#39; for all web pages.</p>
+
+<p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				
+				
+				
+				
+				<li id="alerts--risk-0-confidence-1">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Informational</span>, <span>Confidence</span>=<span
+							class="confidence-level">Low</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://172.20.10.3:4000</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-5">Information Disclosure - Suspicious Comments</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://172.20.10.3:4000/phoenix/live_reload/frame</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure.html">OWASP_2017_A03</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>The following pattern was used: \bFROM\b and was detected in the element starting with: &quot;&lt;script&gt;</p>
+
+<p>var Phoenix = (() =&gt; {</p>
+
+<p>  var __defProp = Object.defineProperty;</p>
+
+<p>  var __markAsModule = (target) =&gt; __defProp(target, &quot;_&quot;, see evidence field for the suspicious comment/snippet.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (881 bytes)</summary>
+				
+				<pre><code>GET http://172.20.10.3:4000/phoenix/live_reload/frame HTTP/1.1
+Host: 172.20.10.3:4000
+Connection: keep-alive
+sec-ch-ua: &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;100&quot;, &quot;Google Chrome&quot;;v=&quot;100&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;macOS&quot;
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Dest: iframe
+Referer: https://172.20.10.3:4000/public
+Accept-Language: da-DK,da;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _minitwit_elixir_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYcjNubGRfOE0waDBOVlM1cFZnVE1Oc3Vz.6ynh0-U1Bvoqy93rehTRUsErMScMt5cwoiBbgE0Eep0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (187 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+cache-control: max-age=0, private, must-revalidate
+Content-Length: 37668
+content-type: text/html; charset=utf-8
+date: Tue, 19 Apr 2022 12:09:16 GMT
+server: Cowboy
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (37668 bytes)</summary>
+				
+				<pre><code>&lt;html&gt;&lt;body&gt;
+&lt;script&gt;
+var Phoenix = (() =&gt; {
+  var __defProp = Object.defineProperty;
+  var __markAsModule = (target) =&gt; __defProp(target, &quot;__esModule&quot;, { value: true });
+  var __export = (target, all) =&gt; {
+    __markAsModule(target);
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+
+  // js/phoenix/index.js
+  var phoenix_exports = {};
+  __export(phoenix_exports, {
+    Channel: () =&gt; Channel,
+    LongPoll: () =&gt; LongPoll,
+    Presence: () =&gt; Presence,
+    Serializer: () =&gt; serializer_default,
+    Socket: () =&gt; Socket
+  });
+
+  // js/phoenix/utils.js
+  var closure = (value) =&gt; {
+    if (typeof value === &quot;function&quot;) {
+      return value;
+    } else {
+      let closure2 = function() {
+        return value;
+      };
+      return closure2;
+    }
+  };
+
+  // js/phoenix/constants.js
+  var globalSelf = typeof self !== &quot;undefined&quot; ? self : null;
+  var phxWindow = typeof window !== &quot;undefined&quot; ? window : null;
+  var global = globalSelf || phxWindow || void 0;
+  var DEFAULT_VSN = &quot;2.0.0&quot;;
+  var SOCKET_STATES = { connecting: 0, open: 1, closing: 2, closed: 3 };
+  var DEFAULT_TIMEOUT = 1e4;
+  var WS_CLOSE_NORMAL = 1e3;
+  var CHANNEL_STATES = {
+    closed: &quot;closed&quot;,
+    errored: &quot;errored&quot;,
+    joined: &quot;joined&quot;,
+    joining: &quot;joining&quot;,
+    leaving: &quot;leaving&quot;
+  };
+  var CHANNEL_EVENTS = {
+    close: &quot;phx_close&quot;,
+    error: &quot;phx_error&quot;,
+    join: &quot;phx_join&quot;,
+    reply: &quot;phx_reply&quot;,
+    leave: &quot;phx_leave&quot;
+  };
+  var TRANSPORTS = {
+    longpoll: &quot;longpoll&quot;,
+    websocket: &quot;websocket&quot;
+  };
+  var XHR_STATES = {
+    complete: 4
+  };
+
+  // js/phoenix/push.js
+  var Push = class {
+    constructor(channel, event, payload, timeout) {
+      this.channel = channel;
+      this.event = event;
+      this.payload = payload || function() {
+        return {};
+      };
+      this.receivedResp = null;
+      this.timeout = timeout;
+      this.timeoutTimer = null;
+      this.recHooks = [];
+      this.sent = false;
+    }
+    resend(timeout) {
+      this.timeout = timeout;
+      this.reset();
+      this.send();
+    }
+    send() {
+      if (this.hasReceived(&quot;timeout&quot;)) {
+        return;
+      }
+      this.startTimeout();
+      this.sent = true;
+      this.channel.socket.push({
+        topic: this.channel.topic,
+        event: this.event,
+        payload: this.payload(),
+        ref: this.ref,
+        join_ref: this.channel.joinRef()
+      });
+    }
+    receive(status, callback) {
+      if (this.hasReceived(status)) {
+        callback(this.receivedResp.response);
+      }
+      this.recHooks.push({ status, callback });
+      return this;
+    }
+    reset() {
+      this.cancelRefEvent();
+      this.ref = null;
+      this.refEvent = null;
+      this.receivedResp = null;
+      this.sent = false;
+    }
+    matchReceive({ status, response, _ref }) {
+      this.recHooks.filter((h) =&gt; h.status === status).forEach((h) =&gt; h.callback(response));
+    }
+    cancelRefEvent() {
+      if (!this.refEvent) {
+        return;
+      }
+      this.channel.off(this.refEvent);
+    }
+    cancelTimeout() {
+      clearTimeout(this.timeoutTimer);
+      this.timeoutTimer = null;
+    }
+    startTimeout() {
+      if (this.timeoutTimer) {
+        this.cancelTimeout();
+      }
+      this.ref = this.channel.socket.makeRef();
+      this.refEvent = this.channel.replyEventName(this.ref);
+      this.channel.on(this.refEvent, (payload) =&gt; {
+        this.cancelRefEvent();
+        this.cancelTimeout();
+        this.receivedResp = payload;
+        this.matchReceive(payload);
+      });
+      this.timeoutTimer = setTimeout(() =&gt; {
+        this.trigger(&quot;timeout&quot;, {});
+      }, this.timeout);
+    }
+    hasReceived(status) {
+      return this.receivedResp &amp;&amp; this.receivedResp.status === status;
+    }
+    trigger(status, response) {
+      this.channel.trigger(this.refEvent, { status, response });
+    }
+  };
+
+  // js/phoenix/timer.js
+  var Timer = class {
+    constructor(callback, timerCalc) {
+      this.callback = callback;
+      this.timerCalc = timerCalc;
+      this.timer = null;
+      this.tries = 0;
+    }
+    reset() {
+      this.tries = 0;
+      clearTimeout(this.timer);
+    }
+    scheduleTimeout() {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() =&gt; {
+        this.tries = this.tries + 1;
+        this.callback();
+      }, this.timerCalc(this.tries + 1));
+    }
+  };
+
+  // js/phoenix/channel.js
+  var Channel = class {
+    constructor(topic, params, socket) {
+      this.state = CHANNEL_STATES.closed;
+      this.topic = topic;
+      this.params = closure(params || {});
+      this.socket = socket;
+      this.bindings = [];
+      this.bindingRef = 0;
+      this.timeout = this.socket.timeout;
+      this.joinedOnce = false;
+      this.joinPush = new Push(this, CHANNEL_EVENTS.join, this.params, this.timeout);
+      this.pushBuffer = [];
+      this.stateChangeRefs = [];
+      this.rejoinTimer = new Timer(() =&gt; {
+        if (this.socket.isConnected()) {
+          this.rejoin();
+        }
+      }, this.socket.rejoinAfterMs);
+      this.stateChangeRefs.push(this.socket.onError(() =&gt; this.rejoinTimer.reset()));
+      this.stateChangeRefs.push(this.socket.onOpen(() =&gt; {
+        this.rejoinTimer.reset();
+        if (this.isErrored()) {
+          this.rejoin();
+        }
+      }));
+      this.joinPush.receive(&quot;ok&quot;, () =&gt; {
+        this.state = CHANNEL_STATES.joined;
+        this.rejoinTimer.reset();
+        this.pushBuffer.forEach((pushEvent) =&gt; pushEvent.send());
+        this.pushBuffer = [];
+      });
+      this.joinPush.receive(&quot;error&quot;, () =&gt; {
+        this.state = CHANNEL_STATES.errored;
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.onClose(() =&gt; {
+        this.rejoinTimer.reset();
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `close ${this.topic} ${this.joinRef()}`);
+        this.state = CHANNEL_STATES.closed;
+        this.socket.remove(this);
+      });
+      this.onError((reason) =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `error ${this.topic}`, reason);
+        if (this.isJoining()) {
+          this.joinPush.reset();
+        }
+        this.state = CHANNEL_STATES.errored;
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.joinPush.receive(&quot;timeout&quot;, () =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `timeout ${this.topic} (${this.joinRef()})`, this.joinPush.timeout);
+        let leavePush = new Push(this, CHANNEL_EVENTS.leave, closure({}), this.timeout);
+        leavePush.send();
+        this.state = CHANNEL_STATES.errored;
+        this.joinPush.reset();
+        if (this.socket.isConnected()) {
+          this.rejoinTimer.scheduleTimeout();
+        }
+      });
+      this.on(CHANNEL_EVENTS.reply, (payload, ref) =&gt; {
+        this.trigger(this.replyEventName(ref), payload);
+      });
+    }
+    join(timeout = this.timeout) {
+      if (this.joinedOnce) {
+        throw new Error(&quot;tried to join multiple times. &#39;join&#39; can only be called a single time per channel instance&quot;);
+      } else {
+        this.timeout = timeout;
+        this.joinedOnce = true;
+        this.rejoin();
+        return this.joinPush;
+      }
+    }
+    onClose(callback) {
+      this.on(CHANNEL_EVENTS.close, callback);
+    }
+    onError(callback) {
+      return this.on(CHANNEL_EVENTS.error, (reason) =&gt; callback(reason));
+    }
+    on(event, callback) {
+      let ref = this.bindingRef++;
+      this.bindings.push({ event, ref, callback });
+      return ref;
+    }
+    off(event, ref) {
+      this.bindings = this.bindings.filter((bind) =&gt; {
+        return !(bind.event === event &amp;&amp; (typeof ref === &quot;undefined&quot; || ref === bind.ref));
+      });
+    }
+    canPush() {
+      return this.socket.isConnected() &amp;&amp; this.isJoined();
+    }
+    push(event, payload, timeout = this.timeout) {
+      payload = payload || {};
+      if (!this.joinedOnce) {
+        throw new Error(`tried to push &#39;${event}&#39; to &#39;${this.topic}&#39; before joining. Use channel.join() before pushing events`);
+      }
+      let pushEvent = new Push(this, event, function() {
+        return payload;
+      }, timeout);
+      if (this.canPush()) {
+        pushEvent.send();
+      } else {
+        pushEvent.startTimeout();
+        this.pushBuffer.push(pushEvent);
+      }
+      return pushEvent;
+    }
+    leave(timeout = this.timeout) {
+      this.rejoinTimer.reset();
+      this.joinPush.cancelTimeout();
+      this.state = CHANNEL_STATES.leaving;
+      let onClose = () =&gt; {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, `leave ${this.topic}`);
+        this.trigger(CHANNEL_EVENTS.close, &quot;leave&quot;);
+      };
+      let leavePush = new Push(this, CHANNEL_EVENTS.leave, closure({}), timeout);
+      leavePush.receive(&quot;ok&quot;, () =&gt; onClose()).receive(&quot;timeout&quot;, () =&gt; onClose());
+      leavePush.send();
+      if (!this.canPush()) {
+        leavePush.trigger(&quot;ok&quot;, {});
+      }
+      return leavePush;
+    }
+    onMessage(_event, payload, _ref) {
+      return payload;
+    }
+    isMember(topic, event, payload, joinRef) {
+      if (this.topic !== topic) {
+        return false;
+      }
+      if (joinRef &amp;&amp; joinRef !== this.joinRef()) {
+        if (this.socket.hasLogger())
+          this.socket.log(&quot;channel&quot;, &quot;dropping outdated message&quot;, { topic, event, payload, joinRef });
+        return false;
+      } else {
+        return true;
+      }
+    }
+    joinRef() {
+      return this.joinPush.ref;
+    }
+    rejoin(timeout = this.timeout) {
+      if (this.isLeaving()) {
+        return;
+      }
+      this.socket.leaveOpenTopic(this.topic);
+      this.state = CHANNEL_STATES.joining;
+      this.joinPush.resend(timeout);
+    }
+    trigger(event, payload, ref, joinRef) {
+      let handledPayload = this.onMessage(event, payload, ref, joinRef);
+      if (payload &amp;&amp; !handledPayload) {
+        throw new Error(&quot;channel onMessage callbacks must return the payload, modified or unmodified&quot;);
+      }
+      let eventBindings = this.bindings.filter((bind) =&gt; bind.event === event);
+      for (let i = 0; i &lt; eventBindings.length; i++) {
+        let bind = eventBindings[i];
+        bind.callback(handledPayload, ref, joinRef || this.joinRef());
+      }
+    }
+    replyEventName(ref) {
+      return `chan_reply_${ref}`;
+    }
+    isClosed() {
+      return this.state === CHANNEL_STATES.closed;
+    }
+    isErrored() {
+      return this.state === CHANNEL_STATES.errored;
+    }
+    isJoined() {
+      return this.state === CHANNEL_STATES.joined;
+    }
+    isJoining() {
+      return this.state === CHANNEL_STATES.joining;
+    }
+    isLeaving() {
+      return this.state === CHANNEL_STATES.leaving;
+    }
+  };
+
+  // js/phoenix/ajax.js
+  var Ajax = class {
+    static request(method, endPoint, accept, body, timeout, ontimeout, callback) {
+      if (global.XDomainRequest) {
+        let req = new global.XDomainRequest();
+        this.xdomainRequest(req, method, endPoint, body, timeout, ontimeout, callback);
+      } else {
+        let req = new global.XMLHttpRequest();
+        this.xhrRequest(req, method, endPoint, accept, body, timeout, ontimeout, callback);
+      }
+    }
+    static xdomainRequest(req, method, endPoint, body, timeout, ontimeout, callback) {
+      req.timeout = timeout;
+      req.open(method, endPoint);
+      req.onload = () =&gt; {
+        let response = this.parseJSON(req.responseText);
+        callback &amp;&amp; callback(response);
+      };
+      if (ontimeout) {
+        req.ontimeout = ontimeout;
+      }
+      req.onprogress = () =&gt; {
+      };
+      req.send(body);
+    }
+    static xhrRequest(req, method, endPoint, accept, body, timeout, ontimeout, callback) {
+      req.open(method, endPoint, true);
+      req.timeout = timeout;
+      req.setRequestHeader(&quot;Content-Type&quot;, accept);
+      req.onerror = () =&gt; {
+        callback &amp;&amp; callback(null);
+      };
+      req.onreadystatechange = () =&gt; {
+        if (req.readyState === XHR_STATES.complete &amp;&amp; callback) {
+          let response = this.parseJSON(req.responseText);
+          callback(response);
+        }
+      };
+      if (ontimeout) {
+        req.ontimeout = ontimeout;
+      }
+      req.send(body);
+    }
+    static parseJSON(resp) {
+      if (!resp || resp === &quot;&quot;) {
+        return null;
+      }
+      try {
+        return JSON.parse(resp);
+      } catch (e) {
+        console &amp;&amp; console.log(&quot;failed to parse JSON response&quot;, resp);
+        return null;
+      }
+    }
+    static serialize(obj, parentKey) {
+      let queryStr = [];
+      for (var key in obj) {
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue;
+        }
+        let paramKey = parentKey ? `${parentKey}[${key}]` : key;
+        let paramVal = obj[key];
+        if (typeof paramVal === &quot;object&quot;) {
+          queryStr.push(this.serialize(paramVal, paramKey));
+        } else {
+          queryStr.push(encodeURIComponent(paramKey) + &quot;=&quot; + encodeURIComponent(paramVal));
+        }
+      }
+      return queryStr.join(&quot;&amp;&quot;);
+    }
+    static appendParams(url, params) {
+      if (Object.keys(params).length === 0) {
+        return url;
+      }
+      let prefix = url.match(/\?/) ? &quot;&amp;&quot; : &quot;?&quot;;
+      return `${url}${prefix}${this.serialize(params)}`;
+    }
+  };
+
+  // js/phoenix/longpoll.js
+  var LongPoll = class {
+    constructor(endPoint) {
+      this.endPoint = null;
+      this.token = null;
+      this.skipHeartbeat = true;
+      this.onopen = function() {
+      };
+      this.onerror = function() {
+      };
+      this.onmessage = function() {
+      };
+      this.onclose = function() {
+      };
+      this.pollEndpoint = this.normalizeEndpoint(endPoint);
+      this.readyState = SOCKET_STATES.connecting;
+      this.poll();
+    }
+    normalizeEndpoint(endPoint) {
+      return endPoint.replace(&quot;wss://&quot;, &quot;http://&quot;).replace(&quot;wss://&quot;, &quot;https://&quot;).replace(new RegExp(&quot;(.*)/&quot; + TRANSPORTS.websocket), &quot;$1/&quot; + TRANSPORTS.longpoll);
+    }
+    endpointURL() {
+      return Ajax.appendParams(this.pollEndpoint, { token: this.token });
+    }
+    closeAndRetry() {
+      this.close();
+      this.readyState = SOCKET_STATES.connecting;
+    }
+    ontimeout() {
+      this.onerror(&quot;timeout&quot;);
+      this.closeAndRetry();
+    }
+    poll() {
+      if (!(this.readyState === SOCKET_STATES.open || this.readyState === SOCKET_STATES.connecting)) {
+        return;
+      }
+      Ajax.request(&quot;GET&quot;, this.endpointURL(), &quot;application/json&quot;, null, this.timeout, this.ontimeout.bind(this), (resp) =&gt; {
+        if (resp) {
+          var { status, token, messages } = resp;
+          this.token = token;
+        } else {
+          status = 0;
+        }
+        switch (status) {
+          case 200:
+            messages.forEach((msg) =&gt; {
+              setTimeout(() =&gt; {
+                this.onmessage({ data: msg });
+              }, 0);
+            });
+            this.poll();
+            break;
+          case 204:
+            this.poll();
+            break;
+          case 410:
+            this.readyState = SOCKET_STATES.open;
+            this.onopen();
+            this.poll();
+            break;
+          case 403:
+            this.onerror();
+            this.close();
+            break;
+          case 0:
+          case 500:
+            this.onerror();
+            this.closeAndRetry();
+            break;
+          default:
+            throw new Error(`unhandled poll status ${status}`);
+        }
+      });
+    }
+    send(body) {
+      Ajax.request(&quot;POST&quot;, this.endpointURL(), &quot;application/json&quot;, body, this.timeout, this.onerror.bind(this, &quot;timeout&quot;), (resp) =&gt; {
+        if (!resp || resp.status !== 200) {
+          this.onerror(resp &amp;&amp; resp.status);
+          this.closeAndRetry();
+        }
+      });
+    }
+    close(_code, _reason) {
+      this.readyState = SOCKET_STATES.closed;
+      this.onclose();
+    }
+  };
+
+  // js/phoenix/presence.js
+  var Presence = class {
+    constructor(channel, opts = {}) {
+      let events = opts.events || { state: &quot;presence_state&quot;, diff: &quot;presence_diff&quot; };
+      this.state = {};
+      this.pendingDiffs = [];
+      this.channel = channel;
+      this.joinRef = null;
+      this.caller = {
+        onJoin: function() {
+        },
+        onLeave: function() {
+        },
+        onSync: function() {
+        }
+      };
+      this.channel.on(events.state, (newState) =&gt; {
+        let { onJoin, onLeave, onSync } = this.caller;
+        this.joinRef = this.channel.joinRef();
+        this.state = Presence.syncState(this.state, newState, onJoin, onLeave);
+        this.pendingDiffs.forEach((diff) =&gt; {
+          this.state = Presence.syncDiff(this.state, diff, onJoin, onLeave);
+        });
+        this.pendingDiffs = [];
+        onSync();
+      });
+      this.channel.on(events.diff, (diff) =&gt; {
+        let { onJoin, onLeave, onSync } = this.caller;
+        if (this.inPendingSyncState()) {
+          this.pendingDiffs.push(diff);
+        } else {
+          this.state = Presence.syncDiff(this.state, diff, onJoin, onLeave);
+          onSync();
+        }
+      });
+    }
+    onJoin(callback) {
+      this.caller.onJoin = callback;
+    }
+    onLeave(callback) {
+      this.caller.onLeave = callback;
+    }
+    onSync(callback) {
+      this.caller.onSync = callback;
+    }
+    list(by) {
+      return Presence.list(this.state, by);
+    }
+    inPendingSyncState() {
+      return !this.joinRef || this.joinRef !== this.channel.joinRef();
+    }
+    static syncState(currentState, newState, onJoin, onLeave) {
+      let state = this.clone(currentState);
+      let joins = {};
+      let leaves = {};
+      this.map(state, (key, presence) =&gt; {
+        if (!newState[key]) {
+          leaves[key] = presence;
+        }
+      });
+      this.map(newState, (key, newPresence) =&gt; {
+        let currentPresence = state[key];
+        if (currentPresence) {
+          let newRefs = newPresence.metas.map((m) =&gt; m.phx_ref);
+          let curRefs = currentPresence.metas.map((m) =&gt; m.phx_ref);
+          let joinedMetas = newPresence.metas.filter((m) =&gt; curRefs.indexOf(m.phx_ref) &lt; 0);
+          let leftMetas = currentPresence.metas.filter((m) =&gt; newRefs.indexOf(m.phx_ref) &lt; 0);
+          if (joinedMetas.length &gt; 0) {
+            joins[key] = newPresence;
+            joins[key].metas = joinedMetas;
+          }
+          if (leftMetas.length &gt; 0) {
+            leaves[key] = this.clone(currentPresence);
+            leaves[key].metas = leftMetas;
+          }
+        } else {
+          joins[key] = newPresence;
+        }
+      });
+      return this.syncDiff(state, { joins, leaves }, onJoin, onLeave);
+    }
+    static syncDiff(state, diff, onJoin, onLeave) {
+      let { joins, leaves } = this.clone(diff);
+      if (!onJoin) {
+        onJoin = function() {
+        };
+      }
+      if (!onLeave) {
+        onLeave = function() {
+        };
+      }
+      this.map(joins, (key, newPresence) =&gt; {
+        let currentPresence = state[key];
+        state[key] = this.clone(newPresence);
+        if (currentPresence) {
+          let joinedRefs = state[key].metas.map((m) =&gt; m.phx_ref);
+          let curMetas = currentPresence.metas.filter((m) =&gt; joinedRefs.indexOf(m.phx_ref) &lt; 0);
+          state[key].metas.unshift(...curMetas);
+        }
+        onJoin(key, currentPresence, newPresence);
+      });
+      this.map(leaves, (key, leftPresence) =&gt; {
+        let currentPresence = state[key];
+        if (!currentPresence) {
+          return;
+        }
+        let refsToRemove = leftPresence.metas.map((m) =&gt; m.phx_ref);
+        currentPresence.metas = currentPresence.metas.filter((p) =&gt; {
+          return refsToRemove.indexOf(p.phx_ref) &lt; 0;
+        });
+        onLeave(key, currentPresence, leftPresence);
+        if (currentPresence.metas.length === 0) {
+          delete state[key];
+        }
+      });
+      return state;
+    }
+    static list(presences, chooser) {
+      if (!chooser) {
+        chooser = function(key, pres) {
+          return pres;
+        };
+      }
+      return this.map(presences, (key, presence) =&gt; {
+        return chooser(key, presence);
+      });
+    }
+    static map(obj, func) {
+      return Object.getOwnPropertyNames(obj).map((key) =&gt; func(key, obj[key]));
+    }
+    static clone(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+  };
+
+  // js/phoenix/serializer.js
+  var serializer_default = {
+    HEADER_LENGTH: 1,
+    META_LENGTH: 4,
+    KINDS: { push: 0, reply: 1, broadcast: 2 },
+    encode(msg, callback) {
+      if (msg.payload.constructor === ArrayBuffer) {
+        return callback(this.binaryEncode(msg));
+      } else {
+        let payload = [msg.join_ref, msg.ref, msg.topic, msg.event, msg.payload];
+        return callback(JSON.stringify(payload));
+      }
+    },
+    decode(rawPayload, callback) {
+      if (rawPayload.constructor === ArrayBuffer) {
+        return callback(this.binaryDecode(rawPayload));
+      } else {
+        let [join_ref, ref, topic, event, payload] = JSON.parse(rawPayload);
+        return callback({ join_ref, ref, topic, event, payload });
+      }
+    },
+    binaryEncode(message) {
+      let { join_ref, ref, event, topic, payload } = message;
+      let metaLength = this.META_LENGTH + join_ref.length + ref.length + topic.length + event.length;
+      let header = new ArrayBuffer(this.HEADER_LENGTH + metaLength);
+      let view = new DataView(header);
+      let offset = 0;
+      view.setUint8(offset++, this.KINDS.push);
+      view.setUint8(offset++, join_ref.length);
+      view.setUint8(offset++, ref.length);
+      view.setUint8(offset++, topic.length);
+      view.setUint8(offset++, event.length);
+      Array.from(join_ref, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(ref, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(topic, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      Array.from(event, (char) =&gt; view.setUint8(offset++, char.charCodeAt(0)));
+      var combined = new Uint8Array(header.byteLength + payload.byteLength);
+      combined.set(new Uint8Array(header), 0);
+      combined.set(new Uint8Array(payload), header.byteLength);
+      return combined.buffer;
+    },
+    binaryDecode(buffer) {
+      let view = new DataView(buffer);
+      let kind = view.getUint8(0);
+      let decoder = new TextDecoder();
+      switch (kind) {
+        case this.KINDS.push:
+          return this.decodePush(buffer, view, decoder);
+        case this.KINDS.reply:
+          return this.decodeReply(buffer, view, decoder);
+        case this.KINDS.broadcast:
+          return this.decodeBroadcast(buffer, view, decoder);
+      }
+    },
+    decodePush(buffer, view, decoder) {
+      let joinRefSize = view.getUint8(1);
+      let topicSize = view.getUint8(2);
+      let eventSize = view.getUint8(3);
+      let offset = this.HEADER_LENGTH + this.META_LENGTH - 1;
+      let joinRef = decoder.decode(buffer.slice(offset, offset + joinRefSize));
+      offset = offset + joinRefSize;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      return { join_ref: joinRef, ref: null, topic, event, payload: data };
+    },
+    decodeReply(buffer, view, decoder) {
+      let joinRefSize = view.getUint8(1);
+      let refSize = view.getUint8(2);
+      let topicSize = view.getUint8(3);
+      let eventSize = view.getUint8(4);
+      let offset = this.HEADER_LENGTH + this.META_LENGTH;
+      let joinRef = decoder.decode(buffer.slice(offset, offset + joinRefSize));
+      offset = offset + joinRefSize;
+      let ref = decoder.decode(buffer.slice(offset, offset + refSize));
+      offset = offset + refSize;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      let payload = { status: event, response: data };
+      return { join_ref: joinRef, ref, topic, event: CHANNEL_EVENTS.reply, payload };
+    },
+    decodeBroadcast(buffer, view, decoder) {
+      let topicSize = view.getUint8(1);
+      let eventSize = view.getUint8(2);
+      let offset = this.HEADER_LENGTH + 2;
+      let topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+      offset = offset + topicSize;
+      let event = decoder.decode(buffer.slice(offset, offset + eventSize));
+      offset = offset + eventSize;
+      let data = buffer.slice(offset, buffer.byteLength);
+      return { join_ref: null, ref: null, topic, event, payload: data };
+    }
+  };
+
+  // js/phoenix/socket.js
+  var Socket = class {
+    constructor(endPoint, opts = {}) {
+      this.stateChangeCallbacks = { open: [], close: [], error: [], message: [] };
+      this.channels = [];
+      this.sendBuffer = [];
+      this.ref = 0;
+      this.timeout = opts.timeout || DEFAULT_TIMEOUT;
+      this.transport = opts.transport || global.WebSocket || LongPoll;
+      this.establishedConnections = 0;
+      this.defaultEncoder = serializer_default.encode.bind(serializer_default);
+      this.defaultDecoder = serializer_default.decode.bind(serializer_default);
+      this.closeWasClean = false;
+      this.binaryType = opts.binaryType || &quot;arraybuffer&quot;;
+      this.connectClock = 1;
+      if (this.transport !== LongPoll) {
+        this.encode = opts.encode || this.defaultEncoder;
+        this.decode = opts.decode || this.defaultDecoder;
+      } else {
+        this.encode = this.defaultEncoder;
+        this.decode = this.defaultDecoder;
+      }
+      let awaitingConnectionOnPageShow = null;
+      if (phxWindow &amp;&amp; phxWindow.addEventListener) {
+        phxWindow.addEventListener(&quot;pagehide&quot;, (_e) =&gt; {
+          if (this.conn) {
+            this.disconnect();
+            awaitingConnectionOnPageShow = this.connectClock;
+          }
+        });
+        phxWindow.addEventListener(&quot;pageshow&quot;, (_e) =&gt; {
+          if (awaitingConnectionOnPageShow === this.connectClock) {
+            awaitingConnectionOnPageShow = null;
+            this.connect();
+          }
+        });
+      }
+      this.heartbeatIntervalMs = opts.heartbeatIntervalMs || 3e4;
+      this.rejoinAfterMs = (tries) =&gt; {
+        if (opts.rejoinAfterMs) {
+          return opts.rejoinAfterMs(tries);
+        } else {
+          return [1e3, 2e3, 5e3][tries - 1] || 1e4;
+        }
+      };
+      this.reconnectAfterMs = (tries) =&gt; {
+        if (opts.reconnectAfterMs) {
+          return opts.reconnectAfterMs(tries);
+        } else {
+          return [10, 50, 100, 150, 200, 250, 500, 1e3, 2e3][tries - 1] || 5e3;
+        }
+      };
+      this.logger = opts.logger || null;
+      this.longpollerTimeout = opts.longpollerTimeout || 2e4;
+      this.params = closure(opts.params || {});
+      this.endPoint = `${endPoint}/${TRANSPORTS.websocket}`;
+      this.vsn = opts.vsn || DEFAULT_VSN;
+      this.heartbeatTimer = null;
+      this.pendingHeartbeatRef = null;
+      this.reconnectTimer = new Timer(() =&gt; {
+        this.teardown(() =&gt; this.connect());
+      }, this.reconnectAfterMs);
+    }
+    replaceTransport(newTransport) {
+      this.disconnect();
+      this.transport = newTransport;
+    }
+    protocol() {
+      return location.protocol.match(/^https/) ? &quot;wss&quot; : &quot;ws&quot;;
+    }
+    endPointURL() {
+      let uri = Ajax.appendParams(Ajax.appendParams(this.endPoint, this.params()), { vsn: this.vsn });
+      if (uri.charAt(0) !== &quot;/&quot;) {
+        return uri;
+      }
+      if (uri.charAt(1) === &quot;/&quot;) {
+        return `${this.protocol()}:${uri}`;
+      }
+      return `${this.protocol()}://${location.host}${uri}`;
+    }
+    disconnect(callback, code, reason) {
+      this.connectClock++;
+      this.closeWasClean = true;
+      this.reconnectTimer.reset();
+      this.teardown(callback, code, reason);
+    }
+    connect(params) {
+      this.connectClock++;
+      if (params) {
+        console &amp;&amp; console.log(&quot;passing params to connect is deprecated. Instead pass :params to the Socket constructor&quot;);
+        this.params = closure(params);
+      }
+      if (this.conn) {
+        return;
+      }
+      this.closeWasClean = false;
+      this.conn = new this.transport(this.endPointURL());
+      this.conn.binaryType = this.binaryType;
+      this.conn.timeout = this.longpollerTimeout;
+      this.conn.onopen = () =&gt; this.onConnOpen();
+      this.conn.onerror = (error) =&gt; this.onConnError(error);
+      this.conn.onmessage = (event) =&gt; this.onConnMessage(event);
+      this.conn.onclose = (event) =&gt; this.onConnClose(event);
+    }
+    log(kind, msg, data) {
+      this.logger(kind, msg, data);
+    }
+    hasLogger() {
+      return this.logger !== null;
+    }
+    onOpen(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.open.push([ref, callback]);
+      return ref;
+    }
+    onClose(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.close.push([ref, callback]);
+      return ref;
+    }
+    onError(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.error.push([ref, callback]);
+      return ref;
+    }
+    onMessage(callback) {
+      let ref = this.makeRef();
+      this.stateChangeCallbacks.message.push([ref, callback]);
+      return ref;
+    }
+    onConnOpen() {
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, `connected to ${this.endPointURL()}`);
+      this.closeWasClean = false;
+      this.establishedConnections++;
+      this.flushSendBuffer();
+      this.reconnectTimer.reset();
+      this.resetHeartbeat();
+      this.stateChangeCallbacks.open.forEach(([, callback]) =&gt; callback());
+    }
+    heartbeatTimeout() {
+      if (this.pendingHeartbeatRef) {
+        this.pendingHeartbeatRef = null;
+        if (this.hasLogger()) {
+          this.log(&quot;transport&quot;, &quot;heartbeat timeout. Attempting to re-establish connection&quot;);
+        }
+        this.abnormalClose(&quot;heartbeat timeout&quot;);
+      }
+    }
+    resetHeartbeat() {
+      if (this.conn &amp;&amp; this.conn.skipHeartbeat) {
+        return;
+      }
+      this.pendingHeartbeatRef = null;
+      clearTimeout(this.heartbeatTimer);
+      setTimeout(() =&gt; this.sendHeartbeat(), this.heartbeatIntervalMs);
+    }
+    teardown(callback, code, reason) {
+      if (!this.conn) {
+        return callback &amp;&amp; callback();
+      }
+      this.waitForBufferDone(() =&gt; {
+        if (this.conn) {
+          if (code) {
+            this.conn.close(code, reason || &quot;&quot;);
+          } else {
+            this.conn.close();
+          }
+        }
+        this.waitForSocketClosed(() =&gt; {
+          if (this.conn) {
+            this.conn.onclose = function() {
+            };
+            this.conn = null;
+          }
+          callback &amp;&amp; callback();
+        });
+      });
+    }
+    waitForBufferDone(callback, tries = 1) {
+      if (tries === 5 || !this.conn || !this.conn.bufferedAmount) {
+        callback();
+        return;
+      }
+      setTimeout(() =&gt; {
+        this.waitForBufferDone(callback, tries + 1);
+      }, 150 * tries);
+    }
+    waitForSocketClosed(callback, tries = 1) {
+      if (tries === 5 || !this.conn || this.conn.readyState === SOCKET_STATES.closed) {
+        callback();
+        return;
+      }
+      setTimeout(() =&gt; {
+        this.waitForSocketClosed(callback, tries + 1);
+      }, 150 * tries);
+    }
+    onConnClose(event) {
+      let closeCode = event &amp;&amp; event.code;
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, &quot;close&quot;, event);
+      this.triggerChanError();
+      clearTimeout(this.heartbeatTimer);
+      if (!this.closeWasClean &amp;&amp; closeCode !== 1e3) {
+        this.reconnectTimer.scheduleTimeout();
+      }
+      this.stateChangeCallbacks.close.forEach(([, callback]) =&gt; callback(event));
+    }
+    onConnError(error) {
+      if (this.hasLogger())
+        this.log(&quot;transport&quot;, error);
+      let transportBefore = this.transport;
+      let establishedBefore = this.establishedConnections;
+      this.stateChangeCallbacks.error.forEach(([, callback]) =&gt; {
+        callback(error, transportBefore, establishedBefore);
+      });
+      if (transportBefore === this.transport || establishedBefore &gt; 0) {
+        this.triggerChanError();
+      }
+    }
+    triggerChanError() {
+      this.channels.forEach((channel) =&gt; {
+        if (!(channel.isErrored() || channel.isLeaving() || channel.isClosed())) {
+          channel.trigger(CHANNEL_EVENTS.error);
+        }
+      });
+    }
+    connectionState() {
+      switch (this.conn &amp;&amp; this.conn.readyState) {
+        case SOCKET_STATES.connecting:
+          return &quot;connecting&quot;;
+        case SOCKET_STATES.open:
+          return &quot;open&quot;;
+        case SOCKET_STATES.closing:
+          return &quot;closing&quot;;
+        default:
+          return &quot;closed&quot;;
+      }
+    }
+    isConnected() {
+      return this.connectionState() === &quot;open&quot;;
+    }
+    remove(channel) {
+      this.off(channel.stateChangeRefs);
+      this.channels = this.channels.filter((c) =&gt; c.joinRef() !== channel.joinRef());
+    }
+    off(refs) {
+      for (let key in this.stateChangeCallbacks) {
+        this.stateChangeCallbacks[key] = this.stateChangeCallbacks[key].filter(([ref]) =&gt; {
+          return refs.indexOf(ref) === -1;
+        });
+      }
+    }
+    channel(topic, chanParams = {}) {
+      let chan = new Channel(topic, chanParams, this);
+      this.channels.push(chan);
+      return chan;
+    }
+    push(data) {
+      if (this.hasLogger()) {
+        let { topic, event, payload, ref, join_ref } = data;
+        this.log(&quot;push&quot;, `${topic} ${event} (${join_ref}, ${ref})`, payload);
+      }
+      if (this.isConnected()) {
+        this.encode(data, (result) =&gt; this.conn.send(result));
+      } else {
+        this.sendBuffer.push(() =&gt; this.encode(data, (result) =&gt; this.conn.send(result)));
+      }
+    }
+    makeRef() {
+      let newRef = this.ref + 1;
+      if (newRef === this.ref) {
+        this.ref = 0;
+      } else {
+        this.ref = newRef;
+      }
+      return this.ref.toString();
+    }
+    sendHeartbeat() {
+      if (this.pendingHeartbeatRef &amp;&amp; !this.isConnected()) {
+        return;
+      }
+      this.pendingHeartbeatRef = this.makeRef();
+      this.push({ topic: &quot;phoenix&quot;, event: &quot;heartbeat&quot;, payload: {}, ref: this.pendingHeartbeatRef });
+      this.heartbeatTimer = setTimeout(() =&gt; this.heartbeatTimeout(), this.heartbeatIntervalMs);
+    }
+    abnormalClose(reason) {
+      this.closeWasClean = false;
+      if (this.isConnected()) {
+        this.conn.close(WS_CLOSE_NORMAL, reason);
+      }
+    }
+    flushSendBuffer() {
+      if (this.isConnected() &amp;&amp; this.sendBuffer.length &gt; 0) {
+        this.sendBuffer.forEach((callback) =&gt; callback());
+        this.sendBuffer = [];
+      }
+    }
+    onConnMessage(rawMessage) {
+      this.decode(rawMessage.data, (msg) =&gt; {
+        let { topic, event, payload, ref, join_ref } = msg;
+        if (ref &amp;&amp; ref === this.pendingHeartbeatRef) {
+          clearTimeout(this.heartbeatTimer);
+          this.pendingHeartbeatRef = null;
+          setTimeout(() =&gt; this.sendHeartbeat(), this.heartbeatIntervalMs);
+        }
+        if (this.hasLogger())
+          this.log(&quot;receive&quot;, `${payload.status || &quot;&quot;} ${topic} ${event} ${ref &amp;&amp; &quot;(&quot; + ref + &quot;)&quot; || &quot;&quot;}`, payload);
+        for (let i = 0; i &lt; this.channels.length; i++) {
+          const channel = this.channels[i];
+          if (!channel.isMember(topic, event, payload, join_ref)) {
+            continue;
+          }
+          channel.trigger(event, payload, ref, join_ref);
+        }
+        for (let i = 0; i &lt; this.stateChangeCallbacks.message.length; i++) {
+          let [, callback] = this.stateChangeCallbacks.message[i];
+          callback(msg);
+        }
+      });
+    }
+    leaveOpenTopic(topic) {
+      let dupChannel = this.channels.find((c) =&gt; c.topic === topic &amp;&amp; (c.isJoined() || c.isJoining()));
+      if (dupChannel) {
+        if (this.hasLogger())
+          this.log(&quot;transport&quot;, `leaving duplicate topic &quot;${topic}&quot;`);
+        dupChannel.leave();
+      }
+    }
+  };
+  return phoenix_exports;
+})();
+
+var socket = new Phoenix.Socket(&quot;/phoenix/live_reload/socket&quot;);
+var interval = 100;
+var targetWindow = &quot;top&quot;;
+var buildFreshUrl = function(link){
+  var date = Math.round(Date.now() / 1000).toString();
+  var url = link.href.replace(/(\&amp;|\\?)vsn=\d*/, &#39;&#39;);
+  var newLink = document.createElement(&#39;link&#39;);
+  var onComplete = function() {
+    if (link.parentNode !== null) {
+      link.parentNode.removeChild(link);
+    }
+  };
+
+  newLink.onerror = onComplete;
+  newLink.onload  = onComplete;
+  link.setAttribute(&#39;data-pending-removal&#39;, &#39;&#39;);
+  newLink.setAttribute(&#39;rel&#39;, &#39;stylesheet&#39;);
+  newLink.setAttribute(&#39;type&#39;, &#39;text/css&#39;);
+  newLink.setAttribute(&#39;href&#39;, url + (url.indexOf(&#39;?&#39;) &gt;= 0 ? &#39;&amp;&#39; : &#39;?&#39;) +&#39;vsn=&#39; + date);
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+
+  return newLink;
+};
+
+var repaint = function(){
+  var browser = navigator.userAgent.toLowerCase();
+  if(browser.indexOf(&#39;chrome&#39;) &gt; -1){
+    setTimeout(function(){ document.body.offsetHeight; }, 25);
+  }
+};
+
+var cssStrategy = function(){
+  var reloadableLinkElements = window.parent.document.querySelectorAll(
+    &#39;link[rel=stylesheet]:not([data-no-reload]):not([data-pending-removal])&#39;
+  );
+
+  [].slice
+    .call(reloadableLinkElements)
+    .filter(function(link) { return link.href })
+    .forEach(function(link) { buildFreshUrl(link) });
+
+  repaint();
+};
+
+var pageStrategy = function(chan){
+  chan.off(&#39;assets_change&#39;);
+  window[targetWindow].location.reload();
+};
+
+var reloadStrategies = {
+  css: cssStrategy,
+  page: pageStrategy
+};
+
+socket.connect();
+var chan = socket.channel(&#39;phoenix:live_reload&#39;, {})
+chan.on(&#39;assets_change&#39;, function(msg) {
+  var reloadStrategy = reloadStrategies[msg.asset_type] || reloadStrategies.page;
+  setTimeout(function(){ reloadStrategy(chan); }, interval);
+});
+chan.join();
+
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>from</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				  
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li
+						id="alert-type-0">
+						<h4>SQL Injection</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by an active scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/40018/">SQL Injection</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/89.html">89</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>19</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-1">
+						<h4>Content Security Policy (CSP) Header Not Set</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10038/">Content Security Policy (CSP) Header Not Set</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</a></li>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a
+											href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html">http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</a></li>
+										<li><a
+											href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">http://www.html5rocks.com/en/tutorials/security/content-security-policy/</a></li>
+										<li><a
+											href="http://caniuse.com/#feat=contentsecuritypolicy">http://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a
+											href="http://content-security-policy.com/">http://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-2">
+						<h4>Missing Anti-clickjacking Header</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10020/">Anti-clickjacking Header</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-3">
+						<h4>Cookie without SameSite Attribute</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10054/">Cookie without SameSite Attribute</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site">https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-4">
+						<h4>X-Content-Type-Options Header Missing</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10021/">X-Content-Type-Options Header Missing</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</a></li>
+										<li><a
+											href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-5">
+						<h4>Information Disclosure - Suspicious Comments</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10027/">Information Disclosure - Suspicious Comments</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							
+						</table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+</body>
+</html>
+
+
+
