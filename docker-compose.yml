@@ -19,7 +19,7 @@ services:
       PGDATABASE: minitwit_elixir_dev
       PGPORT: 5432
       # Hostname of our Postgres container.
-      PGHOST: 159.89.9.156
+      PGHOST: 134.209.234.174
       # Use the docker mix env
       MIX_ENV: docker
     deploy:
