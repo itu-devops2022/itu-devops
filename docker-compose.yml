@@ -5,8 +5,6 @@ services:
     image: endritmegusta/minitwit-elixir
     ports:
       - "4000:4000"
-    volumes:
-      - .:/app
     depends_on:
       - prometheus
       - grafana
@@ -21,12 +19,12 @@ services:
       PGDATABASE: minitwit_elixir_dev
       PGPORT: 5432
       # Hostname of our Postgres container.
-      PGHOST: db
+      PGHOST: 134.209.234.174
       # Use the docker mix env
       MIX_ENV: docker
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 5
 
   test:
     container_name: minitwit-elixir-test

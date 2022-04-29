@@ -24,6 +24,6 @@ scrape_configs:
     scrape_interval: 5s
 
     static_configs:
-      - targets: ['itu-devops_web_1:4000']
+      - targets: ['157.245.21.206:4000']
         labels:
           group: 'production'
