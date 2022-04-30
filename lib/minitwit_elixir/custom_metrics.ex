@@ -56,9 +56,9 @@ defmodule MinitwitElixir.PromEx.CustomMetrics do
     :telemetry.execute([:minitwit_elixir, :latest, :count], %{count: mets.minitwit_elixir_latest_count})
     :telemetry.execute([:minitwit_elixir, :api_requests, :count], %{count: mets.minitwit_elixir_api_requests_count})
 
-    :telemetry.execute([:minitwit_elixir, :users], %{count: MinitwitElixir.Schemas.User.get_user_count()})
-    :telemetry.execute([:minitwit_elixir, :messages], %{count: MinitwitElixir.Schemas.Message.get_message_count()})
-    :telemetry.execute([:minitwit_elixir, :flagged_messages], %{count: MinitwitElixir.Schemas.Message.get_flagged_message_count()})
+    :telemetry.execute([:minitwit_elixir, :users, :count], %{count: MinitwitElixir.Schemas.User.get_user_count()})
+    :telemetry.execute([:minitwit_elixir, :messages, :count], %{count: MinitwitElixir.Schemas.Message.get_message_count()})
+    :telemetry.execute([:minitwit_elixir, :flagged_messages, :count], %{count: MinitwitElixir.Schemas.Message.get_flagged_message_count()})
   end
 
   @impl true
