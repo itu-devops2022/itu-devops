@@ -38,3 +38,8 @@ npm-debug.log
 *.iml
 /Unikey.pem
 .vagrant
+
+secrets
+ssh_key/*
+temp/
+.terraform.lock.hcl

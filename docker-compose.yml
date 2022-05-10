@@ -19,7 +19,7 @@ services:
       PGDATABASE: minitwit_elixir_dev
       PGPORT: 5432
       # Hostname of our Postgres container.
-      PGHOST: 134.209.234.174
+      PGHOST: 157.245.21.206
       # Use the docker mix env
       MIX_ENV: docker
     deploy:
@@ -116,6 +116,18 @@ services:
     deploy:
       mode: replicated
       replicas: 1
+      placement:
+        constraints:
+          - "node.role==manager" # This makes sure it is run on the manager
+
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8888:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
       placement:
         constraints:
           - "node.role==manager" # This makes sure it is run on the manager
