@@ -124,6 +124,26 @@ services:
 # Define the volumes.
 volumes:
   pgdata:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/mnt/data-volume/web_pgdata'
   prometheus:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/mnt/data-volume/web_prometheus'
   loki:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/mnt/data-volume/web_loki'
   grafana-storage:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/mnt/data-volume/web_grafana-storage'
