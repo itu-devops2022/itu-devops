@@ -140,22 +140,22 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/mnt/data-volume/web_pgdata'
+      device: '/mnt/data-volume/web_pgdata/_data'
   prometheus:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/mnt/data-volume/web_prometheus'
+      device: '/mnt/data-volume/web_prometheus/_data'
   loki:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/mnt/data-volume/web_loki'
+      device: '/mnt/data-volume/web_loki/_data'
   grafana-storage:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/mnt/data-volume/web_grafana-storage'
+      device: '/mnt/data-volume/web_grafana-storage/_data'

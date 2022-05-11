@@ -38,7 +38,7 @@ ssh \
     -o 'StrictHostKeyChecking no' \
     root@$(terraform output -raw minitwit-swarm-leader-ip-address) \
     -i ../ssh_key/terraform \
-    'cd itu-devops && docker stack deploy --compose-file docker-compose.yml web'
+    'cd itu-devops && git pull && docker stack deploy --compose-file docker-compose.yml web'
 
 echo -e "\n--> Done bootstrapping Minitwit"
 echo -e "--> The dbs and elixir will need a moment to initialize, this can take up to a couple of minutes..."
