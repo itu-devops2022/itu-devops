@@ -14,9 +14,9 @@ RUN mix local.hex --force && \
 WORKDIR /app
 
 RUN mix deps.get
+RUN mix compile
 
 EXPOSE 4000
 
 RUN chmod +x /app/entrypoint.sh
 ENTRYPOINT ["/app/entrypoint.sh"]
-

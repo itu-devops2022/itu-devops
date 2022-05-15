@@ -77,15 +77,3 @@ jobs:
           git status
           docker-compose pull web
           docker stack deploy --compose-file=docker-compose.yml web
-    # name: deploy new version
-    # runs-on: ubuntu-latest
-    # needs: build
-    # steps:
-    # - name: deploy script
-    #   run: |
-    #     ssh -o "StrictHostKeyChecking no" -i ${{ secrets.DO_SSH_KEY }} ${{ secrets.MT_USER }}@${{ secrets.MT_SERVER }}
-    #     cd itu-devops
-    #     git pull
-    #     git status
-    #     docker-compose pull web
-    #     docker-compose up -d web
