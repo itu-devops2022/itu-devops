@@ -1,0 +1,39 @@
+@startuml
+
+rectangle "Digital ocean" as do {
+  rectangle "Leader droplet" as ld {
+    rectangle "Posgres container" as pgc {
+      database "Postgres" as pr
+    }
+    rectangle "Visualizer container" as vc
+    rectangle "Prometheus container" as pc {
+      database "Prometheus" as pr2
+    }
+    rectangle "Grafana container" as gc
+    rectangle "Loki container" as lc
+    rectangle "Minitwit application container 1/5" as ma1
+    rectangle "Minitwit application container 5/5" as ma5
+  }
+  rectangle "Worker droplet" as wo {
+    rectangle "Minitwit application container 2/5" as ma2
+    rectangle "Minitwit application container 3/5" as ma3
+    rectangle "Minitwit application container 4/5" as ma4
+  }
+}
+
+ma1 --> pgc
+ma2 --> pgc
+ma3 --> pgc
+ma4 --> pgc
+ma5 --> pgc
+
+gc --> pc
+gc --> lc
+lc <-- ma1
+lc <-- ma2
+lc <-- ma3
+lc <-- ma4
+lc <-- ma5
+pc --> ld : depends on an endpoint in
+
+@enduml

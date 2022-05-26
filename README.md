@@ -2,6 +2,7 @@
 ![](https://app.travis-ci.com/itu-devops2022/itu-devops.svg?branch=master)
 ![license](https://img.shields.io/crates/l/druid)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/913b64dac5d54da0a65c426cccbd8903)](https://www.codacy.com/gh/itu-devops2022/itu-devops/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=itu-devops2022/itu-devops&amp;utm_campaign=Badge_Grade)
+[![Docs to PDF](https://github.com/itu-devops2022/itu-devops/actions/workflows/report%20generation.yml/badge.svg?branch=master)](https://github.com/itu-devops2022/itu-devops/actions/workflows/report%20generation.yml)
 ## Why Elixir and Phoenix?
 
 "Elixir and Phoenix are fast. For example, [tests of Elixir’s performance](https://mlsdev.com/services/software-testing) show much better results during software testing services than those for Ruby, and Phoenix response times are measured in microseconds. Impressive, isn’t it? Speed matters a lot when we speak about user experience. It is great to see that the app reacts and responds quickly to all actions. Additionally, good performance helps to save energy and money." [source](https://mlsdev.com/blog/elixir-programming-facts-to-know-for-better-app-development)

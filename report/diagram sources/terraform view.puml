@@ -1,0 +1,33 @@
+@startuml
+
+actor "Us"
+
+rectangle "Development machine" as dm {
+  [Terraform definitions]
+  [Terraform]
+  [Bootstrap.sh]
+}
+
+[Github (itu-devops2022/itu-devops)]
+
+rectangle "Digital Ocean" as do {
+  [Spaces]
+}
+
+
+[Us] --> [Bootstrap.sh] : runs
+[Github (itu-devops2022/itu-devops)] <--> [Terraform definitions] : pull from / push to
+[Github (itu-devops2022/itu-devops)] <--> [Bootstrap.sh] : pull from / push to
+
+
+[Bootstrap.sh] --> [Terraform] : executes
+[Terraform] <-- [Terraform definitions] : uses
+
+[Terraform] --> do : 1. creates droplets
+[Terraform] --> do : 2. assigns floating ip and attaches volume
+[Terraform] --> do : 3. sets up docker swarm
+
+[Spaces] --> [Terraform] : retrieves current configuration
+[Spaces] <-- [Terraform] : stores new configuration
+
+@enduml

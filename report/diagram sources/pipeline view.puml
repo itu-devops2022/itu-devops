@@ -1,0 +1,51 @@
+@startuml
+
+actor "Us"
+
+
+
+rectangle "Clone repository" as c {
+}
+
+rectangle "Modify code" as m {
+}
+
+rectangle "Commit code" as co {
+}
+
+
+rectangle "Push code" as p {
+}
+
+rectangle "Github action" as gha {
+  rectangle "Run tests" as rt
+  rectangle "Build and push docker hub" as bpd
+  rectangle "Push to release branch" as prb
+  rectangle "Deploy to Digital ocean" as ddo
+}
+
+rectangle "Digital ocean" as do {
+  rectangle "Leader droplet" as ld {
+    rectangle "Pull repository" as pr
+    rectangle "Fetch latest image from docker hub" as fl
+    rectangle "Update docker swarm" as ups
+  }
+}
+
+Us -r-> c
+c -r-> m
+m -r-> co
+co -r-> p
+
+p -r-> rt
+rt -r-> bpd
+bpd -r-> prb
+prb -r-> ddo
+
+ddo -d-> pr
+pr -l-> fl
+fl -l-> ups
+
+
+
+@enduml
