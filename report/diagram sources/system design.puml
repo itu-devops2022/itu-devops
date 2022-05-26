@@ -1,0 +1,76 @@
+@startuml
+package "Minielixir" {
+  [Repo]
+  [Application]
+  package "scemas (ORM)" {
+    [Message]
+    [User]
+    [Follower]
+  }
+}
+
+package "MinielixirWeb" {
+  package "Controller" {
+    package "API" {
+      [Register API controller]
+      [Timeline API controller]
+    }
+    [Login controller]
+    [Timeline controller]
+    [Register controller]
+  }
+  package "View" {
+    [Register view]
+    [Timeline view]
+    [Login view]
+  }
+  package "Template" {
+    [Register template]
+    [Timeline template]
+    [Login template]
+    [Root template]
+  }
+  [Router]
+  [Endpoint]
+  [Gravatar]
+}
+
+database "Postgres" {
+}
+
+
+[Endpoint] --> [Router]
+[Router] --> [Login controller]
+[Router] --> [Register API controller]
+[Router] --> [Timeline API controller]
+[Router] --> [Timeline controller]
+[Router] --> [Register controller]
+
+[Register controller] --> [Register view]
+[Timeline controller] --> [Timeline view]
+[Login controller] --> [Login view]
+[Timeline template] --> [Gravatar]
+[Message] --> [Repo]
+[User] --> [Repo]
+[Follower] --> [Repo]
+[Register controller] --> [User]
+[Register API controller] --> [User]
+[Timeline controller] --> [Message]
+[Timeline controller] --> [Follower]
+[Login controller] --> [User]
+[Timeline API controller] --> [Message]
+[Timeline API controller] --> [Follower]
+
+[Register view] --> [Register template]
+[Register view] --> [Root template]
+[Login view] --> [Login template]
+[Login view] --> [Root template]
+[Timeline view] --> [Timeline template]
+[Timeline view] --> [Root template]
+
+[Repo] --> Postgres
+[Application] --> [Endpoint]
+[Application] --> [Repo]
+
+
+@enduml
