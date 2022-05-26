@@ -24,7 +24,7 @@ jobs:
           build_html: false
       - run: mkdir -p report/build/
       - run: cp report-gen/Report.pdf report/build/Report.pdf
-      - run: git add report/Report.pdf
+      - run: git add report/build/Report.pdf
       - run: git config user.email "gha@gha.gha"
       - run: git config --global user.name "GHA PDF workflow"
       - run: git commit -m"Update PDF"
