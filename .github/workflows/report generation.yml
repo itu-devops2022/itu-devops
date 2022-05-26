@@ -22,5 +22,9 @@ jobs:
           output_dir: report-gen
           # Default is true, can set to false to only get PDF files
           build_html: false
-      - name: add the new report to the repo
-        run: cp report-gen/Report.pdf report/Report.pdf && git add report/Report.pdf && git commit -m"Update PDF" && git push
+      - run: cp report-gen/Report.pdf report/Report.pdf
+      - run: git add report/Report.pdf
+      - run: git config user.email "gha@gha.gha"
+      - run: git config --global user.name "GHA PDF workflow"
+      - run: git commit -m"Update PDF"
+      - run: git push
