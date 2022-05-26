@@ -1,0 +1,29 @@
+@startuml
+
+actor "Us"
+
+[Development machine]
+
+[Github (itu-devops2022/itu-devops)]
+
+[Docker Hub]
+
+[Digital Ocean]
+
+
+actor "Users (Browser)"
+
+actor "Simulator"
+
+[Us] -d-> [Development machine] : work on
+[Development machine] <-r-> [Github (itu-devops2022/itu-devops)] : pull code from / push code to
+[Github (itu-devops2022/itu-devops)] -d-> [Docker Hub] : build and push image to
+
+[Docker Hub] -l-> [Digital Ocean] : Gets deployed to
+
+
+[Users (Browser)] <-r-> [Digital Ocean] : interacts with
+[Simulator] -u-> [Digital Ocean] : calls apis on
+
+
+@enduml

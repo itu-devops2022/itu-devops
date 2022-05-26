@@ -1,0 +1,48 @@
+@startuml
+
+actor "Us"
+
+rectangle "Development machine" as dm {
+  [Source code]
+}
+
+
+rectangle "Github" as gh {
+  [itu-devops2022/itu-devops]
+  rectangle "Actions" {
+    [Main]
+    [Release]
+    [Weekly cron job]
+  }
+  [Renovate]
+  [Codacy]
+}
+
+
+[Docker Hub]
+
+[Digital Ocean]
+
+
+actor "Users (Browser)"
+
+actor "Simulator"
+
+[Us] --> dm : work on
+[Source code] <--> [itu-devops2022/itu-devops] : pull code from / push code to
+[Main] --> [Docker Hub] : build and push image to
+[itu-devops2022/itu-devops] --> [Main] : on code pushed
+
+[Docker Hub] --> [Digital Ocean] : Gets deployed to
+
+
+[Weekly cron job] --> [Release] : executes
+[Release] --> [itu-devops2022/itu-devops] : creates release for
+[Renovate] --> [itu-devops2022/itu-devops] : analyzes
+[Codacy] --> [itu-devops2022/itu-devops] : analyzes
+
+[Users (Browser)] <--> [Digital Ocean] : interacts with
+[Simulator] --> [Digital Ocean] : calls apis on
+
+
+@enduml
