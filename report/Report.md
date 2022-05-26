@@ -261,4 +261,4 @@ In school projects, we often find reasons for changes in the application by test
 
 #### 3.3.2 Logging
 The integration of logging into our system gave us insight about “the trap of mainstream”. Since the ELK stack was the most popular choice for logging, we blindly tried to integrate this into our system. However, the futile attempts to solve the performance issue of ElasticSearch indicated that another technology would be more appropriate in our case. 
-We learned that instead of comparing logging to debugging, logging complements the use of debugging. 
+We learned that instead of comparing logging to debugging, logging complements the use of debugging.
