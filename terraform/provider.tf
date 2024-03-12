@@ -15,7 +15,7 @@ terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "~> 2.8.0"
+      version = "~> 2.36.0"
     }
     null = {
       source = "hashicorp/null"
